@@ -1,0 +1,4 @@
+
+Checked 626 video tags from 142 files
+Errors: 28
+Warnings: 12
