@@ -16,7 +16,7 @@ DEFAULT_REPO_DIR = "../../edx-platform"
 DEFAULT_FROM_BRANCH = "edx-west/release"
 DEFAULT_TO_BRANCH = "release"
 DEFAULT_DIFF_FILENAME = "diff.png"
-DEFAULT_AGE_FILENAME = "diverge_days.png"
+DEFAULT_AGE_FILENAME = "diverge.png"
 
 def main():
     options = parsecommandline()
