@@ -5,7 +5,7 @@ import boto
 conn = boto.connect_s3()
 bucket = conn.get_bucket('prod-edx')
 
-search = 'MedStats/Video240p/'
+search = 'MathLearning/VideoLarge/'
 
 for k in bucket.list(prefix=search):
     if k.name == search:

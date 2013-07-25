@@ -24,11 +24,11 @@ pipeline_id = "1370295917356-5w004x"
 # your own, get the ID from this command:
 #     aws elastictanscoder list-presets
 # preset_id = "1351620000001-000001"   # Generic 1080p
-preset_id = "1351620000001-000010"   # Generic 720p
+# preset_id = "1351620000001-000010"   # Generic 720p
 # preset_id = "1351620000001-000020"   # Generic 480p 16:9
 # preset_id = "1351620000001-000030"   # Generic 480p 4:3
 # preset_id = "1351620000001-000040"   # Generic 360p 16:9
-# preset_id = "1351620000001-000050"   # Generic 360p 16:9
+preset_id = "1351620000001-000050"   # Generic 360p 16:9
 # preset_id = "1351620000001-000060"   # Generic 320x240
 
 # Region
@@ -40,12 +40,12 @@ reg='us-west-1'
 #      MedStats/VideoLarge/Unit 8 Module 5.mp4
 # command I use to generate the list:
 #      aws s3 list-objects --bucket=prod-edx --output=text --prefix="MedStats/VideoLarge" | cut -f4 | grep -v ^$
-filelist = open("/Users/sef/medstats-videos.txt")
+filelist = open("/Users/sef/Desktop/Learnmath/learnmath-videos-week5-8.txt")
 
 # Path Substitution
 # Folder to rename from to rename to
 from_dir = 'VideoLarge'
-to_dir = 'Video720p'
+to_dir = 'Video360p'
 
 
 #
