@@ -10,7 +10,7 @@ def main():
     try:
         outfile=sys.argv[2]
     except:
-        outfile= "subs/" + id+".srt.sjson"
+        outfile= "subs/" + "subs_" + id + ".srt.sjson"
     
     subs_dict = get_json_subs(id)
     
