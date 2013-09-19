@@ -28,8 +28,8 @@ pipeline_id = "1370295917356-5w004x"
 # preset_id = "1351620000001-000020"   # Generic 480p 16:9
 # preset_id = "1351620000001-000030"   # Generic 480p 4:3
 # preset_id = "1351620000001-000040"   # Generic 360p 16:9
-preset_id = "1351620000001-000050"   # Generic 360p 16:9
-# preset_id = "1351620000001-000060"   # Generic 320x240
+# preset_id = "1351620000001-000050"   # Generic 360p 16:9
+preset_id = "1351620000001-000060"   # Generic 320x240
 
 # Region
 reg='us-west-1'
@@ -38,14 +38,16 @@ reg='us-west-1'
 # can be an explicit list with entries that look like this (case sensitive, 
 # no leading slash):
 #      MedStats/VideoLarge/Unit 8 Module 5.mp4
-# command I use to generate the list:
+# This is the old-style command (older version of the aws tools):
 #      aws s3 list-objects --bucket=prod-edx --output=text --prefix="MedStats/VideoLarge" | cut -f4 | grep -v ^$
-filelist = open("/Users/sef/Desktop/Learnmath/learnmath-videos-week5-8.txt")
+# The new AWS CLI looks like this:
+#      aws s3 ls s3://prod-edx/SciWrite/VideoLarge/ | awk '{print "SciWrite/VideoLarge/"$4}' | grep -i 'mp4$'
+filelist = open("/Users/sef/Desktop/SciWrite/sciwrite-videos-all.txt")
 
 # Path Substitution
 # Folder to rename from to rename to
 from_dir = 'VideoLarge'
-to_dir = 'Video360p'
+to_dir = 'Video240p'
 
 
 #
