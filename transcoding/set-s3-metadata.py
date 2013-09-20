@@ -1,11 +1,18 @@
 #!/usr/bin/env python
 
+import sys
 import boto
 
-conn = boto.connect_s3()
-bucket = conn.get_bucket('prod-edx')
+if len(sys.argv) == 3:
+    bucket_name = sys.argv[1]
+    search = sys.argv[2]
+else:
+    print "usage", sys.argv[0], "bucket path"
+    print "    example:", sys.argv[0], "prod-edx SciWrite/VideoLarge/"
+    sys.exit(1)
 
-search = 'MathLearning/VideoLarge/'
+conn = boto.connect_s3()
+bucket = conn.get_bucket(bucket_name)
 
 for k in bucket.list(prefix=search):
     if k.name == search:
