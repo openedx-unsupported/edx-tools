@@ -20,9 +20,23 @@ def main():
     f.close()
     
 
+
+
 def get_json_subs(video_id, verbose=True):
-    response = urllib2.urlopen('http://video.google.com/timedtext?lang=en&v=' + video_id)
+    url = 'http://video.google.com/timedtext?lang=en&v=' + video_id
+    response = urllib2.urlopen(url)
     xmlString = response.read()
+    
+    if not xmlString:
+        # Try the hack fallback url in a pinch -- solved particular cases in prod:
+        # http://video.google.com/timedtext?hl=en&ts=&type=track&name=Captions&lang=en&v=XXXX
+        # Docs for doing this more properly at: http://nettech.wikia.com/wiki/YouTube
+        url = 'http://video.google.com/timedtext?hl=en&ts=&type=track&name=Captions&lang=en&v=' + video_id
+        print "Trying fallback:", url,
+        response = urllib2.urlopen(url)
+        xmlString = response.read()
+        if xmlString: print "... got data"
+        else: print "... nope"
     
     sub_starts = []
     sub_ends = []
@@ -34,7 +48,11 @@ def get_json_subs(video_id, verbose=True):
         for element in tree.iter():
             if element.tag == "text":
                 start = float(element.get("start"))
-                duration = float(element.get("dur"))
+                # hack: in practice, sometimes "dur" was missing
+                try:
+                    duration = float(element.get("dur"))
+                except:
+                    duration = 0.5
                 text = element.text
                 
                 end = start + duration
