@@ -13,8 +13,8 @@ from matplotlib.dates import DateFormatter, WeekdayLocator, MONDAY
 # All of these can be overriden by command lines
 DEFAULT_START_DATE = "2013-06-05"
 DEFAULT_REPO_DIR = "../../edx-platform"
-DEFAULT_FROM_BRANCH = "edx-west/release"
-DEFAULT_TO_BRANCH = "release"
+DEFAULT_FROM_BRANCH = "origin/edx-west/release"
+DEFAULT_TO_BRANCH = "origin/release"
 DEFAULT_DIFF_FILENAME = "diff.png"
 DEFAULT_AGE_FILENAME = "diverge.png"
 
@@ -23,16 +23,14 @@ def main():
     os.chdir(options.repodir)
 
     from_branch = options.frombranch
-    from_branch_origin = "origin/"+from_branch
     to_branch = options.tobranch
-    to_branch_origin = "origin/"+to_branch
 
-    (start_date, end_date) = calculate_dates(options, from_branch_origin, to_branch_origin)
+    (start_date, end_date) = calculate_dates(options, from_branch, to_branch)
     print "scanning from %s to %s" % (start_date.strftime("%Y-%m-%d"), \
                 end_date.strftime("%Y-%m-%d"))
 
     # Diffs between branches -- gather and plot
-    (difflines, diffblocks) = branch_diffs(from_branch_origin, to_branch_origin, 
+    (difflines, diffblocks) = branch_diffs(from_branch, to_branch, 
             start_date, end_date)
     fig = plt.figure(1, figsize=(8,6))
     ax = fig.add_subplot(211)
@@ -52,7 +50,7 @@ def main():
     print "diff: write to file", os.getcwd() + "/" + options.diff_filename
 
     # Age since merge -- gather and plot
-    ages = branch_diverge_days(from_branch_origin, to_branch_origin, 
+    ages = branch_diverge_days(from_branch, to_branch, 
             start_date, end_date)
     fig = plt.figure(2, figsize=(8,4), dpi=300)
     ax = fig.add_subplot(111)
@@ -77,32 +75,30 @@ Generate graphs comparing branches in an edx repo checked out closeby."""
     parser = OptionParser(usage=usage)
 
     parser.add_option("-d", dest="repodir", default=DEFAULT_REPO_DIR,
-            help="relative path to the edx-platform repo " + \
-                    "(default \"%s\")" % DEFAULT_REPO_DIR)
+        help="relative path to the edx-platform repo (default \"%s\")" \
+                % DEFAULT_REPO_DIR)
 
     parser.add_option("-f", dest="frombranch", default=DEFAULT_FROM_BRANCH,
-            help="branch comparing from, do not include \"origin\" " + \
-                    "(default \"%s\")" % DEFAULT_FROM_BRANCH)
+        help="branch comparing from (default \"%s\")" % DEFAULT_FROM_BRANCH)
     parser.add_option("-t", dest="tobranch", default=DEFAULT_TO_BRANCH,
-            help="branch comparing to, do not include \"origin\" " + \
-                    "(default \"%s\")" % DEFAULT_TO_BRANCH)
+        help="branch comparing to (default \"%s\")" % DEFAULT_TO_BRANCH)
     
     parser.add_option("-s", dest="startdate", default=DEFAULT_START_DATE,
-            help="date to begin with (default \"%s\")" % DEFAULT_START_DATE)
+        help="date to begin with (default \"%s\")" % DEFAULT_START_DATE)
     parser.add_option("-e", dest="enddate", default=None,
-            help="date to end with (default today)")
-    
+        help="date to end with (default today)")
+
     parser.add_option("-g", dest="diff_filename", default=DEFAULT_DIFF_FILENAME,
-            help="file for diff graph relative to repo dir " +\
-                    "(default \"%s\")" % DEFAULT_DIFF_FILENAME)
+        help="file for diff graph relative to repo dir " +\
+                "(default \"%s\")" % DEFAULT_DIFF_FILENAME)
     parser.add_option("-a", dest="age_filename", default=DEFAULT_AGE_FILENAME,
-            help="relative to repo dir (default \"%s\")" % DEFAULT_AGE_FILENAME)
+        help="relative to repo dir (default \"%s\")" % DEFAULT_AGE_FILENAME)
 
     (options, args) = parser.parse_args()
     return options
 
 
-def calculate_dates(options, from_branch_origin, to_branch_origin):
+def calculate_dates(options, from_branch, to_branch):
     """
     Either parse date strings given on the command line, or figure out defaults.
     end is easy (today), start means looking at branches.
@@ -111,8 +107,8 @@ def calculate_dates(options, from_branch_origin, to_branch_origin):
         start_date = parser.parse(options.startdate).date()
     else:
         # this branch is unused, try to get working sometime later
-        fromdate = beginning_of_branch(from_branch_origin)
-        todate = beginning_of_branch(to_branch_origin)
+        fromdate = beginning_of_branch(from_branch)
+        todate = beginning_of_branch(to_branch)
         start_date = max(fromdate,todate).date()
 
     if options.enddate:
