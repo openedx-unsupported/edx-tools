@@ -18,5 +18,5 @@ search = sys.argv[2]
 for k in bucket.list(prefix=search):
     if k.name == search:
         continue
-    print k.name.lstrip(search)
+    print k.name[len(search):]
 
