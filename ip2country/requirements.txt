@@ -1,0 +1,5 @@
+# this version is so specific to match the one used by edX's embargo feature
+# of course you can just get the current egg and it's probably be easier and
+# fine.
+
+-e git+https://github.com/appliedsec/pygeoip.git@95e69341cebf5a6a9fbf7c4f5439d458898bdc3b#egg=pygeoip
