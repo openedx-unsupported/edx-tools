@@ -40,7 +40,12 @@ NOTES
  * Read-only connections for the user downloads are allowed (and advised).
  * The populated sqlite database is named `clean_cs_users.db` and can be queried directly if desired.
  * Step 3 is completely optional, but provides a relatively user-friendly way to review the problematic data before acting.
-
+ * For large data sets, you may want to create the following indices on your sqlite database:
+    * create unique index lms_user_id on lms_user(id);
+    * create unique index lms_user_username on lms_user(username);
+    * create unique index cs_user_username on cs_user(username);
+    * create unique index cs_user_email on cs_user(email);
+    * create unique index cs_user_external_id on cs_user(external_id);
 
 WARNINGS
 
