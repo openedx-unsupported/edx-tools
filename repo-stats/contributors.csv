@@ -1,0 +1,115 @@
+adampalay,,,edx-ora edx-platform,267,0.9
+fephsun,,,edx-platform edxanalytics xqueue insights,76,0.3
+davestgermain,dstgermain@edx.org,,codejail configuration XBlock edx-platform,95,0.3
+stkomarov,,,insights,17,0.1
+bridger,,http://understudyapp.com,edx-platform,554,1.8
+halogenandtoast,halogenandtoast@gmail.com,Thoughtbot,cs_comments_service edx-platform,179,0.6
+rlucioni,renzo@renzolucioni.com,,edx-platform,49,0.2
+brianhw,,,edx-platform codejail XBlock event-tracking xblock-sdk insights datajam,337,1.1
+nparlante,,Stanford,edx-tools edx-platform,18,0.1
+e0d,,,configuration cs_comments_service ease edx.github.io edx-platform edx-tools xqueue notifier discern,411,1.4
+jarv,john@jarv.org,,configuration cs_comments_service xserver edx-ora ease edx-platform read-only-certificate-code xqueue discern,1168,3.9
+symbolist,,,edx-ora edx-platform,76,0.3
+markchang,,,cs_comments_service edx-platform,49,0.2
+frechg,galen@thoughtbot.com,Thoughtbot,edx-platform,68,0.2
+kern3020,,,edx-platform ease configuration discern,19,0.1
+jorr-at-google,,Google,xblock-sdk XBlock edx-platform,40,0.1
+andy-armstrong,andya@edx.org,edX,edx-ora2 acid-block edx-platform,70,0.2
+singingwolfboy,david@davidbaumgold.com,edX,bok-choy js-test-tool edx-platform XBlock xblock-sdk configuration diff-cover,733,2.4
+mhoeber,hoeber@edx.org,edX,edx-ora2 edx-platform,246,0.8
+johncox-google,,,edx-platform,6,0.0
+waheedahmed,waheed.ahmed@arbisoft.com,Arbisoft,edx-ora edx-platform,56,0.2
+Aviendha,,,xserver,9,0.0
+Shedna,,,configuration edx-platform,6,0.0
+felipemontoya,felipe.montoya@edunext.co,eduNEXT,edx-platform,8,0.0
+natehardison,,,edx-platform,59,0.2
+hkim823,hkim823@gmail.com,,edx-platform configuration edx.github.io,78,0.3
+fmyzjs,fmyzjs@gmail.com,BISTU,configuration edx-platform,5,0.0
+ormsbee,,,cs_comments_service xserver edx-platform edx-ora2 XBlock xblock-sdk xqueue,1131,3.7
+abdoosh00,,,edx-platform,5,0.0
+pchiu33,,,configuration,5,0.0
+VikParuchuri,vik.paruchuri@gmail.com,,configuration discern edx-ora ease edx-platform edxanalytics xqueue insights,3348,11.1
+eipark,ernie.park@gmail.com,HubSpot,edx-platform,84,0.3
+polesye,,,edx-platform,256,0.8
+stephensanchez,steve@edx.org,,edx-ora2 edx-ora edx-platform,274,0.9
+wedaly,,,configuration xserver bok-choy edx-ora ease js-test-tool edx-platform edx-ora2 codejail XBlock xblock-sdk xqueue edx-e2e-tests diff-cover,1529,5.1
+mikigoyal,,,edx-ora edx-platform,7,0.0
+dementrock,,,cs_comments_service edx-platform,561,1.9
+jimabramson,jsa@edx.org,,dyno-slayer edx-platform edx-tools cs_comments_service configuration notifier,153,0.5
+frrrances,,,edx-platform,175,0.6
+ccp0101,ccp0101@gmail.com,,cs_comments_service edx-platform,34,0.1
+sarina,,,cs_comments_service xserver edx-platform XBlock xblock-sdk notifier diff-cover,404,1.3
+mihaibivol,mm.bivol@gmail.com,,diff-cover,17,0.1
+kevinchugh,kevinchugh@gmail.com,,cs_comments_service edx-platform,309,1.0
+ammubhave,ammubhave@gmail.com,,loghandlersplus edxanalytics insights,11,0.0
+carsongee,x@carsongee.com,,xqueue cs_comments_service configuration edx-platform,142,0.5
+olmar,,,configuration edx-platform,25,0.1
+ihoover,,,diff-cover edx-platform,22,0.1
+marcotuts,marco@edx.org,,edx-platform,226,0.7
+srpearce,,,edx-ora2 edx-platform,153,0.5
+stroilova,,,edx-tools edx-platform,5,0.0
+pdehaye,,,xblock-sdk XBlock edx-platform,10,0.0
+feanil,,,configuration xserver edx-ora edx-platform edx-ora2 xqueue discern,701,2.3
+Julian,Julian@GrayVines.com,,diff-cover,6,0.0
+nasthagiri,nasthagiri@edx.org,edX,edx-platform,10,0.0
+jkarni,,,xblock-sdk edx-platform XBlock diff-cover,189,0.6
+talbs,hi.talbs@gmail.com,MIT/edX,edx-ora2 xblock-sdk edx-platform XBlock edx.github.io,1142,3.8
+Lyla-Fischer,,,edx-tools edx-platform,71,0.2
+cpennington,calen.pennington@gmail.com,edX,acid-block configuration cs_comments_service xserver bok-choy edx-platform XBlock patch-juggler xqueue xblock-sdk diff-cover,2342,7.8
+straz,,,xblock-sdk XBlock edx-platform,29,0.1
+johnhess,mgojohn@gmail.com,,edx-platform edxanalytics insights,38,0.1
+louyihua,supermouselyh@hotmail.com,Beihang University,edx-platform,11,0.0
+mulby,gabe@edx.org,edX,event-tracking datajam configuration edx-platform,92,0.3
+muhammad-ammar,,,edx-platform,5,0.0
+gwprice,,edX,edx-platform configuration cs_comments_service notifier edx.github.io,304,1.0
+chrisrossi,,Archimedean Company,edx-platform,40,0.1
+jmvt,,,edx-platform,6,0.0
+rocha,carlos.rocha@gmail.com,,xserver edx-platform XBlock event-tracking xblock-sdk xqueue datajam-analytics datajam,334,1.1
+fredsmith,fred.smith@fredsmith.org,edX,configuration,29,0.1
+valera-rozuvan,valera.rozuvan@gmail.com,Innovecs,configuration edx-platform,480,1.6
+natea,,Appsembler,edx-ora ease discern,36,0.1
+kimth,,,xqueue xserver edx-platform,79,0.3
+arjun810,,,xqueue cs_comments_service edx-platform,252,0.8
+peter-fogg,,,xblock-sdk edx-platform XBlock diff-cover,188,0.6
+Bachmann1234,bachmann.matt@gmail.com,Cloudlock,diff-cover edx-platform,5,0.0
+pbaratta,,,edx-platform,54,0.2
+jnater,,,xblock-sdk XBlock edx-platform,23,0.1
+dmitchell,dhmitchell23@gmail.com,edX,xblock-sdk XBlock edx-platform,653,2.2
+yarko,yarkot1@gmail.com,,edx-platform,6,0.0
+auraz,kryklia@gmail.com,,edx-platform,378,1.3
+jbau,,,edx-ora xqueue notifier configuration edx-platform,344,1.1
+caesar2164,,,edx-platform,39,0.1
+zubair-arbi,,,edx-platform,59,0.2
+kimtonyhyun,kimth@stanford.edu,,xserver,57,0.2
+cahrens,christina@edx.org,edX,xblock-sdk XBlock edx-platform,889,2.9
+mcpanic,,MIT CSAIL,edx-platform edxanalytics insights,55,0.2
+nedbat,ned@nedbatchelder.com,,acid-block configuration xserver read-only-certificate-code edx-platform edx-ora2 codejail XBlock edx-tools patch-juggler xqueue edx.github.io xblock-sdk,1250,4.1
+ibrahima,,,cs_comments_service edx-platform,134,0.4
+chrisndodge,cdodge@edx.org,edX,edx-platform,1066,3.5
+lapentab,,,edx-platform xblock-sdk configuration XBlock diff-cover,41,0.1
+jtauber,jtauber@jtauber.com,Eldarion,edx-platform edxanalytics configuration cs_comments_service xserver edx-ora ease edx.github.io skel insights codejail arch-prototype XBlock edx-tools djeventstream event-tracking xblock-sdk xqueue diff-cover loghandlersplus discern,183,0.6
+flowerhack,missflowerhack@gmail.com,edX,xblock-sdk codejail XBlock edx-platform,176,0.6
+pmitros,,edX,pres2edxml loghandlersplus edx-platform djeventstream edxanalytics insights,1016,3.4
+JonahStanley,Jonah_Stanley@brown.edu,,edx-platform,229,0.8
+mattdrayer,,,edx-platform,5,0.0
+bcheng42,,,edx-platform,124,0.4
+jinpa,,,edx-tools edx-platform,7,0.0
+Slater-Victoroff,,,edx-platform,41,0.1
+Earthstar,,,edx-platform,25,0.1
+thomasxiii,,Macaw,edx-platform,18,0.1
+tusbar,b@pk.am,IONIS Education Group,configuration edx-platform,25,0.1
+jzoldak,jzoldak+git@edx.org,,configuration cs_comments_service bok-choy js-test-tool edx-platform XBlock xblock-sdk xqueue edx-e2e-tests datajam,326,1.1
+tnorum,toddi@edx.org,,edx-platform,7,0.0
+antoviaque,xavier@antoviaque.org,,edx-ora xqueue configuration edx-platform,101,0.3
+jmclaus,,,edx-platform,91,0.3
+sikachu,s@sikac.hu,"thoughtbot, inc  (I love to work here)",edx-platform,124,0.4
+lamagnifica,,,edx-platform,67,0.2
+jrbl,jrbl@jrbl.org,Stanford University,edx-ora2 configuration edx-tools edx-platform,118,0.4
+dcadams,dcadams@stanford.edu,,notifier edx-platform,45,0.1
+sefk,sefklon@gmail.com,,xblock-sdk configuration notifier edx-tools edx-platform,108,0.4
+kaishin,,,edx-platform,155,0.5
+dianakhuang,,,edx-ora ease xblock-sdk XBlock edx-platform,689,2.3
+vaxXxa,vaxxxa@gmail.com,CloneFish,edx-platform edxanalytics insights,99,0.3
+shnayder,victor edx org,,edx-platform edx-ora xqueue xserver arch-prototype,881,2.9
+ichuang,ichuang@mit.edu,,edx-platform xserver edxanalytics,412,1.4
+mlsteele,miles@milessteele.com,edX,edx-platform,80,0.3
