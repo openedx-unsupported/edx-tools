@@ -3,6 +3,8 @@
 from pymongo import MongoClient
 from xml.etree.cElementTree import fromstring
 from collections import defaultdict
+import csv
+import sys
 
 def is_input(tag):
     return tag.endswith(('input', 'group')) or tag in ('textline', 'textbox', 'filesubmission', 'schematic', 'crystallography')
@@ -11,7 +13,6 @@ def find_problems(db):
     problems = db.modulestore.find()
     problem_types = {}
     courses = defaultdict(lambda: defaultdict(int))
-
 
     for p in problems:
         if not isinstance(p['_id'], dict):
@@ -36,23 +37,30 @@ def find_problems(db):
             courses[course_id][category] += 1
 
     totals = defaultdict(int)
+    rows = []
     for coursename in sorted(courses):
-        print
-        print coursename
+        row = defaultdict(int)
+        row['course_id'] = coursename
         problems = courses[coursename].items()
-        problems.sort(key=lambda x: x[1], reverse=True)
+        # problems.sort(key=lambda x: x[1], reverse=True)
         for problem_type, count in problems:
-            print '\t{}\t{}'.format(problem_type, count)
+            row[problem_type] = count
             totals[problem_type] += count
+        rows.append(row)
 
-    print '\n\n\nTOTALS:'
+    writer = csv.DictWriter(sys.stdout, ['course_id'] + list(sorted(totals.keys())))
+    writer.writeheader()
+    writer.writerows(rows)
+
+    row = defaultdict(int)
+    row['course_id'] = 'TOTAL'
     for problem_type, count in sorted(totals.items(), key=lambda x: x[1], reverse=True):
-        print '\t{}\t{}'.format(problem_type, count)
+        row[problem_type] = count
+    writer.writerow(row)
 
 
 if __name__ == '__main__':
     import argparse
-    import sys
     import getpass
     parser = argparse.ArgumentParser()
     parser.usage = '''\n\t%s -H [mongo hostname] -u [mongo username] -p [mongo port] -d [db name]''' % sys.argv[0]
