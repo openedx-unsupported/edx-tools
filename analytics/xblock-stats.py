@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from pymongo import MongoClient
-from xml.etree.cElementTree import fromstring
+from xml.etree.cElementTree import fromstring, ParseError
 from collections import defaultdict
 import csv
 import sys
@@ -29,7 +29,12 @@ def find_problems(db):
                     continue
                 data = data['data']
 
-            tree = fromstring(data.encode('utf8'))
+            try:
+                tree = fromstring(data.encode('utf8'))
+            except ParseError as e:
+                sys.stderr.write('ERROR: cannot parse "{}": {}\n'.format(str(p), str(e)))
+                continue
+
             for elt in tree.getiterator():
                 if is_input(elt.tag):
                     courses[course_id]['capa.' + elt.tag] += 1
