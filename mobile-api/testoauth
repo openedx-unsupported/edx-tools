@@ -1,0 +1,111 @@
+#!/bin/bash
+
+source client-environment
+
+HOST="http://localhost:8000"
+SECRET_PATH=./.client_info
+TOKEN_PATH=./.token
+
+function get_client_info {
+    if [ -f $SECRET_PATH ]
+    then
+        source $SECRET_PATH
+    else
+        echo "Need a client secret? Get one here: $HOST/admin"
+        echo
+        echo -n "Client ID: "
+        read CLIENT_ID
+        echo -n "Client Secret: "
+        read CLIENT_SECRET
+        echo
+
+        echo "CLIENT_SECRET=$CLIENT_SECRET" > $SECRET_PATH
+        echo "CLIENT_ID=$CLIENT_ID" >> $SECRET_PATH
+    fi
+
+    export CLIENT_SECRET
+    export CLIENT_ID
+}
+
+function get_token {
+
+    if [[ -f $TOKEN_PATH ]]
+    then
+        TOKEN=`cat $TOKEN_PATH`
+    else
+
+        echo -n "Username: "
+        read username
+
+        echo -n "Password: "
+        read -s password
+
+        echo
+
+        args="client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET&grant_type=password&username=$username&password=$password"
+
+        echo "curl -s -d \"$args\" $HOST/oauth2/access_token"
+        result=`curl -s -d "$args" $HOST/oauth2/access_token`
+
+        TOKEN=`echo $result | sed -e 's/.*access_token": "\([a-zA-Z0-9]*\)".*/\1/'`
+        if [ -n "$TOKEN" ]
+        then
+            echo "Success"
+            echo $TOKEN > $TOKEN_PATH
+        else
+            echo Failed
+            echo $result
+            exit 1
+        fi
+    fi
+}
+
+
+if [ $# -gt 0 ]
+then
+    if [[ $1 = "-h"  || $1 = "--help" || $1 = "help" ]]
+    then
+        echo "
+testoauth: Simple tool to capture an oauth token and make authenticated requests
+Examples:
+    
+    % testoauth
+    Connects to host to login and generate a token
+
+    % testoauth --help
+    Show this help
+
+    % testoauth $HOST/api/users
+    Use your token to access to the api/users endpoint
+
+    % testoauth reset
+    Clears oauth token
+
+    % testoauth reset-client
+    Clears oauth token and client secrets
+"
+    elif [[ $1 = "reset" ]]
+    then
+        rm -f $TOKEN_PATH
+        echo "Cleared User"
+    elif [[ $1 = "reset-client" ]]
+    then
+        rm -f $TOKEN_PATH
+        rm -f $SECRET_PATH
+        echo "Cleared User and Client"
+    else
+        get_client_info
+        get_token
+        
+        if [[ $? == 0 ]]
+        then
+            path=$HOST/$1
+            shift
+            curl -s -H "Authorization: Bearer $TOKEN" "$path" $@
+        fi
+    fi
+else
+    get_client_info
+    get_token
+fi
+
