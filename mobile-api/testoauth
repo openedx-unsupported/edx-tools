@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source client-environment
-
 HOST="http://localhost:8000"
 SECRET_PATH=./.client_info
 TOKEN_PATH=./.token
