@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
     csb = CourseStructureBrowser()
     csb.login(username, password)
-    courses = csb.grab_all_courses(1)
+    courses = csb.grab_all_courses()
     
     course_trees = {course_id: csb.parse_course_json(course_json) for
             (course_id, course_json) in
