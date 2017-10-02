@@ -7,6 +7,8 @@ $ python htmlwriter.py reports/ > test_summary.html
 
 import collections
 import os
+import re
+import six
 import sys
 import textwrap
 from xml.sax.saxutils import escape
@@ -115,20 +117,23 @@ class Summable(object):
 
     """
     def __init__(self):
-        for name in self.fields:
+        for name in self.fields.values():
             setattr(self, name, 0)
 
     @classmethod
     def from_element(cls, element):
         """Construct a Summable from an xml element with the same attributes."""
         self = cls()
-        for name in self.fields:
-            setattr(self, name, int(element.get(name)))
+        for attr, name in six.iteritems(self.fields):
+            element_val = element.get(attr)
+            if element_val:
+                setattr(self, name, int(element_val))
         return self
 
     def __add__(self, other):
         result = type(self)()
-        for name in self.fields:
+        # De-dup all the attribute names and add them.
+        for name in list(set(self.fields.values())):
             setattr(result, name, getattr(self, name) + getattr(other, name))
         return result
 
@@ -136,10 +141,18 @@ class Summable(object):
 class TestResults(Summable):
     """A test result, makeable from a nosetests.xml <testsuite> element."""
 
-    fields = ["tests", "errors", "failures", "skip"]
+    # fields = ["tests", "errors", "failures", "skip"]
+    # Mapping of XML test result to summable attribute name.
+    fields = {
+        "tests": "tests",
+        "errors": "errors",
+        "failures": "failures",
+        "skip": "skips",
+        "skips": "skips"
+    }
 
     def __str__(self):
-        msg = "{0.tests:4d} tests, {0.errors} errors, {0.failures} failures, {0.skip} skipped"
+        msg = "{0.tests:4d} tests, {0.errors} errors, {0.failures} failures, {0.skips} skipped"
         return msg.format(self)
 
 
@@ -159,6 +172,16 @@ def testcase_name(testcase):
 def error_line_from_error_element(element):
     """Given an <error> element, get the important error line from it."""
     line = element.get("type")
+    if line is None:
+        # In pytest-style errors/failures, the raised error must be extracted from the XML element text
+        # from the line that starts with "E      ".
+        line = ""
+        err_line_regex = re.compile('^E[\s]+(.*)$')
+        for error_line in element.text.splitlines():
+            err_match = err_line_regex.match(error_line)
+            if err_match:
+                line = err_match.groups()[0]
+                break
     message_lines = element.get("message").splitlines()
     if message_lines:
         first_line = message_lines[0].strip()
