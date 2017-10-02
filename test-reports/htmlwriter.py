@@ -3,6 +3,8 @@ htmlwriter.py
 
 $ python htmlwriter.py reports/ > test_summary.html
 
+where the "reports" directory is inside the archive of an edx-platform
+CI test run output by Jenkins.
 """
 
 import collections
@@ -14,6 +16,11 @@ import textwrap
 from xml.sax.saxutils import escape
 
 from lxml import etree
+
+# Currently, both nose test results and pytest test results are saved
+# to the same nose-like filename. The name may change in the future -
+# but, for now, don't let the name confuse you!
+TEST_RESULT_XML_FILENAME = 'nosetests.xml'
 
 
 class HtmlOutlineWriter(object):
@@ -139,7 +146,7 @@ class Summable(object):
 
 
 class TestResults(Summable):
-    """A test result, makeable from a nosetests.xml <testsuite> element."""
+    """A test result, makeable from a XML <testsuite> element."""
 
     # fields = ["tests", "errors", "failures", "skip"]
     # Mapping of XML test result to summable attribute name.
@@ -208,7 +215,7 @@ def clipped(text, maxlength=150):
 
 
 def report_file(path, html_writer):
-    """Report on one nosetests.xml file."""
+    """Report on one test result XML file."""
 
     with open(path) as xml_file:
         tree = etree.parse(xml_file)                # pylint: disable=no-member
@@ -271,8 +278,8 @@ def main(start):
     totals = TestResults()
     html_writer = HtmlOutlineWriter(sys.stdout)
     for dirpath, _, filenames in os.walk(start):
-        if "nosetests.xml" in filenames:
-            results = report_file(os.path.join(dirpath, "nosetests.xml"), html_writer)
+        if TEST_RESULT_XML_FILENAME in filenames:
+            results = report_file(os.path.join(dirpath, TEST_RESULT_XML_FILENAME), html_writer)
             totals += results
     html_writer.write(escape(str(totals)))
 
