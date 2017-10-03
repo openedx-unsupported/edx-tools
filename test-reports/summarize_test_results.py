@@ -1,7 +1,7 @@
 """
-htmlwriter.py
+summarize_test_results.py
 
-$ python htmlwriter.py reports/ > test_summary.html
+$ python summarize_test_results.py reports/ > test_summary.html
 
 where the "reports" directory is inside the archive of an edx-platform
 CI test run output by Jenkins.
