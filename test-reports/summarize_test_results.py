@@ -182,10 +182,23 @@ def error_line_from_error_element(element):
     return line
 
 
-def testcase_name(testcase):
-    """Given a <testcase> element, return the name of the test."""
-    return u"{classname}.{name}".format(
-        classname=testcase.get("classname"),
+def testcase_id(testcase):
+    """
+    Given a <testcase> element, return the a usuful display name
+    for the test.
+    """
+    test_file = testcase.get("file")
+
+    # CMS tests don't seem to have the path starting from the top-level
+    # directory for some reason.  Perhaps because of where the pytest
+    # config is?  We might run into an issue when we collect common tests
+    # which might have the same problem.
+    if test_file.startswith("djangoapps"):
+        test_file = "cms/" + test_file
+
+    return u"{filename}::{classname}::{name}".format(
+        filename=test_file,
+        classname=testcase.get("classname").split('.')[-1],
         name=testcase.get("name"),
     )
 
@@ -232,7 +245,7 @@ def report_file(path, html_writer):
         html = u'<span class="count">{0:d}:</span> {1}'.format(len(testcases), escape(clipped(message)))
         html_writer.start_section(html, klass="error")
         for testcase in testcases:
-            html_writer.start_section(escape(testcase_name(testcase)), klass="test")
+            html_writer.start_section(escape(testcase_id(testcase)), klass="test")
             error_element = testcase.xpath("error|failure")[0]
             html_writer.write("""<pre class="stdout">""")
             html_writer.write(escape(error_element.get("message")))
@@ -256,7 +269,7 @@ def report_file(path, html_writer):
             html = u'<span class="count">{0:d}:</span> {1}'.format(len(testcases), escape(clipped(message)))
             html_writer.start_section(html, klass="error")
             for testcase in testcases:
-                html_writer.write('<div>{}</div>'.format(escape(testcase_name(testcase))))
+                html_writer.write('<div>{}</div>'.format(escape(testcase_id(testcase))))
             html_writer.end_section()
 
         html_writer.end_section()
