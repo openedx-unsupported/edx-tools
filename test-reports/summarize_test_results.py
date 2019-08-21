@@ -204,6 +204,20 @@ def clipped(text, maxlength=150):
         text = text[:maxlength-1] + u"\N{HORIZONTAL ELLIPSIS}"
     return text
 
+def get_errors(xml_tree):
+    """
+    Return a list of errors and their instances sorted by number of times
+    each error happens from most to least.
+    """
+    errors = collections.defaultdict(list)
+    for element in xml_tree.xpath(".//error|.//failure"):
+        error_line = error_line_from_error_element(element)
+        testcases = element.xpath("..")
+        if testcases:
+            errors[error_line].append(testcases[0])
+
+    errors = sorted(errors.items(), key=lambda kv: len(kv[1]), reverse=True)
+    return errors
 
 def report_file(path, html_writer):
     """Report on one test result XML file."""
@@ -211,6 +225,8 @@ def report_file(path, html_writer):
     with open(path) as xml_file:
         tree = etree.parse(xml_file)                # pylint: disable=no-member
     suite = tree.xpath("/testsuite")[0]
+
+    errors = get_errors(tree)
 
     results = TestResults.from_element(suite)
     html = u'<span class="count">{number}:</span> {path}: {results}'.format(
@@ -220,14 +236,6 @@ def report_file(path, html_writer):
     )
     html_writer.start_section(html, klass="file")
 
-    errors = collections.defaultdict(list)
-    for element in tree.xpath(".//error|.//failure"):
-        error_line = error_line_from_error_element(element)
-        testcases = element.xpath("..")
-        if testcases:
-            errors[error_line].append(testcases[0])
-
-    errors = sorted(errors.items(), key=lambda kv: len(kv[1]), reverse=True)
     for message, testcases in errors:
         html = u'<span class="count">{0:d}:</span> {1}'.format(len(testcases), escape(clipped(message)))
         html_writer.start_section(html, klass="error")
