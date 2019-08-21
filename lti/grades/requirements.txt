@@ -1,4 +1,4 @@
-requests==2.3.0
+requests
 oauthlib==0.6.3
 requests-oauthlib==0.4.1
 mock==1.0.1
