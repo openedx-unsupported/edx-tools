@@ -173,9 +173,12 @@ def testcase_name(testcase):
 
 def error_line_from_error_element(element):
     """Given an <error> element, get the important error line from it."""
-    line = element.get("type")
+    message_lines = element.get("message").splitlines()
+    if message_lines:
+        line = message_lines[0].strip()
+
     if line is None:
-        # In pytest-style errors/failures, the raised error must be extracted from the XML element text
+        # The raised error must be extracted from the XML element text
         # from the line that starts with "E      ".
         line = ""
         err_line_regex = re.compile('^E[\s]+(.*)$')
@@ -184,13 +187,6 @@ def error_line_from_error_element(element):
             if err_match:
                 line = err_match.groups()[0]
                 break
-    message_lines = element.get("message").splitlines()
-    if message_lines:
-        first_line = message_lines[0].strip()
-    else:
-        first_line = ""
-    if first_line:
-        line += ": " + first_line
     return line
 
 
