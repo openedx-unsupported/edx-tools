@@ -309,9 +309,7 @@ def csv_file(path, writer):
             testcase=testcase_id(testcases[0]),
         )
 
-        writer.writerow([message, description])
-        break
-
+        writer.writerow([message, description,"placeholder"])
 
 def valid_report_files(start):
     for dirpath, _, filenames in os.walk(start):
@@ -331,7 +329,7 @@ def main_html(start):
 
 def main_csv(start):
     csv_writer = csv.writer(sys.stdout)
-    csv_writer.writerow(["Summary", "Description"])
+    csv_writer.writerow(["Summary", "Description","Label"])
     for report_path in valid_report_files(start):
         results = csv_file(report_path, csv_writer)
 
