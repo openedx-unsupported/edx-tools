@@ -163,11 +163,6 @@ class TestResults(Summable):
         return msg.format(self)
 
 
-def error_line_from_error_element(element):
-    """Given an <error> element, get the important error line from it."""
-    return element.get("message").splitlines()[0]
-
-
 def testcase_name(testcase):
     """Given a <testcase> element, return the name of the test."""
     return "{classname}.{name}".format(
