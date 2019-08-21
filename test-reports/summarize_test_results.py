@@ -8,6 +8,7 @@ CI test run output by Jenkins.
 """
 
 import collections
+import csv
 import os
 import re
 import six
@@ -15,6 +16,7 @@ import sys
 import textwrap
 from xml.sax.saxutils import escape
 
+import click
 from lxml import etree
 
 # Currently, both nose test results and pytest test results are saved
@@ -224,6 +226,7 @@ def get_errors(xml_tree):
     errors = sorted(errors.items(), key=lambda kv: len(kv[1]), reverse=True)
     return errors
 
+
 def report_file(path, html_writer):
     """Report on one test result XML file."""
 
@@ -278,15 +281,69 @@ def report_file(path, html_writer):
     return results
 
 
-def main(start):
-    totals = TestResults()
-    html_writer = HtmlOutlineWriter(sys.stdout)
+DESCRIPTION = textwrap.dedent("""
+    Fix all know instances of this issue.  You should be able to find instances
+    of this error in the test report posted to the edx-platform-py3 slack channel.
+
+    One failing testcase that can be run as you're testing is:
+    {{code}}
+    tox -e py35-django111 -- pytest {testcase}
+    {{code}}
+""")
+
+
+def chunks(l, n):
+    """Yield successive n-sized chunks from l."""
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+
+def csv_file(path, writer):
+    with open(path) as xml_file:
+        tree = etree.parse(xml_file)
+
+    errors = get_errors(tree)
+    for message, testcases in errors:
+        description = DESCRIPTION.format(
+            count=len(testcases),
+            testcase=testcase_id(testcases[0]),
+        )
+
+        writer.writerow([message, description])
+        break
+
+
+def valid_report_files(start):
     for dirpath, _, filenames in os.walk(start):
         for report_filename in TEST_RESULT_XML_FILENAMES:
             if report_filename in filenames:
-                results = report_file(os.path.join(dirpath, report_filename), html_writer)
-                totals += results
+                yield os.path.join(dirpath, report_filename)
+
+
+def main_html(start):
+    totals = TestResults()
+    html_writer = HtmlOutlineWriter(sys.stdout)
+    for report_path in valid_report_files(start):
+        results = report_file(report_path, html_writer)
+        totals += results
     html_writer.write(escape(str(totals)))
 
+
+def main_csv(start):
+    csv_writer = csv.writer(sys.stdout)
+    csv_writer.writerow(["Summary", "Description"])
+    for report_path in valid_report_files(start):
+        results = csv_file(report_path, csv_writer)
+
+
+@click.command()
+@click.argument('path')
+@click.option('-o','--output-type', type=click.Choice(['CSV', 'HTML']), default='HTML')
+def main(path, output_type):
+    if output_type == "CSV":
+        main_csv(path)
+    elif output_type == "HTML":
+        main_html(path)
+
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main()
