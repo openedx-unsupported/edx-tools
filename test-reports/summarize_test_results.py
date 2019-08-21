@@ -20,7 +20,7 @@ from lxml import etree
 # Currently, both nose test results and pytest test results are saved
 # to the same nose-like filename. The name may change in the future -
 # but, for now, don't let the name confuse you!
-TEST_RESULT_XML_FILENAME = 'nosetests.xml'
+TEST_RESULT_XML_FILENAMES = ['lms_test_report.xml', 'cms_test_report.xml']
 
 
 class HtmlOutlineWriter(object):
@@ -201,7 +201,7 @@ def error_line_from_error_element(element):
 
 def testcase_name(testcase):
     """Given a <testcase> element, return the name of the test."""
-    return "{classname}.{name}".format(
+    return u"{classname}.{name}".format(
         classname=testcase.get("classname"),
         name=testcase.get("name"),
     )
@@ -278,22 +278,11 @@ def main(start):
     totals = TestResults()
     html_writer = HtmlOutlineWriter(sys.stdout)
     for dirpath, _, filenames in os.walk(start):
-        if TEST_RESULT_XML_FILENAME in filenames:
-            results = report_file(os.path.join(dirpath, TEST_RESULT_XML_FILENAME), html_writer)
-            totals += results
+        for report_filename in TEST_RESULT_XML_FILENAMES:
+            if report_filename in filenames:
+                results = report_file(os.path.join(dirpath, report_filename), html_writer)
+                totals += results
     html_writer.write(escape(str(totals)))
-
-def tryit():
-    w = HtmlOutlineWriter(sys.stdout)
-    for f in range(3):
-        w.start_section("File foo{}.xml".format(f))
-        w.write("this is about foo")
-        for err in range(5):
-            w.start_section("error {}".format(err))
-            w.write("ugh")
-            w.end_section()
-        w.end_section()
-
 
 if __name__ == "__main__":
     main(sys.argv[1])
