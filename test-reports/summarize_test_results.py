@@ -316,7 +316,7 @@ def csv_file(path, writer):
             testcase=testcase_id(testcases[0]),
         )
 
-        writer.writerow([message, description,"placeholder"])
+        writer.writerow([message[:255], description,"placeholder"])
 
 def valid_report_files(start):
     for dirpath, _, filenames in os.walk(start):
