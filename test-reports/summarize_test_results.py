@@ -109,14 +109,14 @@ class HtmlOutlineWriter(object):
     def start_section(self, html, klass=None):
         self.fout.write(self.SECTION_START.format(
             id=self.section_id, html=html, klass=klass or "",
-        ).encode("utf8"))
+        ))
         self.section_id += 1
 
     def end_section(self):
         self.fout.write(self.SECTION_END)
 
     def write(self, html):
-        self.fout.write(html.encode("utf8"))
+        self.fout.write(html)
 
 
 class Summable(object):
