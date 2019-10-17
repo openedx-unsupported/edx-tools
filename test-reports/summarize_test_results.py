@@ -22,7 +22,7 @@ from lxml import etree
 # Currently, both nose test results and pytest test results are saved
 # to the same nose-like filename. The name may change in the future -
 # but, for now, don't let the name confuse you!
-TEST_RESULT_XML_FILENAMES = ['lms_test_report.xml', 'cms_test_report.xml']
+TEST_RESULT_XML_FILENAMES = ['lms_test_report.xml', 'cms_test_report.xml', 'xunit.xml']
 
 
 class HtmlOutlineWriter(object):
@@ -167,20 +167,27 @@ class TestResults(Summable):
 
 def error_line_from_error_element(element):
     """Given an <error> element, get the important error line from it."""
-    message_lines = element.get("message").splitlines()
-    if message_lines:
-        line = message_lines[0].strip()
+    line = None
+    message = element.get("message")
+    if message is not None:
+        message_lines = message.splitlines()
+        if message_lines:
+            line = message_lines[0].strip()
 
     if line is None:
         # The raised error must be extracted from the XML element text
         # from the line that starts with "E      ".
         line = ""
         err_line_regex = re.compile('^E[\s]+(.*)$')
-        for error_line in element.text.splitlines():
-            err_match = err_line_regex.match(error_line)
-            if err_match:
-                line = err_match.groups()[0]
-                break
+        text = element.text
+        if text is not None:
+            for error_line in text.splitlines():
+                err_match = err_line_regex.match(error_line)
+                if err_match:
+                    line = err_match.groups()[0]
+                    break
+        else:
+            line = element.get("type")
     return line
 
 
