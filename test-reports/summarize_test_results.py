@@ -22,7 +22,7 @@ from lxml import etree
 # Currently, both nose test results and pytest test results are saved
 # to the same nose-like filename. The name may change in the future -
 # but, for now, don't let the name confuse you!
-TEST_RESULT_XML_FILENAMES = ['lms_test_report.xml', 'cms_test_report.xml', 'xunit.xml']
+TEST_RESULT_XML_FILENAMES = ['lms_test_report.xml', 'cms_test_report.xml', 'nosetests.xml', 'xunit.xml']
 
 
 class HtmlOutlineWriter(object):
@@ -175,6 +175,8 @@ def error_line_from_error_element(element):
             line = message_lines[0].strip()
 
     if line is None:
+        if element.text is None:
+            return ""
         # The raised error must be extracted from the XML element text
         # from the line that starts with "E      ".
         line = ""
