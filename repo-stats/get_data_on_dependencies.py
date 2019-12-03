@@ -16,11 +16,21 @@ import argparse
 
 pp = pprint.PrettyPrinter(indent=4)
 
-DJANGO_PATTERN = re.compile(r'Framework :: Django :: ([0-9\.]+)')
-NAME_PATTERN = re.compile(r'Name: (.+)+')
-PYTHON_PATTERN = re.compile(r'Programming Language :: Python :: ([2-9][\.0-9]+)')
-REQUIRES_PATTERN = re.compile(r'Requires: (.+)')
+"""
+Python script to output output state of each dependecy for a repo.
 
+Currently only gets data from pip show for each dependency and outputs it in csv file
+"""
+
+
+"""
+The code below creates a single columns list with names of each of the data point indexes
+
+For each dep, we want to know various info like: name, version, author ....
+the code below makes sure there is single structure for it
+
+It might be a good idea to somehow imbed this info into data later on
+"""
 def createColumnName(name, version):
     return "{name}: {version}".format(name = name, version = version)
 
@@ -35,6 +45,10 @@ for version in relavant_django:
 columns_index_dict = { key: index for index, key in enumerate(columns)}
 
 def create_data(parsed_details):
+    """
+    parsed_details: dict with various nesting that has info 
+    This function converts dict to array
+    """
     output = []
     for key in columns_index_dict:
         output.append(None)
@@ -59,7 +73,7 @@ def create_data(parsed_details):
     return output
 
 def capitalize_key_names(dictionary):
-    "Returns a new dict that has all the key names capitalized"
+    """Returns a new dict that has all the key names capitalized"""
     new_dict = {}
     for key in dictionary:
         new_dict[key.capitalize()] = dictionary[key]
@@ -88,31 +102,38 @@ def get_package_details_str(package_name, try_parsing = True):
 
 
 def parse_details_string(detail_string):
+    """pip show --verbose returns a string with details on package
+    string is formated in a sway readable by BytesHeaderParser
+    this function takes a detail string and tries to parse as much data out of it as is possible
+    """
     final_details = detail_string
-    if True:
-        parsable_details = BytesHeaderParser().parsebytes(final_details.encode())
-        temp_dict = dict(parsable_details.items())
-        if not test_serializability(temp_dict):
-            #something in dict is not serializable, figure it out
-            for key in temp_dict:
-                if not test_serializability({key: temp_dict[key]}):
-                    if isinstance(temp_dict[key], email.header.Header):
-                        temp_dict[key] = str(temp_dict[key])
-                    else:
-                        pdb.set_trace()
-                        None
-        try:
-            temp_classifier = parse_classifier(temp_dict["Classifiers"])
-            temp_dict["Classifiers"] = temp_classifier
-        except:
-            temp_dict["Classifiers"] = {"value": temp_dict["Classifiers"]}
-            None 
-        temp_dict["Requires"] = [require.strip() for require in temp_dict["Requires"].split(",")]
-        final_details = temp_dict
+    parsable_details = BytesHeaderParser().parsebytes(final_details.encode())
+    temp_dict = dict(parsable_details.items())
+    if not test_serializability(temp_dict):
+        #something in dict is not serializable, figure it out
+        for key in temp_dict:
+            if not test_serializability({key: temp_dict[key]}):
+                if isinstance(temp_dict[key], email.header.Header):
+                    temp_dict[key] = str(temp_dict[key])
+                else:
+                    raise ValueError("Value not default serializable, please use pdb.set_trace to investigate")
+    try:
+        temp_classifier = parse_classifier(temp_dict["Classifiers"])
+        temp_dict["Classifiers"] = temp_classifier
+    except:
+        temp_dict["Classifiers"] = {"value": temp_dict["Classifiers"]}
+        None 
+    temp_dict["Requires"] = [require.strip() for require in temp_dict["Requires"].split(",")]
+    final_details = temp_dict
     return final_details
 
 
 def parse_classifier(classifier):
+    """
+    the lines in classifiers in details are structured:
+    value::value::value
+    this function takes classifier straing and tries to read data out of it if possible
+    """
     lines = classifier.splitlines()
     splits = []
     for line in lines:
@@ -122,7 +143,9 @@ def parse_classifier(classifier):
     return convert_to_dict(splits)
 
 def convert_to_dict(lists):
-    "takes list of lists and tries to compress stackable data into a dict(works only with one level nesting"
+    """takes list of lists and tries to compress stackable data 
+    into a dict(works only with one level nesting
+    """
     if max([len(one_list) for one_list in lists]) == 1:
         output = []
         for one_list in lists:
@@ -154,6 +177,7 @@ def convert_to_dict(lists):
     return temp_dict
 
 def test_serializability(dict_input):
+    """tests to see if dict input is serializable into json"""
     with open(os.devnull, 'w') as devnull:
         try:
             json.dump(dict_input, devnull)
@@ -162,13 +186,10 @@ def test_serializability(dict_input):
         return True
 
 
-def convert_to_json(lists):
-    None
-
-
-
 def find_django_info_in_details(package):
-    # check for django info in classifier
+    """ 
+    check for django info in classifier
+    """
     django_versions = []
     classifier = package["Classifiers"]
     if isinstance(classifier, dict) and "Framework" in classifier.keys():
@@ -189,6 +210,9 @@ def find_django_info_in_details(package):
 
 
 def find_python_info_in_details(package):
+        """ 
+    check for python info in classifier
+    """
     python_versions = []
     classifier = package["Classifiers"]
     if isinstance(classifier, dict) and "Programming Language" in classifier.keys():
@@ -200,11 +224,12 @@ def find_python_info_in_details(package):
     return python_versions
 
 
-def convert_json_to_dataframe(json_input):
-    return pandas.read_json(json_input)
-
-
 def get_packages_details():
+    """
+    The function will call pip list to get list of all dependences installed in env.
+    For each dependency, it will call pip show --verbose dependency and save returned string in packages
+    returns packages dict={package name: {name:value, version: value, details: value}}
+    """
     packages = get_list_dependencies()
     for package_name in tqdm(packages):
         details_str = get_package_details_str(package_name)
@@ -213,6 +238,11 @@ def get_packages_details():
 
 
 def parsing_out_info(packages):
+    """
+    packages= ={package name: {name:value, version: value, details: value}}
+    the function parses through details for each package and outputs in data structure created
+    at top of file
+    """
     data = []
     for package_name in tqdm(packages):
         details_str = packages[package_name]["details"]
@@ -222,6 +252,8 @@ def parsing_out_info(packages):
         packages[package_name]["Python"] = find_python_info_in_details(packages[package_name])
         data.append(create_data(packages[package_name]))
     return data
+
+
 
 parser = argparse.ArgumentParser(
     description="Process and categorize pytest warnings and output html report."
@@ -235,18 +267,13 @@ packages = {}
 if args.read_data_from_file==None:
     packages = get_packages_details()
     if args.save_raw_data !=None:
-        get_packages_details()
         with open(os.path.expanduser(args.save_raw_data),"w") as json_file:
             json.dump(packages, json_file)
 else:
-    with open(os.path.expanduser(file_path),"r") as json_file:
+    with open(os.path.expanduser(args.read_data_from_file),"r") as json_file:
         packages = json.load(json_file)
 
-
-# get_packages_details_and_save("simple_data.json")
-file_path = "simple_data.json"
-packages = read_details_from_local_file(file_path)
 data = parsing_out_info(packages)
 info_dataframe = pd.DataFrame(data = data, columns=columns)
-pdb.set_trace()
+info_dataframe.to_csv(os.path.expanduser(args.csv_path))
         
