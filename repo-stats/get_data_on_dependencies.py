@@ -9,18 +9,20 @@ from __future__ import absolute_import, print_function, unicode_literals
 import json
 import os
 import re
-import pdb
+
 from subprocess import check_output
 from email.parser import BytesHeaderParser
-import email
-import pandas as pd
 
-from tqdm import tqdm
+import email
 import pprint
 import argparse
 
-pp = pprint.PrettyPrinter(indent=4)
+import pandas as pd
 
+from tqdm import tqdm
+
+
+pp = pprint.PrettyPrinter(indent=4)
 
 
 """
@@ -31,8 +33,11 @@ the code below makes sure there is single structure for it
 
 It might be a good idea to somehow embed this info into data later on
 """
+
+
 def createColumnName(name, version):
-    return "{name}: {version}".format(name = name, version = version)
+    return "{name}: {version}".format(name=name, version=version)
+
 
 relevant_django = ["1.11", "2.0", "2.1", "2.2"]
 relevant_python = ["2.7", "3.5", "3.6", "3.7", "3.8"]
@@ -42,7 +47,8 @@ for version in relevant_python:
 for version in relevant_django:
     columns.append(createColumnName("Django", version))
 
-columns_index_dict = { key: index for index, key in enumerate(columns)}
+columns_index_dict = {key: index for index, key in enumerate(columns)}
+
 
 def create_data(parsed_details):
     """
@@ -72,6 +78,7 @@ def create_data(parsed_details):
                 output[columns_index_dict[name]] = True
     return output
 
+
 def capitalize_key_names(dictionary):
     """Returns a new dict that has all the key names capitalized"""
     new_dict = {}
@@ -84,24 +91,28 @@ def get_list_dependencies():
     """
     Returns list of dictionaries: [{"version": "", "name": ""}]
     """
-    with open(os.devnull, 'w') as devnull:
-        pip_list = check_output(['pip', 'list', '--format', 'json'],
-                                stderr=devnull, universal_newlines=True)
+    with open(os.devnull, "w") as devnull:
+        pip_list = check_output(
+            ["pip", "list", "--format", "json"], stderr=devnull, universal_newlines=True
+        )
         packages_temp = json.loads(pip_list)
         packages = {}
         for package in packages_temp:
             package = capitalize_key_names(package)
-            packages[package["Name"]]=package
+            packages[package["Name"]] = package
         return packages
 
 
-def get_package_details_str(package_name, try_parsing = True):
+def get_package_details_str(package_name, try_parsing=True):
     """
     runs pip show for given package and returns string with all the output
     """
-    with open(os.devnull, 'w') as devnull:
-        details = check_output(['pip', 'show', '--verbose', package_name],
-                               stderr=devnull, universal_newlines=True)
+    with open(os.devnull, "w") as devnull:
+        details = check_output(
+            ["pip", "show", "--verbose", package_name],
+            stderr=devnull,
+            universal_newlines=True,
+        )
         return details
 
 
@@ -114,21 +125,30 @@ def parse_details_string(detail_string):
     parsable_details = BytesHeaderParser().parsebytes(final_details.encode())
     temp_dict = dict(parsable_details.items())
     if not test_serializability(temp_dict):
-        #something in dict is not serializable, figure it out
+        # something in dict is not serializable, figure it out
         for key in temp_dict:
             if not test_serializability({key: temp_dict[key]}):
                 if isinstance(temp_dict[key], email.header.Header):
                     temp_dict[key] = str(temp_dict[key])
                 else:
-                    raise ValueError("Value not default serializable, please use pdb.set_trace to investigate")
+                    raise ValueError(
+                        "Value not default serializable, please use pdb.set_trace to investigate"
+                    )
 
-    #parse info from classifier
-    temp_dict["Python"] = parse_classifier_for_version(temp_dict["Classifiers"], "Python")
-    temp_dict["Django"] = parse_classifier_for_version(temp_dict["Classifiers"], "Django")
+    # parse info from classifier
+    temp_dict["Python"] = parse_classifier_for_version(
+        temp_dict["Classifiers"], "Python"
+    )
+    temp_dict["Django"] = parse_classifier_for_version(
+        temp_dict["Classifiers"], "Django"
+    )
     # parse info from Requires
-    temp_dict["Requires"] = [require.strip() for require in temp_dict["Requires"].split(",")]
+    temp_dict["Requires"] = [
+        require.strip() for require in temp_dict["Requires"].split(",")
+    ]
     final_details = temp_dict
     return final_details
+
 
 def parse_classifier_for_version(classifier, name):
     """
@@ -147,9 +167,9 @@ def parse_classifier_for_version(classifier, name):
     for line in lines:
         if name in line:
             nums = re.findall("\d+\.\d+", line)
-            if len(nums)==0:
+            if len(nums) == 0:
                 nums = re.findall("\d", line)
-            if len(nums)>0:
+            if len(nums) > 0:
                 versions.append(nums[0])
             else:
                 versions.append("?")
@@ -158,7 +178,7 @@ def parse_classifier_for_version(classifier, name):
 
 def test_serializability(dict_input):
     """tests to see if dict input is serializable into json"""
-    with open(os.devnull, 'w') as devnull:
+    with open(os.devnull, "w") as devnull:
         try:
             json.dump(dict_input, devnull)
         except:
@@ -194,7 +214,6 @@ def parsing_out_info(packages):
     return data
 
 
-
 parser = argparse.ArgumentParser(
     description="Currently designed to output django and python state for dependecies installed in env"
 )
@@ -207,13 +226,12 @@ packages = {}
 if args.read_data_from_file is None:
     packages = get_packages_details()
     if args.save_raw_data is not None:
-        with open(os.path.expanduser(args.save_raw_data),"w") as json_file:
+        with open(os.path.expanduser(args.save_raw_data), "w") as json_file:
             json.dump(packages, json_file)
 else:
-    with open(os.path.expanduser(args.read_data_from_file),"r") as json_file:
+    with open(os.path.expanduser(args.read_data_from_file), "r") as json_file:
         packages = json.load(json_file)
 
 data = parsing_out_info(packages)
-info_dataframe = pd.DataFrame(data = data, columns=columns)
+info_dataframe = pd.DataFrame(data=data, columns=columns)
 info_dataframe.to_csv(os.path.expanduser(args.csv_path))
-        
