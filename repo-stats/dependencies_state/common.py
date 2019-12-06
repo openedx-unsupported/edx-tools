@@ -17,10 +17,6 @@ import argparse
 from tqdm import tqdm
 import pandas as pd
 
-default_latest_json_file = "latest_packages_details.json"
-default_latest_json_file = "latest_packages_data.csv"
-
-
 
 class GetEnvDepData(ABC):
     relevant_django = ["1.11", "2.0", "2.1", "2.2"]
