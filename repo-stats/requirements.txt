@@ -1,0 +1,5 @@
+pip==19.3.0
+requests
+pandas
+tqdm
+
