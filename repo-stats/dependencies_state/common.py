@@ -81,23 +81,28 @@ class GetEnvDepData(ABC):
         output = []
         for key in self.columns_index_dict:
             output.append(None)
-        output[self.columns_index_dict["Name"]] = parsed_details["Name"]
-        output[self.columns_index_dict["Author"]] = parsed_details["Author"]
-        output[self.columns_index_dict["Version"]] = parsed_details["Version"]
-        output[self.columns_index_dict["Requires"]] = ", ".join(parsed_details["Requires"])
-        for version in self.relevant_python:
-            name = self.createColumnName("Python", version)
-            output[self.columns_index_dict[name]] = False
-            if "Python" in parsed_details:
-                if version in parsed_details["Python"]:
-                    output[self.columns_index_dict[name]] = True
-
-        for version in self.relevant_django:
-            name = self.createColumnName("Django", version)
-            output[self.columns_index_dict[name]] = False
-            if "Django" in parsed_details:
-                if version in parsed_details["Django"]:
-                    output[self.columns_index_dict[name]] = True
+        if "Name" in parsed_details.keys():
+            output[self.columns_index_dict["Name"]] = parsed_details["Name"]
+        if "Author" in parsed_details.keys():
+            output[self.columns_index_dict["Author"]] = parsed_details["Author"]
+        if "Version" in parsed_details.keys():
+            output[self.columns_index_dict["Version"]] = parsed_details["Version"]
+        if "Requires" in parsed_details.keys():
+            output[self.columns_index_dict["Requires"]] = ", ".join(parsed_details["Requires"])
+        if "Python" in parsed_details.keys():
+            for version in self.relevant_python:
+                name = self.createColumnName("Python", version)
+                output[self.columns_index_dict[name]] = False
+                if "Python" in parsed_details:
+                    if version in parsed_details["Python"]:
+                        output[self.columns_index_dict[name]] = True
+        if "Django" in parsed_details.keys():
+            for version in self.relevant_django:
+                name = self.createColumnName("Django", version)
+                output[self.columns_index_dict[name]] = False
+                if "Django" in parsed_details:
+                    if version in parsed_details["Django"]:
+                        output[self.columns_index_dict[name]] = True
         return output
 
 

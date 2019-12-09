@@ -32,6 +32,8 @@ class LatestState(GetEnvDepData):
         r = requests.get(url)
         if r.status_code < 400:
             return r.json()
+        else:
+            print("request did not succeed: {name}".format(name=name))
         return {}
 
 
@@ -39,18 +41,19 @@ class LatestState(GetEnvDepData):
         packages = self.packages
         for package_name in tqdm(packages):
             details = self.get(package_name)
-            packages[package_name]["Author"] = details["info"]["author"]
-            packages[package_name]["Classifiers"]=details["info"]["classifiers"]
-            packages[package_name]["Version"]=details["info"]["version"]
-            requires = details["info"]["requires_dist"]
-            if requires is None:
-                requires = []
-            packages[package_name]["Requires"]=requires
-            # parse info from classifier
-            packages[package_name]["Python"] = self.parse_classifier_for_version(
-                packages[package_name]["Classifiers"], "Python"
-            )
-            packages[package_name]["Django"] = self.parse_classifier_for_version(
-                packages[package_name]["Classifiers"], "Django"
-            )
+            if "info" in details.keys():
+                packages[package_name]["Author"] = details["info"]["author"]
+                packages[package_name]["Classifiers"]=details["info"]["classifiers"]
+                packages[package_name]["Version"]=details["info"]["version"]
+                requires = details["info"]["requires_dist"]
+                if requires is None:
+                    requires = []
+                packages[package_name]["Requires"]=requires
+                # parse info from classifier
+                packages[package_name]["Python"] = self.parse_classifier_for_version(
+                    packages[package_name]["Classifiers"], "Python"
+                )
+                packages[package_name]["Django"] = self.parse_classifier_for_version(
+                    packages[package_name]["Classifiers"], "Django"
+                )
         return packages

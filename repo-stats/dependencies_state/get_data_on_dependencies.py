@@ -38,17 +38,21 @@ def get_data_on_packages(arguments):
     packages = {}
     #Either read data from local file or get from sh command
     if arguments.read_json_file:
+        print("reading data from file")
         if arguments.read_json_file == True:
             state_getter.readLocalJsonDate()
         else:
             state_getter.readLocalJsonDate(arguments.read_json_file)
     else:
+        print("Getting new data")
         packages = state_getter.get_list_dependencies()
-        packages = state_getter.get_packages_details(packages)
+        packages = state_getter.get_packages_details()
+    print("Saving data")
     # save all json data, cause our defined array(below) is subjest of stuff
     state_getter.saveRawJsonData(arguments.save_json_file)
-
+    print("Converting data")
     final_data = state_getter.convert_from_dict_to_defined_array()
+    print("Saving CSV")
     state_getter.saveCSVData(arguments.csv_path)
 
 
