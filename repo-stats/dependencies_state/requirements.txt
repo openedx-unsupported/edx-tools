@@ -2,4 +2,4 @@ pip==19.3.0
 requests
 pandas==0.24.2
 tqdm
-
+importlib_metadata

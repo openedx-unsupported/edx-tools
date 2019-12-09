@@ -3,7 +3,6 @@ from __future__ import absolute_import, print_function, unicode_literals
 import json
 import os
 import re
-import pdb
 import requests
 
 from abc import ABC, abstractmethod
@@ -12,7 +11,6 @@ from subprocess import check_output
 from email.parser import BytesHeaderParser
 
 import email
-import pprint
 import argparse
 from tqdm import tqdm
 import pandas as pd
@@ -60,7 +58,7 @@ class GetEnvDepData(ABC):
 
     @property
     def columns(self):
-        columns = ["Name", "Author", "Version", "Requires"]
+        columns = ["Name", "Author", "Version"]
         for version in self.relevant_python:
             columns.append(self.createColumnName("Python", version))
         for version in self.relevant_django:
@@ -87,8 +85,6 @@ class GetEnvDepData(ABC):
             output[self.columns_index_dict["Author"]] = parsed_details["Author"]
         if "Version" in parsed_details.keys():
             output[self.columns_index_dict["Version"]] = parsed_details["Version"]
-        if "Requires" in parsed_details.keys():
-            output[self.columns_index_dict["Requires"]] = ", ".join(parsed_details["Requires"])
         if "Python" in parsed_details.keys():
             for version in self.relevant_python:
                 name = self.createColumnName("Python", version)

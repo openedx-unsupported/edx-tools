@@ -6,7 +6,6 @@ Currently only gets data from pip show for each dependency and outputs it in csv
 """
 
 import argparse
-import pdb
 from latest_state import LatestState
 from current_state import CurrentState
 

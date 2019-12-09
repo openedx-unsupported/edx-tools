@@ -3,7 +3,6 @@ from __future__ import absolute_import, print_function, unicode_literals
 import json
 import os
 import re
-import pdb
 import requests
 
 from subprocess import check_output

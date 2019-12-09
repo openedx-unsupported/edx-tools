@@ -3,14 +3,12 @@ from __future__ import absolute_import, print_function, unicode_literals
 import json
 import os
 import re
-import pdb
 import requests
 
 from subprocess import check_output
 from email.parser import BytesHeaderParser
-
+from importlib_metadata import metadata, requires, PackageNotFoundError
 import email
-import pprint
 import argparse
 from tqdm import tqdm
 
@@ -28,6 +26,14 @@ class CurrentState(GetEnvDepData):
 
     def get(self, name, version=None):
         """return a dictionary with pypi project data"""
+        try:
+            md = metadata(name)
+            return self.parse_metadata(md)
+        except PackageNotFoundError:
+            return self.getPipShow(name)
+
+    def getPipShow(self, name, version=None):
+        """return a dictionary with pypi project data"""
         with open(os.devnull, "w") as devnull:
             details = check_output(
                 ["pip", "show", "--verbose", name],
@@ -36,6 +42,31 @@ class CurrentState(GetEnvDepData):
             )
             return self.parse_details_string(details)
         return {}
+
+    def parse_metadata(self, metadata_input):
+        """pip show --verbose returns a string with details on package
+        string is formated to be readable by BytesHeaderParser
+        this function takes a detail string and tries to parse as much data out of it as is possible
+        """
+        temp_dict = {}
+        for key in set(metadata_input.keys()):
+            temp_dict[key] = metadata_input.get_all(key)
+        if not self.test_serializability(temp_dict):
+            # something in dict is not serializable, figure it out
+            for key in temp_dict:
+                if not self.test_serializability({key: temp_dict[key]}):
+                    if isinstance(temp_dict[key], email.header.Header):
+                        temp_dict[key] = str(temp_dict[key])
+                    else:
+                        raise ValueError(
+                            "Value not default serializable, please use pdb.set_trace to investigate"
+                        )
+        """
+        the name of Classifiers key is diff for pip show and metadata from importlib_metadata
+        This keeps the pip show naming
+        """
+        temp_dict["Classifiers"] = temp_dict["Classifier"]
+        return self.parse_out_more_info(temp_dict)
 
     def parse_details_string(self, detail_string):
         """pip show --verbose returns a string with details on package
@@ -55,22 +86,18 @@ class CurrentState(GetEnvDepData):
                         raise ValueError(
                             "Value not default serializable, please use pdb.set_trace to investigate"
                         )
+        temp_dict["Classifiers"] = temp_dict["Classifiers"].splitlines()
+        return self.parse_out_more_info(temp_dict)
 
+    def parse_out_more_info(self, details_dict):
         # parse info from classifier
-        temp_dict["Python"] = self.parse_classifier_for_version(
-            temp_dict["Classifiers"].splitlines(), "Python"
+        details_dict["Python"] = self.parse_classifier_for_version(
+            details_dict["Classifiers"], "Python"
         )
-        temp_dict["Django"] = self.parse_classifier_for_version(
-            temp_dict["Classifiers"].splitlines(), "Django"
+        details_dict["Django"] = self.parse_classifier_for_version(
+            details_dict["Classifiers"], "Django"
         )
-        # parse info from Requires
-        temp_dict["Requires"] = [
-            require.strip() for require in temp_dict["Requires"].split(",")
-        ]
-        final_details = temp_dict
-        return final_details
-
-
+        return details_dict
 
     def get_packages_details(self):
         packages = self.packages
