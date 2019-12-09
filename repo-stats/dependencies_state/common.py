@@ -122,6 +122,7 @@ class GetEnvDepData(ABC):
             for package in packages_temp:
                 package = self.capitalize_key_names(package)
                 packages[package["Name"]] = package
+            self.packages = packages
             return packages
         return {}
 
