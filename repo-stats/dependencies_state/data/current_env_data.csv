@@ -1,0 +1,363 @@
+,Name,Author,Version,Python: 2.7,Python: 3.5,Python: 3.6,Python: 3.7,Python: 3.8,Django: 1.11,Django: 2.0,Django: 2.1,Django: 2.2
+0,apipkg,holger krekel,1.5,True,True,True,False,False,False,False,False,False
+1,geoip2,Gregory Oschwald,2.9.0,True,True,True,False,False,False,False,False,False
+2,bleach,None,2.1.4,True,True,True,False,False,False,False,False,False
+3,coreapi,Tom Christie,2.3.3,True,True,True,False,False,False,False,False,False
+4,pylint-celery,landscape.io,0.3,False,False,False,False,False,False,False,False,False
+5,ruamel.ordereddict,Anthon van der Neut,0.4.14,False,False,False,False,False,False,False,False,False
+6,['chardet'],['Daniel Blanchard'],['3.0.4'],True,True,True,False,False,False,False,False,False
+7,backports.weakref,Pi Delport,1.0.post1,True,True,True,False,False,False,False,False,False
+8,docopt,Vladimir Keleshev,0.6.2,True,False,False,False,False,False,False,False,False
+9,pycryptodome,Helder Eijs,3.9.4,True,True,True,True,False,False,False,False,False
+10,xmlsec,Bulat Gaifullin,1.3.3,True,True,True,False,False,False,False,False,False
+11,cookies,Sasha Hart,2.2.1,True,False,False,False,False,False,False,False,False
+12,billiard,R Oudkerk / Python Software Foundation,3.3.0.23,True,False,False,False,False,False,False,False,False
+13,ruamel.yaml.clib,Anthon van der Neut,0.2.0,True,True,True,True,False,False,False,False,False
+14,edx-completion,edX,3.0.2,True,True,False,False,False,True,True,True,True
+15,mock,Testing Cabal,3.0.5,True,True,True,True,False,False,False,False,False
+16,diff-cover,Matt Bachmann,0.9.8,False,False,False,False,False,False,False,False,False
+17,audio-xblock,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+18,requests-oauthlib,Kenneth Reitz,1.1.0,True,True,True,True,False,False,False,False,False
+19,packaging,Donald Stufft and individual contributors,19.2,True,True,True,True,False,False,False,False,False
+20,['python-dateutil'],['Gustavo Niemeyer'],['2.8.1'],True,True,True,True,True,False,False,False,False
+21,edx-rest-api-client,edX,1.9.2,True,True,True,False,False,False,False,False,False
+22,pip-tools,Vincent Driessen,4.3.0,True,True,True,True,True,False,False,False,False
+23,['more-itertools'],['Erik Rose'],['8.0.2'],False,True,True,True,True,False,False,False,False
+24,distlib,Vinay Sajip,0.3.0,True,True,True,True,True,False,False,False,False
+25,animation-xblock,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+26,django-ipware,Val Neekman,2.1.0,True,True,True,False,False,False,False,False,False
+27,pytest-json-report,numirias,1.2.1,True,True,True,True,True,False,False,False,False
+28,XBlock,edX,1.2.9,True,True,False,False,False,True,True,True,True
+29,pycountry,Christian Theune,19.8.18,False,True,True,True,False,False,False,False,False
+30,oauthlib,Idan Gazit,2.1.0,True,True,True,False,False,False,False,False,False
+31,pyparsing,Paul McGuire,2.2.0,True,True,False,False,False,False,False,False,False
+32,pluggy,Holger Krekel,0.13.1,True,True,True,True,True,False,False,False,False
+33,faulthandler,Victor Stinner,3.1,False,False,False,False,False,False,False,False,False
+34,xblock-poll,UNKNOWN,1.5.1,False,False,False,False,False,False,False,False,False
+35,MarkupSafe,Armin Ronacher,1.1.1,True,True,True,True,False,False,False,False,False
+36,django-user-tasks,edX,0.3.0,True,True,False,False,False,True,True,True,True
+37,transifex-client,Transifex,0.13.4,True,True,True,True,False,False,False,False,False
+38,edx-bulk-grades,edX,0.6.5,True,False,True,False,False,True,True,False,False
+39,edx-rbac,edX,1.0.3,True,False,True,False,False,True,True,False,False
+40,semantic-version,Rapha��l Barrois,2.8.3,True,True,True,True,False,False,False,False,False
+41,Werkzeug,Armin Ronacher,0.16.0,True,True,True,True,False,False,False,False,False
+42,['certifi'],['Kenneth Reitz'],['2019.11.28'],True,True,True,True,False,False,False,False,False
+43,filelock,Benedikt Schmitt,3.0.12,True,True,True,True,False,False,False,False,False
+44,imagesize,Yoshiki Shibukawa,1.1.0,True,True,True,True,False,False,False,False,False
+45,httpretty,Gabriel Falcao,0.9.7,True,False,True,True,False,False,False,False,False
+46,['pip'],['The pip developers'],['19.3'],True,True,True,True,False,False,False,False,False
+47,['wheel'],['Daniel Holth'],['0.29.0'],True,False,False,False,False,False,False,False,False
+48,labxchange-xblocks,OpenCraft,0.3.0,True,False,True,False,False,False,False,False,False
+49,django-appconf,Jannis Leidel,1.0.3,True,True,True,True,False,True,True,True,False
+50,anyjson,Rune Halvorsen,0.3.3,True,False,False,False,False,False,False,False,False
+51,shortuuid,Stochastic Technologies,0.5.0,True,False,False,False,False,False,False,False,False
+52,networkx,Aric Hagberg,1.7,True,False,False,False,False,False,False,False,False
+53,polib,David Jean Louis,1.1.0,True,True,True,False,False,False,False,False,False
+54,pycparser,Eli Bendersky,2.19,True,True,True,False,False,False,False,False,False
+55,acid-xblock,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+56,MongoDBProxy,Gustav Arngarden,0.1.0+edx.2,True,False,True,False,False,False,False,False,False
+57,lti-consumer-xblock,UNKNOWN,1.2.1,False,False,False,False,False,False,False,False,False
+58,['importlib-metadata'],['Barry Warsaw'],['1.2.0'],False,False,False,False,False,False,False,False,False
+59,django-classy-tags,Jonas Obrist,0.9.0,True,True,True,False,False,True,True,True,False
+60,django-pyfs,Piotr Mitros,2.1,True,True,False,False,False,True,True,True,True
+61,inflection,Janne Vanhala,0.3.1,True,False,False,False,False,False,False,False,False
+62,vectordraw-xblock,UNKNOWN,0.3.0,True,False,False,False,False,False,False,False,False
+63,ipaddress,Philipp Hagemeister,1.0.23,True,True,True,False,False,False,False,False,False
+64,sphinxcontrib-openapi,Ihor Kalnytskyi,0.5.1.dev4+g9306435,True,True,True,True,False,False,False,False,False
+65,jsonschema,Julian Berman,3.2.0,True,True,True,True,True,False,False,False,False
+66,astroid,Python Code Quality Authority,1.5.3,False,False,False,False,False,False,False,False,False
+67,['idna'],['Kim Davies'],['2.8'],True,True,True,False,False,False,False,False,False
+68,nodeenv,Eugene Kalinin,1.3.3,True,True,True,False,False,False,False,False,False
+69,pysqlite,Gerhard Haering,2.8.3,False,False,False,False,False,False,False,False,False
+70,edx-django-oauth2-provider,edX,1.3.5,True,True,True,False,False,False,False,False,False
+71,testfixtures,Chris Withers,6.10.3,True,False,True,True,False,False,False,False,False
+72,xblock-google-drive,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+73,pycodestyle,Ian Lee,2.5.0,True,True,True,True,False,False,False,False,False
+74,execnet,holger krekel and others,1.7.1,True,True,True,True,False,False,False,False,False
+75,ruamel.yaml,Anthon van der Neut,0.16.5,True,True,True,True,False,False,False,False,False
+76,webencodings,Geoffrey Sneddon,0.5.1,True,True,True,False,False,False,False,False,False
+77,django-mptt,Craig de Stigter,0.8.7,True,True,False,False,False,False,False,False,False
+78,Pygments,Georg Brandl,2.5.2,True,True,True,True,True,False,False,False,False
+79,edx-zoom,UNKNOWN,1.2,False,False,False,False,False,False,False,False,False
+80,defusedxml,Christian Heimes,0.5.0,True,True,True,False,False,False,False,False,False
+81,oppia-xblock,UNKNOWN,0.0.0,False,False,False,False,False,False,False,False,False
+82,laboratory,Joe Alcorn,1.0.2,True,True,True,False,False,False,False,False,False
+83,edx-submissions,edX,3.0.3,True,True,False,False,False,True,True,True,True
+84,voluptuous,Alec Thomas,0.11.7,True,False,True,True,False,False,False,False,False
+85,funcsigs,Testing Cabal,1.0.2,True,True,False,False,False,False,False,False,False
+86,aniso8601,Brandon Nielsen,8.0.0,True,True,True,True,False,False,False,False,False
+87,edx-ccx-keys,edX,1.0.0,True,True,False,False,False,False,False,False,False
+88,coverage-pytest-plugin,Ned Batchelder,0.1,False,False,False,False,False,False,False,False,False
+89,watchdog,Yesudeep Mangalapilly,0.9.0,True,True,True,True,False,False,False,False,False
+90,pytest-xdist,holger krekel and contributors,1.30.0,True,True,True,True,False,False,False,False,False
+91,django-storages,Josh Schneier,1.4.1,True,True,False,False,False,False,False,False,False
+92,django-simple-history,Corey Bertram,2.8.0,True,True,True,True,True,True,True,True,True
+93,pylint-plugin-utils,landscape.io,0.3,False,True,True,False,False,False,False,False,False
+94,redis,Andy McCurdy,2.10.6,True,True,True,False,False,False,False,False,False
+95,Paver,Lukas Linhart,1.3.4,True,True,True,False,False,False,False,False,False
+96,coverage,Ned Batchelder and 120 others,5.0b1,True,True,True,True,True,False,False,False,False
+97,html5lib,James Graham,1.0.1,True,True,True,False,False,False,False,False,False
+98,django-oauth-plus,David Larlet,2.2.9.edx-4,True,False,True,False,False,True,False,False,False
+99,py,"holger krekel, Ronny Pfannschmidt, Benjamin Peterson and others",1.8.0,True,True,True,True,False,False,False,False,False
+100,lazy-object-proxy,Ionel Cristian M��rie��,1.4.3,True,True,True,True,True,False,False,False,False
+101,caniusepython3,Brett Cannon,7.2.0,True,True,True,True,True,False,False,False,False
+102,django-oauth-toolkit,"Federico Frenguelli, Massimiliano Pippi",1.1.3,True,True,True,False,False,True,True,False,False
+103,drf-yasg,Cristi V.,1.16.0,True,True,True,True,False,True,True,True,True
+104,radon,Michele Lacchia,4.0.0,True,True,True,False,False,False,False,False,False
+105,PyJWT,Jose Padilla,1.5.2,True,True,True,False,False,False,False,False,False
+106,Shapely,Sean Gillies,1.6.4.post2,True,False,False,False,False,False,False,False,False
+107,django-model-utils,Carl Meyer,3.0.0,True,True,False,False,False,False,False,False,False
+108,edx-search,edX,1.2.2,True,False,True,False,False,True,True,True,False
+109,isodate,Gerhard Weis,0.6.0,True,True,True,False,False,False,False,False,False
+110,gunicorn,Benoit Chesneau,19.10.0,True,True,True,True,False,False,False,False,False
+111,alabaster,Jeff Forcier,0.7.12,True,True,True,False,False,False,False,False,False
+112,django-mysql,Adam Johnson,2.4.1,True,True,True,False,False,True,True,True,False
+113,xblock-problem-builder,UNKNOWN,3.4.0,False,False,False,False,False,False,False,False,False
+114,edx-proctoring-proctortrack,Verificient,1.0.5,True,True,True,True,False,False,False,False,False
+115,user-util,edX,0.1.5,True,True,True,False,False,False,False,False,False
+116,sphinxcontrib-httpdomain,Hong Minhee,1.7.0,True,True,True,False,False,False,False,False,False
+117,backports.tempfile,Pi Delport,1.0,True,True,True,False,False,False,False,False,False
+118,typing,"Guido van Rossum, Jukka Lehtosalo, ��ukasz Langa, Ivan Levkivskyi",3.7.4.1,True,False,False,False,False,False,False,False,False
+119,bok-choy,edX,1.0.1,True,True,True,False,False,False,False,False,False
+120,singledispatch,��ukasz Langa,3.4.0.3,True,False,False,False,False,False,False,False,False
+121,websocket-client,liris,0.56.0,True,True,True,True,False,False,False,False,False
+122,edx-django-sites-extensions,edX,2.3.1,True,True,True,False,False,True,False,False,False
+123,cssutils,Christof Hoeke,1.0.2,True,True,False,False,False,False,False,False,False
+124,Mako,Mike Bayer,1.0.2,False,False,False,False,False,False,False,False,False
+125,['numpy'],['Travis E. Oliphant et al.'],['1.17.4'],False,True,True,True,True,False,False,False,False
+126,inflect,Paul Dyson,3.0.2,True,False,False,False,False,False,False,False,False
+127,python-openid,JanRain,2.2.5,False,False,False,False,False,False,False,False,False
+128,jsonpickle,David Aguilar,1.2,True,True,True,True,False,False,False,False,False
+129,backports.functools-lru-cache,Raymond Hettinger,1.6.1,True,False,False,False,False,False,False,False,False
+130,attrs,Hynek Schlawack,17.4.0,True,True,True,False,False,False,False,False,False
+131,sympy,SymPy development team,1.4,True,True,True,False,False,False,False,False,False
+132,django-babel-underscore,Christopher Grebs,0.5.2,True,False,False,False,False,False,False,False,False
+133,pysrt,Jean Boussier,1.1.1,False,False,False,False,False,False,False,False,False
+134,Click,Armin Ronacher,7.0,True,True,True,True,False,False,False,False,False
+135,backports.ssl-match-hostname,Brandon Rhodes,3.7.0.1,True,True,True,True,False,False,False,False,False
+136,social-auth-app-django,Matias Aguirre,2.1.0,True,False,False,False,False,False,False,False,False
+137,cssselect,Ian Bicking,1.1.0,True,True,True,False,False,False,False,False,False
+138,piexif,hMatoba,1.0.2,True,False,False,False,False,False,False,False,False
+139,pytest-forked,pytest-dev,1.1.3,True,True,True,True,False,False,False,False,False
+140,Markdown,Waylan Limberg,2.6.11,True,True,True,False,False,False,False,False,False
+141,edx-when,edX,0.5.2,True,True,True,False,False,True,True,True,True
+142,virtualenv,Ian Bicking,16.7.8,True,True,True,True,False,False,False,False,False
+143,super-csv,edX,0.9.6,True,True,False,False,False,True,True,True,True
+144,newrelic,New Relic,5.4.0.132,True,True,True,True,True,False,False,False,False
+145,sandbox-packages,UNKNOWN,0.1.1,False,False,False,False,False,False,False,False,False
+146,pytest-metadata,Dave Hunt,1.8.0,True,False,True,True,False,False,False,False,False
+147,sphinxcontrib-websupport,Georg Brandl,1.1.2,True,True,True,True,False,False,False,False,False
+148,psutil,Giampaolo Rodola,1.2.1,True,False,False,False,False,False,False,False,False
+149,aws-xray-sdk,Amazon Web Services,0.95,True,True,True,False,False,False,False,False,False
+150,['setuptools'],['Python Packaging Authority'],['20.7.0'],True,True,False,False,False,False,False,False,False
+151,edx-sga,MITx,0.10.0,False,False,False,False,False,False,False,False,False
+152,pytest-randomly,Adam Johnson,1.2.3,True,True,True,False,False,False,False,False,False
+153,django-ratelimit-backend,Bruno Reni��,1.1.1,True,True,False,False,False,False,False,False,False
+154,pygraphviz,Aric Hagberg,1.5,True,True,True,True,False,False,False,False,False
+155,oauth2,Joe Stump,1.9.0.post1,True,False,False,False,False,False,False,False,False
+156,feedparser,Kurt McKee,5.1.3,True,False,False,False,False,False,False,False,False
+157,py2neo,Nigel Small <nigel@py2neo.org>,3.1.2,True,True,False,False,False,False,False,False,False
+158,wcwidth,Jeff Quast,0.1.7,True,True,False,False,False,False,False,False,False
+159,decorator,Michele Simionato,4.4.1,True,True,True,True,False,False,False,False,False
+160,['pytz'],['Stuart Bishop'],['2019.3'],True,True,True,False,False,False,False,False,False
+161,pylint-django,landscape.io,0.7.2,True,True,False,False,False,False,False,False,False
+162,concept-xblock,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+163,ubcpi-xblock,UBC CTLT,0.6.5,False,False,False,False,False,False,False,False,False
+164,xblock-discussion,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+165,sortedcontainers,Grant Jenks,2.1.0,True,True,True,True,False,False,False,False,False
+166,pyjwkest,Roland Hedberg,1.3.2,True,False,False,False,False,False,False,False,False
+167,kombu,Ask Solem,3.0.37,True,False,False,False,False,False,False,False,False
+168,['requests'],['Kenneth Reitz'],['2.22.0'],True,True,True,True,False,False,False,False,False
+169,freezegun,Steve Pulec,0.3.12,True,True,True,True,False,False,False,False,False
+170,edx-django-release-util,edX,0.3.2,True,True,True,False,False,True,True,True,True
+171,pyrsistent,Tobias Gustafsson,0.15.6,True,True,True,True,False,False,False,False,False
+172,maxminddb,Gregory Oschwald,1.5.1,True,True,True,True,False,False,False,False,False
+173,sorl-thumbnail,Mario C��sar Se��oranis Ayala,12.3,True,False,False,False,False,False,False,False,False
+174,edx-i18n-tools,edX,0.4.8,True,True,True,False,False,True,False,False,False
+175,factory-boy,Rapha��l Barrois,2.8.1,True,True,False,False,False,False,False,False,False
+176,django-statici18n,Sebastien Fievet,1.4.0,True,True,False,False,False,False,False,False,False
+177,cffi,"Armin Rigo, Maciej Fijalkowski",1.13.2,True,True,True,False,False,False,False,False,False
+178,colorama,Jonathan Hartley,0.4.1,True,True,True,False,False,False,False,False,False
+179,code-annotations,edX,0.3.2,True,False,True,False,False,False,False,False,False
+180,django-cors-headers,Otto Yiu,2.1.0,True,True,True,False,False,True,False,False,False
+181,boto3,Amazon Web Services,1.4.8,True,True,True,False,False,False,False,False,False
+182,django-celery,Ask Solem,3.2.1+edx.2,True,True,False,False,False,False,False,False,False
+183,selenium,UNKNOWN,3.141.0,True,True,True,False,False,False,False,False,False
+184,unicodecsv,Jeremy Dunck,0.14.1,True,True,False,False,False,False,False,False,False
+185,djangorestframework-jwt,Jose Padilla,1.11.0,True,True,False,False,False,False,False,False,False
+186,django-wiki,Benjamin Bach,0.0.23,True,False,True,False,False,False,False,False,False
+187,amqp,Ask Solem,1.4.9,True,False,False,False,False,False,False,False,False
+188,web-fragments,edX,0.3.1,True,True,True,True,False,True,True,True,True
+189,pytest-django,Andreas Pelme,3.7.0,True,True,True,True,False,True,True,True,True
+190,mpmath,Fredrik Johansson,1.1.0,False,False,False,False,False,False,False,False,False
+191,itypes,Tom Christie,1.1.0,False,False,False,False,False,False,False,False,False
+192,django-multi-email-field,Florent Lebreton,0.5.1,True,True,False,False,False,False,False,False,False
+193,vulture,Jendrik Seipp,1.2,True,True,True,True,False,False,False,False,False
+194,contextlib2,Nick Coghlan,0.6.0.post1,True,True,True,True,False,False,False,False,False
+195,celery,Ask Solem,3.1.25,True,False,False,False,False,False,False,False,False
+196,edx-user-state-client,UNKNOWN,1.1.2,True,False,True,False,False,False,False,False,False
+197,djangorestframework,Tom Christie,3.7.7,True,True,True,False,False,True,True,False,False
+198,pathlib2,Matthias C. M. Troffaes,2.3.5,True,True,True,True,False,False,False,False,False
+199,docutils,David Goodger,0.15.2,True,True,True,True,False,False,False,False,False
+200,chem,UNKNOWN,1.0.0,False,False,False,False,False,False,False,False,False
+201,edx-milestones,edX,0.2.6,True,True,False,False,False,True,True,True,True
+202,bridgekeeper,Adam Brenecki,0.6.dev10+g4e34894,False,False,False,False,False,False,False,False,False
+203,cryptography,The cryptography developers,2.8,True,True,True,True,True,False,False,False,False
+204,toml,William Pearson,0.10.0,True,True,True,True,False,False,False,False,False
+205,social-auth-core,Matias Aguirre,1.7.0,True,False,False,False,False,False,False,False,False
+206,botocore,Amazon Web Services,1.8.17,True,True,True,False,False,False,False,False,False
+207,crowdsourcehinter-xblock,UNKNOWN,0.2,True,False,True,True,False,True,False,False,False
+208,django-webpack-loader,Owais Lone,0.6.0,True,True,False,False,False,False,False,False,False
+209,pyquery,Olivier Lauzanne,1.4.1,True,True,True,True,False,False,False,False,False
+210,django-config-models,edX,1.0.3,True,True,True,False,False,True,True,True,True
+211,capa,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+212,analytics-python,Segment,1.2.9,True,True,False,False,False,False,False,False,False
+213,PyYAML,Kirill Simonov,5.2,True,True,True,True,True,False,False,False,False
+214,codejail,UNKNOWN,2.2,True,True,True,False,False,False,False,False,False
+215,calc,UNKNOWN,0.4,False,False,False,False,False,False,False,False,False
+216,edx-sphinx-theme,edX,1.5.0,True,True,False,False,False,False,False,False,False
+217,docker,None,4.1.0,True,True,True,True,False,False,False,False,False
+218,mysqlclient,Inada Naoki,1.4.6,True,True,True,True,True,False,False,False,False
+219,futures,Brian Quinlan,3.3.0,True,False,False,False,False,False,False,False,False
+220,edx-jsme,UNKNOWN,1.0,False,False,False,False,False,False,False,False,False
+221,edx-enterprise,edX,2.0.30,True,False,True,False,False,True,False,False,False
+222,django-fernet-fields,"ORCAS, Inc",0.6,True,True,True,True,False,False,False,False,False
+223,django-filter,Carlton Gibson,1.0.4,True,True,True,False,False,True,False,False,False
+224,httplib2,Joe Gregorio,0.14.0,True,True,True,True,False,False,False,False,False
+225,atomicwrites,Markus Unterwaditzer,1.3.0,True,True,True,False,False,False,False,False,False
+226,edx-organizations,edX,2.1.1,True,False,True,False,False,True,True,True,False
+227,scipy,None,1.2.1,True,True,True,False,False,False,False,False,False
+228,mongoengine,Harry Marr,0.10.0,True,False,False,False,False,False,False,False,False
+229,tox,"Holger Krekel, Oliver Bestwalter, Bern��t G��bor and others",3.14.2,True,True,True,True,False,False,False,False,False
+230,ddt,Carles Barrob��s,1.2.2,True,True,False,False,False,False,False,False,False
+231,django-object-actions,Chris Chang,1.1.2,True,True,True,True,False,False,False,False,False
+232,pbr,OpenStack,5.4.4,True,True,True,True,False,False,False,False,False
+233,appdirs,Trent Mick; Sridhar Ratnakumar; Jeff Rouse,1.4.3,True,True,True,False,False,False,False,False,False
+234,isort,Timothy Crosley,4.3.21,True,True,True,True,False,False,False,False,False
+235,edxval,edX,1.1.32,True,True,False,False,False,True,True,True,True
+236,enum34,Ethan Furman,1.1.6,True,True,False,False,False,False,False,False,False
+237,argh,Andrey Mikhaylenko,0.26.2,True,False,False,False,False,False,False,False,False
+238,django-babel,Thomas Grainger,0.6.2,True,True,True,False,False,False,False,False,False
+239,soupsieve,Isaac Muse,1.9.5,True,True,True,True,True,False,False,False,False
+240,activetable-xblock,UNKNOWN,0.2,True,False,False,False,False,False,False,False,False
+241,glob2,Michael Elsdoerfer,0.7,False,False,False,False,False,False,False,False,False
+242,Faker,joke2k,3.0.0,True,True,True,True,False,False,False,False,False
+243,['urllib3'],['Andrey Petrov'],['1.25.7'],True,True,True,True,True,False,False,False,False
+244,edx-drf-extensions,edX,2.4.5,True,True,True,False,False,True,False,False,False
+245,django-waffle,James Socol,0.12.0,True,True,True,False,False,True,False,False,False
+246,edx-django-utils,edX,2.0.2,True,True,True,False,False,True,True,True,True
+247,future,Ed Schofield,0.18.2,True,True,True,True,False,False,False,False,False
+248,recommender-xblock,edX,1.4.5,True,True,True,False,False,True,False,False,False
+249,help-tokens,edX,1.0.5,True,True,False,False,False,True,True,True,True
+250,uritemplate,Ian Cordasco,3.0.0,True,True,False,False,False,False,False,False,False
+251,configparser,��ukasz Langa,4.0.2,True,False,False,False,False,False,False,False,False
+252,xmltodict,Martin Blech,0.12.0,True,True,True,True,False,False,False,False,False
+253,django-countries,Chris Beaven,4.6.1,True,True,True,False,False,False,False,False,False
+254,pystache-custom,Chris Wanstrath,0.5.2,True,False,False,False,False,False,False,False,False
+255,pynliner,Tanner Netterville,0.8.0,True,True,False,False,False,False,False,False,False
+256,ora2,edX,2.4.7,True,False,True,False,False,True,False,False,False
+257,modernize,Armin Ronacher,0.7,True,False,False,False,False,False,False,False,False
+258,mando,Michele Lacchia,0.6.4,True,False,False,False,False,False,False,False,False
+259,pdfminer.six,Yusuke Shinyama + Philippe Guglielmetti,20191110,True,True,True,False,False,False,False,False,False
+260,pytest-attrib,Abdeali JK,0.1.3,True,False,False,False,False,False,False,False,False
+261,boto,Mitch Garnaat,2.39.0,True,False,False,False,False,False,False,False,False
+262,fs-s3fs,Will McGugan,0.1.8,True,True,True,False,False,False,False,False,False
+263,pytest-cov,Marc Schlaich,2.7.1,True,True,True,True,False,False,False,False,False
+264,django-debug-toolbar,Rob Hudson,1.8,True,True,True,False,False,True,False,False,False
+265,rest-condition,Maxim Kamenkov,1.0.3,True,False,False,False,False,False,False,False,False
+266,django-method-override,LocalMed,0.1.0,True,False,False,False,False,False,False,False,False
+267,edx-ace,edX,0.1.10,True,True,True,False,False,True,False,False,False
+268,moto,Steve Pulec,1.3.1,True,True,True,False,False,False,False,False,False
+269,python-slugify,Val Neekman,4.0.0,True,True,True,True,False,False,False,False,False
+270,text-unidecode,Mikhail Korobov,1.3,True,True,True,True,False,False,False,False,False
+271,mailsnake,John-Kim Murphy,1.6.4,False,False,False,False,False,False,False,False,False
+272,rules,Akis Kesoglou,2.1,True,True,True,False,False,False,False,False,False
+273,pylint,Python Code Quality Authority,1.7.6,False,False,False,False,False,False,False,False,False
+274,WebOb,Ian Bicking,1.8.5,True,True,True,True,False,False,False,False,False
+275,djangorestframework-oauth,Jos�� Padilla,1.1.1,True,False,False,False,False,False,False,False,False
+276,edx-lint,edX,1.3.0,True,True,False,False,False,False,False,False,False
+277,unidiff,Matias Bordese,0.5.5,True,True,True,False,False,False,False,False,False
+278,Django,Django Software Foundation,1.11.26,True,True,True,True,False,False,False,False,False
+279,flake8,Tarek Ziade,3.7.9,True,True,True,True,False,False,False,False,False
+280,staff-graded-xblock,UNKNOWN,0.5,True,False,True,False,False,True,True,False,False
+281,rate-xblock,UNKNOWN,2.0,False,False,False,False,False,False,False,False,False
+282,djangorestframework-xml,Jos�� Padilla,1.4.0,True,True,True,False,False,False,False,False,False
+283,flake8-polyfill,Ian Cordasco,1.0.2,True,True,False,False,False,False,False,False,False
+284,mccabe,Ian Cordasco,0.6.1,True,True,True,False,False,False,False,False,False
+285,python-Levenshtein,Antti Haapala,0.12.0,False,False,False,False,False,False,False,False,False
+286,['zipp'],['Jason R. Coombs'],['0.6.0'],True,False,False,False,False,False,False,False,False
+287,path.py,Jason R. Coombs,8.2.1,True,False,False,False,False,False,False,False,False
+288,symmath,UNKNOWN,0.3,False,False,False,False,False,False,False,False,False
+289,python3-saml,OneLogin,1.5.0,True,True,True,True,False,False,False,False,False
+290,xblock-utils,edX,1.2.2,True,False,True,True,False,True,False,False,False
+291,Babel,Armin Ronacher,1.3,False,False,False,False,False,False,False,False,False
+292,xss-utils,edX,0.1.2,True,True,False,False,False,True,True,True,True
+293,jmespath,James Saryerwinnie,0.9.4,True,True,True,True,False,False,False,False,False
+294,pycryptodomex,Helder Eijs,3.4.7,True,False,False,False,False,False,False,False,False
+295,pytest,"Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Florian Bruhin and others",4.5.0,True,True,True,True,False,False,False,False,False
+296,django-crum,"Nine More Minutes, Inc.",0.7.5,True,True,True,True,True,True,True,True,True
+297,PyContracts,Andrea Censi,1.7.1,False,False,False,False,False,False,False,False,False
+298,pyaml,Mike Kazantsev,19.4.1,True,True,False,False,False,False,False,False,False
+299,pytest-faulthandler,Bruno Oliveira,1.6.0,True,True,True,False,False,False,False,False,False
+300,simplejson,Bob Ippolito,3.17.0,True,True,True,True,False,False,False,False,False
+301,django-pipeline,Timoth��e Peignier,1.6.14,True,True,True,False,False,True,False,False,False
+302,LEPL,Andrew Cooke,5.1.3,True,False,False,False,False,False,False,False,False
+303,pyflakes,A lot of people,2.1.1,True,True,True,True,False,False,False,False,False
+304,lxml,lxml dev team,3.8.0,True,True,True,False,False,False,False,False,False
+305,tox-battery,Volodymyr Vitvitskyi,0.5.1,False,False,False,False,False,False,False,False,False
+306,stevedore,OpenStack,1.31.0,True,False,True,True,False,False,False,False,False
+307,lazy,Stefan H. Holek,1.1,False,False,False,False,False,False,False,False,False
+308,Pillow,Alex Clark (PIL Fork Author),6.2.1,True,True,True,True,True,False,False,False,False
+309,elasticsearch,Honza Kr��l,1.9.0,True,False,False,False,False,False,False,False,False
+310,wrapt,Graham Dumpleton,1.10.5,False,False,False,False,False,False,False,False,False
+311,pathtools,Yesudeep Mangalapilly,0.1.2,False,False,False,False,False,False,False,False,False
+312,loremipsum,Luca De Vitis,1.0.5,True,False,False,False,False,False,False,False,False
+313,s3transfer,Amazon Web Services,0.1.13,True,True,True,False,False,False,False,False,False
+314,beautifulsoup4,Leonard Richardson,4.8.1,True,False,False,False,False,False,False,False,False
+315,jsondiff,Zoomer Analytics LLC,1.1.1,True,False,False,False,False,False,False,False,False
+316,random2,PSF,1.0.1,True,False,False,False,False,False,False,False,False
+317,edx-opaque-keys,edX,2.0.1,True,True,True,False,False,False,False,False,False
+318,tincan,Rustici Software,0.0.5,False,False,False,False,False,False,False,False,False
+319,django-sekizai,Jonas Obrist,1.0.0,True,True,True,True,False,True,True,True,True
+320,sailthru-client,Sailthru Inc.,2.2.3,False,False,False,False,False,False,False,False,False
+321,django-ses,Harry Marr,0.8.4,True,True,False,False,False,False,False,False,False
+322,Jinja2,Armin Ronacher,2.10.3,True,True,True,True,False,False,False,False,False
+323,schoolyourself-xblock,UNKNOWN,0.1,False,False,False,False,False,False,False,False,False
+324,rfc6266-parser,Simon Woerner,0.0.5.post2,False,False,False,False,False,False,False,False,False
+325,mistune,Hsiaoming Yang,0.8.4,True,True,True,True,False,False,False,False,False
+326,python-memcached,Sean Reifschneider,1.59,True,True,True,False,False,False,False,False,False
+327,edx-proctoring,edX,2.1.6,True,False,True,True,False,True,False,False,False
+328,done-xblock,UNKNOWN,2.0,False,False,False,False,False,False,False,False,False
+329,click-log,Markus Unterwaditzer,0.3.2,True,True,True,False,False,False,False,False,False
+330,['six'],['Benjamin Peterson'],['1.13.0'],False,False,False,False,False,False,False,False,False
+331,jsonfield,Dan Koch,2.0.2,True,True,True,False,False,False,False,False,False
+332,pyinotify,Sebastien Martini,0.9.6,True,False,False,False,False,False,False,False,False
+333,django-splash,edX,0.2.5,True,True,True,False,False,True,True,True,True
+334,event-tracking,edX,0.3.0,True,True,True,False,False,False,False,False,False
+335,sqlparse,Andi Albrecht,0.3.0,True,True,True,True,False,False,False,False,False
+336,coreschema,Tom Christie,0.0.4,False,False,False,False,False,False,False,False,False
+337,django-require,Dave Hall,1.0.11,True,False,False,False,False,False,False,False,False
+338,pkgconfig,Matthias Vogelgesang,1.5.1,True,True,True,True,False,False,False,False,False
+339,jinja2-pluralize,Audrey Roy Greenfeld,0.3.0,True,True,False,False,False,False,False,False,False
+340,m2r,Hiroyuki Takagi,0.2.1,True,True,True,False,False,False,False,False,False
+341,django-ratelimit,James Socol,2.0.0,True,True,True,False,False,True,True,True,False
+342,safe-lxml,UNKNOWN,1.0,False,False,False,False,False,False,False,False,False
+343,snowballstemmer,Snowball Developers,2.0.0,True,True,True,True,False,False,False,False,False
+344,scandir,Ben Hoyt,1.10.0,True,True,True,True,False,False,False,False,False
+345,nltk,Steven Bird,3.4.5,True,True,True,True,False,False,False,False,False
+346,functools32,None,3.2.3.post2,False,False,False,False,False,False,False,False,False
+347,XModule,UNKNOWN,0.1.2,False,False,False,False,False,False,False,False,False
+348,edx-celeryutils,edX,0.3.1,True,True,False,False,False,True,True,True,True
+349,markey,Christopher Grebs,0.8,True,False,False,False,False,False,False,False,False
+350,pymongo,Mike Dirolf,2.9.1,True,True,False,False,False,False,False,False,False
+351,Open-edX,UNKNOWN,0.11,False,False,False,False,False,False,False,False,False
+352,fs,Will McGugan,2.0.18,True,True,True,False,False,False,False,False,False
+353,entrypoints,Thomas Kluyver,0.3,False,False,False,False,False,False,False,False,False
+354,xblock-drag-and-drop-v2,UNKNOWN,2.2.6,False,False,False,False,False,False,False,False,False
+355,python-swiftclient,OpenStack,3.8.1,True,False,True,True,False,False,False,False,False
+356,libsass,Hong Minhee,0.10.0,True,False,False,False,False,False,False,False,False
+357,Sphinx,Georg Brandl,1.8.5,True,True,True,False,False,False,False,False,False
+358,slumber,Samuel Giles,0.7.1,False,False,False,False,False,False,False,False,False
+359,edx-analytics-data-api-client,UNKNOWN,0.15.3,False,False,False,False,False,False,False,False,False
+360,edx-oauth2-provider,edX,1.3.1,True,False,True,False,False,False,False,False,False
+361,pyuca,James Tauber,1.1,True,False,False,False,False,False,False,False,False

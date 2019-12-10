@@ -1,0 +1,363 @@
+,Name,Author,Version,Requires,Python: 2.7,Python: 3.5,Python: 3.6,Python: 3.7,Python: 3.8,Django: 1.11,Django: 2.0,Django: 2.1,Django: 2.2
+0,pytest-xdist,holger krekel and contributors,1.30.0,"execnet (>=1.1), pytest (>=4.4.0), pytest-forked, six, filelock ; extra == 'testing'",True,True,True,True,False,False,False,False,False
+1,pymongo,Mike Dirolf,3.9.0,,True,True,True,True,False,False,False,False,False
+2,social-auth-core,Matias Aguirre,3.2.0,,True,False,False,False,False,False,False,False,False
+3,django-pyfs,Piotr Mitros,2.1,"fs-s3fs, fs (>=2.0.1), six, django (>=1.11)",True,True,False,False,False,True,True,True,True
+4,edx-submissions,edX,3.0.3,"jsonfield (<3.0.0,>=2.0.2), Django (<2.3,>=1.11), pytz, django-model-utils (>=2.3.1), djangorestframework (<3.10,>=3.2.0)",True,True,False,False,False,True,True,True,True
+5,done-xblock,,2.0,,,,,,,,,,
+6,configparser,Łukasz Langa,4.0.2,"sphinx ; extra == 'docs', jaraco.packaging (>=3.2) ; extra == 'docs', rst.linker (>=1.9) ; extra == 'docs', pytest (!=3.7.3,>=3.5) ; extra == 'testing', pytest-checkdocs (>=1.2) ; extra == 'testing', pytest-flake8 ; extra == 'testing', pytest-black-multipy ; extra == 'testing'",True,False,False,False,False,False,False,False,False
+7,djangorestframework-xml,José Padilla,1.4.0,,True,True,True,False,False,False,False,False,False
+8,edx-django-sites-extensions,edX,2.4.2,"django (<2.0,>=1.8) ; python_version < ""3"", django (>=1.11) ; python_version > ""3""",True,True,True,False,False,True,True,True,True
+9,apipkg,holger krekel,1.5,,True,True,True,False,False,False,False,False,False
+10,appdirs,Trent Mick; Sridhar Ratnakumar; Jeff Rouse,1.4.3,,True,True,True,False,False,False,False,False,False
+11,wrapt,Graham Dumpleton,1.11.2,,True,True,True,True,False,False,False,False,False
+12,python-swiftclient,OpenStack,3.8.1,"requests (>=1.1.0), six (>=1.9.0), futures (>=3.0.0) ; (python_version=='2.7' or python_version=='2.6'), python-keystoneclient (>=0.7.0) ; extra == 'keystone', hacking (<1.2.0,>=1.1.0) ; extra == 'test', coverage (!=4.4,>=4.0) ; extra == 'test', keystoneauth1 (>=3.4.0) ; extra == 'test', mock (>=1.2.0) ; extra == 'test', stestr (>=2.0.0) ; extra == 'test'",True,False,True,True,False,False,False,False,False
+13,random2,PSF,1.0.1,,True,False,False,False,False,False,False,False,False
+14,edx-i18n-tools,edX,0.4.8,"django (<2.0,>=1.8), polib, path.py (>=7.0), pyYaml, six",True,True,True,False,False,True,False,False,False
+15,django-celery,Ask Solem,3.3.1,"celery (<4.0,>=3.1.15), django (>=1.8)",True,True,False,False,False,False,False,False,False
+16,jinja2-pluralize,Audrey Roy Greenfeld,0.3.0,,True,True,False,False,False,False,False,False,False
+17,cffi,"Armin Rigo, Maciej Fijalkowski",1.13.2,,True,True,True,False,False,False,False,False,False
+18,xblock-utils,edX,1.2.2,"mako, XBlock, futures ; python_version == ""2.7""",True,False,True,True,False,True,False,False,False
+19,enum34,Ethan Furman,1.1.6,,True,True,False,False,False,False,False,False,False
+20,click-log,Markus Unterwaditzer,0.3.2,,True,True,True,False,False,False,False,False,False
+21,sympy,SymPy development team,1.4,mpmath (>=0.19),True,True,True,False,False,False,False,False,False
+22,edx-sphinx-theme,edX,1.5.0,"six, Sphinx",True,True,False,False,False,False,False,False,False
+23,pathtools,Yesudeep Mangalapilly,0.1.2,,False,False,False,False,False,False,False,False,False
+24,sorl-thumbnail,Mikko Hellsing,12.5.0,,True,True,True,True,False,True,True,True,False
+25,django-sekizai,Jonas Obrist,1.0.0,,True,True,True,True,False,True,True,True,True
+26,urllib3,Andrey Petrov,1.25.7,"brotlipy (>=0.6.0) ; extra == 'brotli', pyOpenSSL (>=0.14) ; extra == 'secure', cryptography (>=1.3.4) ; extra == 'secure', idna (>=2.0.0) ; extra == 'secure', certifi ; extra == 'secure', ipaddress ; (python_version == ""2.7"") and extra == 'secure', PySocks (!=1.5.7,<2.0,>=1.5.6) ; extra == 'socks'",True,True,True,True,True,False,False,False,False
+27,Sphinx,Georg Brandl,2.2.2,"sphinxcontrib-applehelp, sphinxcontrib-devhelp, sphinxcontrib-jsmath, sphinxcontrib-htmlhelp, sphinxcontrib-serializinghtml, sphinxcontrib-qthelp, Jinja2 (>=2.3), Pygments (>=2.0), docutils (>=0.12), snowballstemmer (>=1.1), babel (!=2.0,>=1.3), alabaster (<0.8,>=0.7), imagesize, requests (>=2.5.0), setuptools, packaging, colorama (>=0.3.5) ; sys_platform==""win32"", sphinxcontrib-websupport ; extra == 'docs', pytest ; extra == 'test', pytest-cov ; extra == 'test', html5lib ; extra == 'test', flake8 (>=3.5.0) ; extra == 'test', flake8-import-order ; extra == 'test', mypy (>=0.750) ; extra == 'test', docutils-stubs ; extra == 'test'",False,True,True,True,False,False,False,False,False
+28,funcsigs,Testing Cabal,1.0.2,,True,True,False,False,False,False,False,False,False
+29,Click,Armin Ronacher,7.0,,True,True,True,True,False,False,False,False,False
+30,toml,William Pearson,0.10.0,,True,True,True,True,False,False,False,False,False
+31,sphinxcontrib-httpdomain,Hong Minhee,1.7.0,"Sphinx (>=1.5), six",True,True,True,False,False,False,False,False,False
+32,edx-milestones,edX,0.2.6,"six, edx-opaque-keys (>=0.2.1), Django (>=1.11), django-model-utils",True,True,False,False,False,True,True,True,True
+33,help-tokens,edX,1.0.5,"Django, six, Django (<2.0,>=1.11) ; python_version < ""3"", Django (>=1.11) ; python_version > ""3""",True,True,False,False,False,True,True,True,True
+34,sailthru-client,Sailthru Inc.,2.3.5,,False,False,False,False,False,False,False,False,False
+35,coreschema,Tom Christie,0.0.4,,False,False,False,False,False,False,False,False,False
+36,ubcpi-xblock,UBC CTLT,0.6.5,,False,False,False,False,False,False,False,False,False
+37,calc,g_k_ragav,1.0,,False,False,False,False,False,False,False,False,False
+38,filelock,Benedikt Schmitt,3.0.12,,True,True,True,True,False,False,False,False,False
+39,backports.ssl-match-hostname,Toshio Kuratomi,3.7.0.1,,True,True,True,True,False,False,False,False,False
+40,sortedcontainers,Grant Jenks,2.1.0,,True,True,True,True,False,False,False,False,False
+41,PyYAML,Kirill Simonov,5.2,,True,True,True,True,True,False,False,False,False
+42,fs-s3fs,Will McGugan,1.1.1,,True,True,True,True,False,False,False,False,False
+43,XBlock,edX,1.2.9,"fs, lxml, markupsafe, python-dateutil, pytz, pyyaml, six, webob, web-fragments, django-pyfs (>=1.0.5) ; extra == 'django', lazy ; extra == 'django'",True,True,False,False,False,True,True,True,True
+44,jsonfield,Dan Koch,2.0.2,,True,True,True,False,False,False,False,False,False
+45,safe-lxml,,1.0,,,,,,,,,,
+46,xss-utils,edX,0.1.2,Django (>=1.11),True,True,False,False,False,True,True,True,True
+47,pyaml,Mike Kazantsev,19.12.0,,True,True,False,False,False,False,False,False,False
+48,pycodestyle,Ian Lee,2.5.0,,True,True,True,True,False,False,False,False,False
+49,piexif,hMatoba,1.1.3,,True,True,True,True,False,False,False,False,False
+50,django-object-actions,Chris Chang,2.0.0,,False,True,True,True,False,False,False,False,False
+51,django-storages,Josh Schneier,1.8,"Django (>=1.11), azure-storage-blob (<12.0.0,>=1.3.1) ; extra == 'azure', boto (>=2.32.0) ; extra == 'boto', boto3 (>=1.4.4) ; extra == 'boto3', dropbox (>=7.2.1) ; extra == 'dropbox', google-cloud-storage (>=1.15.0) ; extra == 'google', apache-libcloud ; extra == 'libcloud', paramiko ; extra == 'sftp'",True,True,True,True,False,True,True,True,True
+52,django-splash,edX,0.2.5,"Django (<2.0,>=1.8)",True,True,True,False,False,True,True,True,True
+53,LEPL,Andrew Cooke,5.1.3,,False,False,False,False,False,False,False,False,False
+54,event-tracking,edX,0.3.0,"pymongo (<4.0.0,>=2.7.2), six, pytz, Django (<2.0,>=1.11) ; python_version == ""2.7"", Django (>=1.11) ; python_version > ""3""",True,True,True,False,False,False,False,False,False
+55,python-openid,JanRain,2.2.5,,False,False,False,False,False,False,False,False,False
+56,edxval,edX,1.1.32,"enum34, pillow, pysrt, Django (>=1.11), django-model-utils, edx-drf-extensions, lxml, django-storages, edx-django-oauth2-provider, boto, djangorestframework (==3.7.7)",True,True,False,False,False,True,True,True,True
+57,django-babel,Thomas Grainger,0.6.2,,True,True,True,False,False,False,False,False,False
+58,sphinxcontrib-websupport,Georg Brandl,1.1.2,"pytest ; extra == 'test', mock ; extra == 'test'",True,True,True,True,False,False,False,False,False
+59,jsonpickle,David Aguilar,1.2,,True,True,True,True,False,False,False,False,False
+60,schoolyourself-xblock,,0.1,,,,,,,,,,
+61,aws-xray-sdk,Amazon Web Services,2.4.3,,True,True,True,False,False,False,False,False,False
+62,decorator,Michele Simionato,4.4.1,,True,True,True,True,False,False,False,False,False
+63,transifex-client,Transifex,0.13.6,,True,True,True,True,False,False,False,False,False
+64,s3transfer,Amazon Web Services,0.2.1,,True,True,True,True,False,False,False,False,False
+65,sandbox-packages,,0.1.1,,,,,,,,,,
+66,diff-cover,Matt Bachmann,2.4.1,"Jinja2 (>=2.7.1), six (>=1.6.1), jinja2-pluralize, pygments",True,True,True,True,False,False,False,False,False
+67,python-dateutil,Gustavo Niemeyer,2.8.1,six (>=1.5),True,True,True,True,True,False,False,False,False
+68,djangorestframework-jwt,Jose Padilla,1.11.0,,True,True,False,False,False,False,False,False,False
+69,backports.weakref,Pi Delport,1.0.post1,,True,True,True,False,False,False,False,False,False
+70,oauthlib,The OAuthlib Community,3.1.0,"cryptography ; extra == 'rsa', blinker ; extra == 'signals', cryptography ; extra == 'signedtoken', pyjwt (>=1.0.0) ; extra == 'signedtoken'",True,True,True,True,False,False,False,False,False
+71,pytest-django,Andreas Pelme,3.7.0,"pytest (>=3.6), pathlib2 ; python_version < ""3.4"", sphinx ; extra == 'docs', sphinx-rtd-theme ; extra == 'docs', Django ; extra == 'testing', django-configurations (>=2.0) ; extra == 'testing', six ; extra == 'testing'",True,True,True,True,False,True,True,True,True
+72,pylint-plugin-utils,landscape.io,0.6,pylint (>=1.7),False,True,True,True,False,False,False,False,False
+73,mongoengine,Harry Marr,0.18.2,"pymongo (>=3.4), six",True,True,True,False,False,False,False,False,False
+74,pytest,"Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Florian Bruhin and others",5.3.1,"py (>=1.5.0), packaging, attrs (>=17.4.0), more-itertools (>=4.0.0), pluggy (<1.0,>=0.12), wcwidth, pathlib2 (>=2.2.0) ; python_version < ""3.6"", importlib-metadata (>=0.12) ; python_version < ""3.8"", atomicwrites (>=1.0) ; sys_platform == ""win32"", colorama ; sys_platform == ""win32"", argcomplete ; extra == 'testing', hypothesis (>=3.56) ; extra == 'testing', mock ; extra == 'testing', nose ; extra == 'testing', requests ; extra == 'testing', xmlschema ; extra == 'testing'",False,True,True,True,True,False,False,False,False
+75,networkx,Aric Hagberg,2.4,"decorator (>=4.3.0), numpy ; extra == 'all', scipy ; extra == 'all', pandas ; extra == 'all', matplotlib ; extra == 'all', pygraphviz ; extra == 'all', pydot ; extra == 'all', pyyaml ; extra == 'all', gdal ; extra == 'all', lxml ; extra == 'all', pytest ; extra == 'all', gdal ; extra == 'gdal', lxml ; extra == 'lxml', matplotlib ; extra == 'matplotlib', numpy ; extra == 'numpy', pandas ; extra == 'pandas', pydot ; extra == 'pydot', pygraphviz ; extra == 'pygraphviz', pytest ; extra == 'pytest', pyyaml ; extra == 'pyyaml', scipy ; extra == 'scipy'",False,True,True,True,True,False,False,False,False
+76,lazy-object-proxy,Ionel Cristian Mărieș,1.4.3,,True,True,True,True,True,False,False,False,False
+77,Jinja2,Armin Ronacher,2.10.3,"MarkupSafe (>=0.23), Babel (>=0.8) ; extra == 'i18n'",True,True,True,True,False,False,False,False,False
+78,mailsnake,John-Kim Murphy,1.6.4,,False,False,False,False,False,False,False,False,False
+79,PyJWT,Jose Padilla,1.7.1,"cryptography (>=1.4) ; extra == 'crypto', flake8 ; extra == 'flake8', flake8-import-order ; extra == 'flake8', pep8-naming ; extra == 'flake8', pytest (<5.0.0,>=4.0.1) ; extra == 'test', pytest-cov (<3.0.0,>=2.6.0) ; extra == 'test', pytest-runner (<5.0.0,>=4.2) ; extra == 'test'",True,True,True,True,False,False,False,False,False
+80,django-config-models,edX,1.0.3,"Django (<2,>=1.8), djangorestframework (>=3.6)",True,True,True,False,False,True,True,True,True
+81,edx-analytics-data-api-client,,0.15.3,requests,False,False,False,False,False,False,False,False,False
+82,edx-sga,MITx,0.10.0,"XBlock, xblock-utils",False,False,False,False,False,False,False,False,False
+83,python-slugify,Val Neekman,4.0.0,,True,True,True,True,False,False,False,False,False
+84,text-unidecode,Mikhail Korobov,1.3,,True,True,True,True,False,False,False,False,False
+85,django-appconf,Jannis Leidel,1.0.3,"django, six",True,True,True,True,False,True,True,True,False
+86,sphinxcontrib-openapi,Ihor Kalnytskyi,0.5.0,,True,True,True,True,False,False,False,False,False
+87,rfc6266-parser,Simon Woerner,0.0.5.post2,,False,False,False,False,False,False,False,False,False
+88,django-waffle,James Socol,0.18.0,,True,True,True,True,False,True,True,True,True
+89,django-countries,Chris Beaven,5.5,"six, tox ; extra == 'dev', django ; extra == 'dev', pytest ; extra == 'dev', pytest-django ; extra == 'dev', djangorestframework ; extra == 'dev', mock ; (python_version < ""3"") and extra == 'dev', transifex-client ; extra == 'maintainer', zest.releaser[recommended] ; extra == 'maintainer', django ; extra == 'maintainer', pytest ; extra == 'test', pytest-django ; extra == 'test', pytest-cov ; extra == 'test', mock ; (python_version < ""3"") and extra == 'test'",True,True,True,False,False,False,False,False,False
+90,lti-consumer-xblock,,1.2.1,,,,,,,,,,
+91,django-ratelimit,James Socol,2.0.0,,True,True,True,False,False,True,True,True,False
+92,httplib2,Joe Gregorio,0.14.0,,True,True,True,True,False,False,False,False,False
+93,shortuuid,Stochastic Technologies,0.5.0,,True,False,False,False,False,False,False,False,False
+94,caniusepython3,Brett Cannon,7.2.0,"distlib, setuptools, packaging, argparse, backports.functools-lru-cache, requests, futures ; python_version == ""2.7""",True,True,True,True,True,False,False,False,False
+95,pyinotify,Sebastien Martini,0.9.6,,True,False,False,False,False,False,False,False,False
+96,polib,David Jean Louis,1.1.0,,True,True,True,False,False,False,False,False,False
+97,animation-xblock,,0.1,,,,,,,,,,
+98,glob2,Michael Elsdoerfer,0.7,,False,False,False,False,False,False,False,False,False
+99,attrs,Hynek Schlawack,19.3.0,"coverage ; extra == 'azure-pipelines', hypothesis ; extra == 'azure-pipelines', pympler ; extra == 'azure-pipelines', pytest (>=4.3.0) ; extra == 'azure-pipelines', six ; extra == 'azure-pipelines', zope.interface ; extra == 'azure-pipelines', pytest-azurepipelines ; extra == 'azure-pipelines', coverage ; extra == 'dev', hypothesis ; extra == 'dev', pympler ; extra == 'dev', pytest (>=4.3.0) ; extra == 'dev', six ; extra == 'dev', zope.interface ; extra == 'dev', sphinx ; extra == 'dev', pre-commit ; extra == 'dev', sphinx ; extra == 'docs', zope.interface ; extra == 'docs', coverage ; extra == 'tests', hypothesis ; extra == 'tests', pympler ; extra == 'tests', pytest (>=4.3.0) ; extra == 'tests', six ; extra == 'tests', zope.interface ; extra == 'tests'",True,True,True,True,True,False,False,False,False
+100,xblock-problem-builder,,3.4.1,"XBlock (>=1.2), xblock-utils",False,False,False,False,False,False,False,False,False
+101,bok-choy,edX,1.0.1,"six, selenium (<4,>=2), lazy, needle ; extra == 'visual_diff'",True,True,True,False,False,False,False,False,False
+102,acid-xblock,,0.1,,,,,,,,,,
+103,moto,Steve Pulec,1.3.14,"Jinja2 (>=2.10.1), boto (>=2.36.0), boto3 (>=1.9.201), botocore (>=1.12.201), cryptography (>=2.3.0), requests (>=2.5), xmltodict, six (>1.9), werkzeug, PyYAML (>=5.1), pytz, python-dateutil (<3.0.0,>=2.1), python-jose (<4.0.0), mock, docker (>=2.5.1), jsondiff (==1.1.2), aws-xray-sdk (!=0.96,>=0.93), responses (>=0.9.0), idna (<2.9,>=2.5), cfn-lint (>=0.4.0), sshpubkeys (<4.0,>=3.1.0), backports.tempfile ; python_version<'3.3', flask ; extra == 'server'",True,True,True,True,False,False,False,False,False
+104,mysqlclient,Inada Naoki,1.4.6,,True,True,True,True,True,False,False,False,False
+105,django-require,Dave Hall,1.0.11,,True,False,False,False,False,False,False,False,False
+106,Pygments,Georg Brandl,2.5.2,,True,True,True,True,True,False,False,False,False
+107,celery,Ask Solem,4.3.0,"pytz (>dev), billiard (<4.0,>=3.6.0), kombu (<5.0,>=4.4.0), vine (>=1.3.0), pyArango (>=1.3.2) ; extra == 'arangodb', cryptography ; extra == 'auth', azure-storage (==0.36.0) ; extra == 'azureblockblob', azure-common (==1.1.5) ; extra == 'azureblockblob', azure-storage-common (==1.1.0) ; extra == 'azureblockblob', brotli (>=1.0.0) ; (platform_python_implementation == ""CPython"") and extra == 'brotli', brotlipy (>=0.7.0) ; (platform_python_implementation == ""PyPy"") and extra == 'brotli', cassandra-driver ; extra == 'cassandra', python-consul ; extra == 'consul', pydocumentdb (==2.3.2) ; extra == 'cosmosdbsql', couchbase ; extra == 'couchbase', couchbase-cffi ; (platform_python_implementation == ""PyPy"") and extra == 'couchbase', pycouchdb ; extra == 'couchdb', Django (>=1.8) ; extra == 'django', boto3 (>=1.4.6) ; extra == 'dynamodb', elasticsearch ; extra == 'elasticsearch', eventlet (>=0.24.1) ; extra == 'eventlet', gevent ; extra == 'gevent', librabbitmq (>=1.5.0) ; extra == 'librabbitmq', backports.lzma ; (python_version < ""3.3"") and extra == 'lzma', pylibmc ; extra == 'memcache', pymongo[srv] (>=3.3.0) ; extra == 'mongodb', msgpack ; extra == 'msgpack', python-memcached ; extra == 'pymemcache', pyro4 ; extra == 'pyro', redis (>=3.2.0) ; extra == 'redis', riak (>=2.0) ; extra == 'riak', boto3 (>=1.4.6) ; extra == 's3', softlayer-messaging (>=1.0.3) ; extra == 'slmq', ephem ; extra == 'solar', sqlalchemy ; extra == 'sqlalchemy', boto3 (>=1.4.6) ; extra == 'sqs', pycurl ; extra == 'sqs', tblib (>=1.3.0) ; extra == 'tblib', PyYAML (>=3.10) ; extra == 'yaml', kazoo (>=1.3.1) ; extra == 'zookeeper', zstandard ; extra == 'zstd'",True,True,True,True,False,False,False,False,False
+108,ruamel.yaml,Anthon van der Neut,0.16.5,,True,True,True,True,False,False,False,False,False
+109,tincan,Brian J. Miller,0.0.5,,False,False,False,False,False,False,False,False,False
+110,typing,"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Ivan Levkivskyi",3.7.4.1,,True,False,False,False,False,False,False,False,False
+111,user-util,edX,0.1.5,Click (>=6.0),True,True,True,False,False,False,False,False,False
+112,vulture,Jendrik Seipp,1.2,,True,True,True,True,False,False,False,False,False
+113,slumber,Samuel Giles,0.7.1,,False,False,False,False,False,False,False,False,False
+114,factory-boy,Mark Sandstrom,2.12.0,Faker (>=0.7.0),True,True,True,True,False,True,True,True,False
+115,ipaddress,Philipp Hagemeister,1.0.23,,True,True,True,False,False,False,False,False,False
+116,djangorestframework,Tom Christie,3.10.3,,False,True,True,True,False,True,True,True,True
+117,edx-proctoring-proctortrack,Verificient,1.0.5,edx-proctoring,True,True,True,True,False,False,False,False,False
+118,edx-rest-api-client,edX,1.9.2,"requests, slumber (<1.0,>=0.7.1), PyJWT (<2.0,>=1.1.0)",True,True,True,False,False,False,False,False,False
+119,Open-edX,,0.11,,,,,,,,,,
+120,billiard,R Oudkerk / Python Software Foundation,3.6.1.0,,True,True,True,True,False,False,False,False,False
+121,edx-drf-extensions,edX,2.4.5,"django (<2.0,>=1.8.9), djangorestframework, djangorestframework-jwt (<2.0.0,>=1.7.2), django-waffle, psutil (==1.2.1), edx-django-utils, edx-opaque-keys, semantic-version, pyjwkest (==1.3.2), python-dateutil (>=2.0), requests (<3.0.0,>=2.7.0), rest-condition (<2.0,>=1.0.3), six",True,True,True,False,False,True,False,False,False
+122,flake8,Tarek Ziade,3.7.9,"entrypoints (<0.4.0,>=0.3.0), pyflakes (<2.2.0,>=2.1.0), pycodestyle (<2.6.0,>=2.5.0), mccabe (<0.7.0,>=0.6.0), configparser ; python_version<'3.2', functools32 ; python_version<'3.2', enum34 ; python_version<'3.4', typing ; python_version<'3.5'",True,True,True,True,False,False,False,False,False
+123,tox-battery,Volodymyr Vitvitskyi,0.5.1,,False,False,False,False,False,False,False,False,False
+124,singledispatch,Łukasz Langa,3.4.0.3,,True,False,False,False,False,False,False,False,False
+125,requests,Kenneth Reitz,2.22.0,"chardet (<3.1.0,>=3.0.2), idna (<2.9,>=2.5), urllib3 (!=1.25.0,!=1.25.1,<1.26,>=1.21.1), certifi (>=2017.4.17), pyOpenSSL (>=0.14) ; extra == 'security', cryptography (>=1.3.4) ; extra == 'security', idna (>=2.0.0) ; extra == 'security', PySocks (!=1.5.7,>=1.5.6) ; extra == 'socks', win-inet-pton ; (sys_platform == ""win32"" and python_version == ""2.7"") and extra == 'socks'",True,True,True,True,False,False,False,False,False
+126,certifi,Kenneth Reitz,2019.11.28,,True,True,True,True,False,False,False,False,False
+127,xblock-poll,,1.5.1,,,,,,,,,,
+128,more-itertools,Erik Rose,8.0.2,,False,True,True,True,True,False,False,False,False
+129,edx-rbac,edX,1.0.3,"six, django-crum, django-model-utils, Django (<2.0,>=1.8), edx-drf-extensions",True,False,True,False,False,True,True,False,False
+130,django-crum,"Nine More Minutes, Inc.",0.7.5,django (>=1.8),True,True,True,True,True,True,True,True,True
+131,m2r,Hiroyuki Takagi,0.2.1,,True,True,True,False,False,False,False,False,False
+132,astroid,Python Code Quality Authority,2.3.3,"lazy-object-proxy (==1.4.*), six (~=1.12), wrapt (==1.11.*), typed-ast (<1.5,>=1.4.0) ; implementation_name == ""cpython"" and python_version < ""3.8""",False,True,True,True,False,False,False,False,False
+133,feedparser,Kurt McKee,5.2.1,,True,False,False,False,False,False,False,False,False
+134,uritemplate,Ian Cordasco,3.0.0,,True,True,False,False,False,False,False,False,False
+135,bridgekeeper,Adam Brenecki,0.7,"djangorestframework; extra == 'dev', pytest; extra == 'dev', pytest-django; extra == 'dev', pytest-pythonpath; extra == 'dev', prospector; extra == 'dev', factory-boy (~=2.9.2); extra == 'dev', sphinx (==1.6.5); extra == 'dev', sphinx-rtd-theme (==0.2.4); extra == 'dev'",False,False,False,False,False,False,False,False,False
+136,pycountry,Christian Theune,19.8.18,,False,True,True,True,False,False,False,False,False
+137,python-Levenshtein,Antti Haapala,0.12.0,,False,False,False,False,False,False,False,False,False
+138,amqp,Barry Pederson,2.5.2,"vine (<5.0.0a1,>=1.1.3)",True,True,True,True,False,False,False,False,False
+139,django-pipeline,Timothée Peignier,1.6.14,,True,True,True,False,False,True,False,False,False
+140,django-webpack-loader,Owais Lone,0.6.0,,True,True,False,False,False,False,False,False,False
+141,XModule,,0.1.2,,,,,,,,,,
+142,botocore,Amazon Web Services,1.13.34,,True,True,True,True,False,False,False,False,False
+143,pytz,Stuart Bishop,2019.3,,True,True,True,False,False,False,False,False,False
+144,mpmath,Fredrik Johansson,1.1.0,,False,False,False,False,False,False,False,False,False
+145,edx-django-utils,edX,2.0.2,"newrelic, Django (>=1.11), django-waffle, psutil (==1.2.1)",True,True,True,False,False,True,True,True,True
+146,pycparser,Eli Bendersky,2.19,,True,True,True,False,False,False,False,False,False
+147,py2neo,Nigel Small <technige@nige.tech>,4.3.0,,True,True,True,True,True,False,False,False,False
+148,aniso8601,Brandon Nielsen,8.0.0,,True,True,True,True,False,False,False,False,False
+149,radon,Michele Lacchia,4.0.0,"mando (<0.7,>=0.6), colorama (<0.5,>=0.4), flake8-polyfill, future",True,True,True,False,False,False,False,False,False
+150,symmath,,0.3,,,,,,,,,,
+151,xblock-drag-and-drop-v2,,2.2.6,,,,,,,,,,
+152,defusedxml,Christian Heimes,0.6.0,,True,True,True,True,True,False,False,False,False
+153,ora2,edX,2.4.4,"six (==1.13.0), django-model-utils (==3.0.0), appdirs (==1.4.3), pytz (==2019.3), edx-i18n-tools (==0.4.8), voluptuous (==0.11.7), enum34 (==1.1.6), certifi (==2019.9.11), defusedxml (==0.5.0), edx-submissions (==3.0.2), requests (==2.22.0), webob (==1.8.5), lxml (==3.8.0), webencodings (==0.5.1), jsonfield (==2.0.2), fs (==2.0.18), pyyaml (==5.1.2), path.py (==8.2.1), idna (==2.8), chardet (==3.0.4), web-fragments (==0.3.1), libsass (==0.10.0), django (==1.11.26), python-dateutil (==2.4.0), bleach (==2.1.4), html5lib (==1.0.1), boto (==2.39.0), markupsafe (==1.1.1), polib (==1.1.0), urllib3 (==1.25.7), python-swiftclient (==3.8.1), lazy (==1.1), loremipsum (==1.0.5), futures (==3.3.0) ; python_version == ""2.7""",True,False,True,False,False,True,False,False,False
+154,python3-saml,OneLogin,1.9.0,,True,True,True,True,False,False,False,False,False
+155,coverage-pytest-plugin,,0.1,,,,,,,,,,
+156,scipy,,1.3.3,numpy (>=1.13.3),False,True,True,True,False,False,False,False,False
+157,audio-xblock,,0.1,,,,,,,,,,
+158,django-method-override,LocalMed,1.0.3,django (>=2.0),True,False,False,False,False,False,False,False,False
+159,django-wiki,Taylor Mitchell,1.1dev-,,False,False,False,False,False,False,False,False,False
+160,flake8-polyfill,Ian Cordasco,1.0.2,flake8,True,True,False,False,False,False,False,False,False
+161,django-babel-underscore,Christopher Grebs,0.5.2,,True,False,False,False,False,False,False,False,False
+162,edx-django-release-util,edX,0.3.2,"PyYAML (>=3.11), six (<2.0.0,>=1.10.0), django (<2.0,>=1.8) ; python_version < ""3"", django (>=1.11) ; python_version > ""3""",True,True,True,False,False,True,True,True,True
+163,django-oauth-toolkit,"Federico Frenguelli, Massimiliano Pippi",1.2.0,,False,True,True,False,False,False,True,False,False
+164,markey,Christopher Grebs,0.8,,True,False,False,False,False,False,False,False,False
+165,numpy,Travis E. Oliphant et al.,1.17.4,,False,True,True,True,True,False,False,False,False
+166,pysqlite,Gerhard Haering,2.8.3,,False,False,False,False,False,False,False,False,False
+167,pytest-metadata,Dave Hunt,1.8.0,pytest (>=2.9.0),True,False,True,True,False,False,False,False,False
+168,mando,Michele Lacchia,0.6.4,,True,False,False,False,False,False,False,False,False
+169,newrelic,New Relic,5.4.0.132,,True,True,True,True,True,False,False,False,False
+170,html5lib,James Graham,1.0.1,"six (>=1.9), webencodings, genshi; extra == 'all', chardet (>=2.2); extra == 'all', datrie; platform_python_implementation == 'CPython' and extra == 'all', lxml; platform_python_implementation == 'CPython' and extra == 'all', chardet (>=2.2); extra == 'chardet', datrie; platform_python_implementation == 'CPython' and extra == 'datrie', genshi; extra == 'genshi', lxml; platform_python_implementation == 'CPython' and extra == 'lxml'",True,True,True,False,False,False,False,False,False
+171,isort,Timothy Crosley,4.3.21,"futures ; python_version < ""3.2"", backports.functools-lru-cache ; python_version < ""3.2"", pipreqs ; extra == 'pipfile', requirementslib ; extra == 'pipfile', toml ; extra == 'pyproject', pipreqs ; extra == 'requirements', pip-api ; extra == 'requirements', appdirs (>=1.4.0) ; extra == 'xdg_home'",True,True,True,True,False,False,False,False,False
+172,future,Ed Schofield,0.18.2,,True,True,True,True,False,False,False,False,False
+173,edx-organizations,edX,2.1.1,"djangorestframework-oauth (>=1.1.0), edx-opaque-keys (>=0.1.2), django, Pillow, django-model-utils (>=1.4.0), edx-django-oauth2-provider (>=1.2.0), djangorestframework (>=3.2.0), edx-drf-extensions (>=2.0.0), django-simple-history",True,False,True,False,False,True,True,True,False
+174,py,"holger krekel, Ronny Pfannschmidt, Benjamin Peterson and others",1.8.0,,True,True,True,True,False,False,False,False,False
+175,django-mptt,Craig de Stigter,0.10.0,"Django (>=1.11), django-js-asset",False,True,True,True,False,True,True,True,True
+176,unidiff,Matias Bordese,0.5.5,,True,True,True,False,False,False,False,False,False
+177,pip,The pip developers,19.3.1,,True,True,True,True,True,False,False,False,False
+178,django-multi-email-field,Florent Lebreton,0.5.1,Django,True,True,False,False,False,False,False,False,False
+179,edx-zoom,,1.0.1,"edx-opaque-keys, django, lti-consumer-xblock",False,False,False,False,False,False,False,False,False
+180,geoip2,Gregory Oschwald,2.9.0,,True,True,True,False,False,False,False,False,False
+181,itypes,Tom Christie,1.1.0,,False,False,False,False,False,False,False,False,False
+182,voluptuous,Alec Thomas,0.11.7,,True,False,True,True,False,False,False,False,False
+183,pathlib2,Matthias C. M. Troffaes,2.3.5,"six, scandir; python_version<""3.5""",True,True,True,True,False,False,False,False,False
+184,edx-django-oauth2-provider,edX,1.3.5,"shortuuid (<1.0.0,>=0.4.3), Django (<2.1,>=1.11)",True,True,True,False,False,False,False,False,False
+185,pluggy,Holger Krekel,0.13.1,"importlib-metadata (>=0.12) ; python_version < ""3.8"", pre-commit ; extra == 'dev', tox ; extra == 'dev'",True,True,True,True,True,False,False,False,False
+186,modernize,Armin Ronacher,0.7,,True,False,False,False,False,False,False,False,False
+187,django-user-tasks,edX,0.3.0,"django-model-utils (>=2.0), djangorestframework (>=3.0.4)",True,True,False,False,False,True,True,True,True
+188,inflection,Janne Vanhala,0.3.1,,True,False,False,False,False,False,False,False,False
+189,rest-condition,Maxim Kamenkov,1.0.3,,True,False,False,False,False,False,False,False,False
+190,pystache-custom,,0.5.2,,,,,,,,,,
+191,xblock-discussion,,0.1,,,,,,,,,,
+192,futures,Brian Quinlan,3.3.0,,True,False,False,False,False,False,False,False,False
+193,fs,Will McGugan,2.4.11,"appdirs (~=1.4.3), pytz, setuptools, six (~=1.10), backports.os (~=0.1) ; python_version < '3.0', enum34 (~=1.1.6) ; python_version < '3.4', typing (~=3.6) ; python_version < '3.6', scandir (~=1.5) ; (python_version < '3.5') and extra == 'scandir_'",True,True,True,True,True,False,False,False,False
+194,requests-oauthlib,Kenneth Reitz,1.3.0,,True,True,True,True,False,False,False,False,False
+195,edx-user-state-client,,1.1.2,"PyContracts (<2.0.0,>=1.7.1), edx-opaque-keys (>=2.0.0), xblock (<2.0.0,>=0.4)",True,False,True,False,False,False,False,False,False
+196,pyparsing,Paul McGuire,2.4.5,,True,True,True,True,True,False,False,False,False
+197,websocket-client,liris,0.56.0,,True,True,True,True,False,False,False,False,False
+198,loremipsum,Luca De Vitis,1.0.5,,True,False,False,False,False,False,False,False,False
+199,activetable-xblock,,0.2,,,,,,,,,,
+200,django-statici18n,Sebastien Fievet,1.8.3,"Django (>=1.8), django-appconf (>=0.6), six",True,True,True,True,False,False,False,False,False
+201,pyrsistent,Tobias Gustafsson,0.15.6,,True,True,True,True,False,False,False,False,False
+202,edx-lint,edX,1.4.1,"pylint-celery (==0.3), six (<2.0.0,>=1.10.0), click (>=6.0), click-log (==0.3.2), pylint (==1.9.5) ; python_version < ""3.0"", pylint-django (==0.11.1) ; python_version < ""3.0"", pylint (==2.4.2) ; python_version >= ""3.0"", pylint-django (==2.0.11) ; python_version >= ""3.0""",True,True,False,False,False,False,False,False,False
+203,backports.tempfile,Pi Delport,1.0,,True,True,True,False,False,False,False,False,False
+204,mock,Testing Cabal,3.0.5,"six, funcsigs (>=1) ; python_version < ""3.3"", twine ; extra == 'build', wheel ; extra == 'build', blurb ; extra == 'build', sphinx ; extra == 'docs', pytest ; extra == 'test', pytest-cov ; extra == 'test'",True,True,True,True,False,False,False,False,False
+205,edx-completion,edX,3.0.2,"pytz, djangorestframework (>=3.2.0), edx-drf-extensions (<3.0.0,>=1.11.0), django-model-utils, XBlock (>=1.2.2), edx-opaque-keys[django], Django (>=1.11)",True,True,False,False,False,True,True,True,True
+206,django-cors-headers,Otto Yiu,3.2.0,Django (>=1.11),False,True,True,True,True,True,True,True,True
+207,stevedore,OpenStack,1.31.0,"pbr (!=2.1.0,>=2.0.0), six (>=1.10.0)",True,False,True,True,False,False,False,False,False
+208,Werkzeug,Armin Ronacher,0.16.0,"pytest ; extra == 'dev', coverage ; extra == 'dev', tox ; extra == 'dev', sphinx ; extra == 'dev', pallets-sphinx-themes ; extra == 'dev', sphinx-issues ; extra == 'dev', termcolor ; extra == 'termcolor', watchdog ; extra == 'watchdog'",True,True,True,True,False,False,False,False,False
+209,drf-yasg,Cristi V.,1.17.0,"coreapi (>=2.3.3), coreschema (>=0.0.4), ruamel.yaml (>=0.15.34), inflection (>=0.3.1), six (>=1.10.0), uritemplate (>=3.0.0), packaging, djangorestframework (>=3.8), Django (>=1.11.7), swagger-spec-validator (>=2.1.0) ; extra == 'validation'",True,True,True,True,False,True,True,True,True
+210,djangorestframework-oauth,José Padilla,1.1.0,,True,False,False,False,False,False,False,False,False
+211,rate-xblock,,2.0,,,,,,,,,,
+212,boto3,Amazon Web Services,1.10.34,,True,True,True,True,False,False,False,False,False
+213,pycryptodome,Helder Eijs,3.9.4,,True,True,True,True,False,False,False,False,False
+214,path.py,Jason Orendorff,12.4.0,"path (<13.2), sphinx ; extra == 'docs', jaraco.packaging (>=3.2) ; extra == 'docs', rst.linker (>=1.9) ; extra == 'docs', pytest (!=3.7.3,>=3.5) ; extra == 'testing', pytest-checkdocs (>=1.2.3) ; extra == 'testing', pytest-flake8 ; extra == 'testing', pytest-black-multipy ; extra == 'testing', pytest-cov ; extra == 'testing', appdirs ; extra == 'testing', packaging ; extra == 'testing', pygments ; extra == 'testing'",False,False,False,False,False,False,False,False,False
+215,pylint,Python Code Quality Authority,2.4.4,"astroid (<2.4,>=2.3.0), isort (<5,>=4.2.5), mccabe (<0.7,>=0.6), colorama ; sys_platform==""win32""",False,True,True,True,False,False,False,False,False
+216,edx-ace,edX,0.1.13,"six, stevedore (>=1.10.0), python-dateutil, sailthru-client (==2.2.3), Django, attrs (>=17.2.0), sailthru-client (<2.3,>2.2) ; extra == 'sailthru'",True,True,False,False,False,True,True,True,True
+217,selenium,,3.141.0,,True,True,True,False,False,False,False,False,False
+218,django-model-utils,Carl Meyer,3.2.0,,True,False,True,True,False,True,False,True,True
+219,coverage,Ned Batchelder and 100 others,4.5.4,,True,True,True,True,True,False,False,False,False
+220,python-memcached,Sean Reifschneider,1.59,six (>=1.4.0),True,True,True,False,False,False,False,False,False
+221,django-ipware,Val Neekman,2.1.0,,True,True,True,False,False,False,False,False,False
+222,pytest-forked,pytest-dev,1.1.3,pytest (>=3.1.0),True,True,True,True,False,False,False,False,False
+223,contextlib2,Nick Coghlan,0.6.0.post1,,True,True,True,True,False,False,False,False,False
+224,webencodings,Geoffrey Sneddon,0.5.1,,True,True,True,False,False,False,False,False,False
+225,django-classy-tags,Jonas Obrist,0.9.0,,True,True,True,False,False,True,True,True,False
+226,staff-graded-xblock,,0.5,"markdown, XBlock, xblock-utils (>=v1.0.0), web-fragments, edx-bulk-grades (>=0.4)",True,False,True,False,False,True,True,False,False
+227,cookies,Sasha Hart,2.2.1,,True,False,False,False,False,False,False,False,False
+228,PyContracts,Andrea Censi,1.8.12,,False,False,False,False,False,False,False,False,False
+229,django-ses,Harry Marr,0.8.13,"boto (>=2.31.0), pytz (>=2016.10), future (>=0.16.0), requests (<3) ; extra == 'bounce', M2Crypto ; extra == 'bounce'",True,True,True,False,False,True,True,True,True
+230,edx-opaque-keys,edX,2.0.1,,True,True,True,False,False,False,False,False,False
+231,pycryptodomex,Helder Eijs,3.9.4,,True,True,True,True,False,False,False,False,False
+232,edx-oauth2-provider,edX,1.3.1,"django (<2.0,>=1.8.7), edx-django-oauth2-provider (<2.0.0,>=1.2.1), PyJWT (<2.0.0,>=1.4.0)",True,False,True,False,False,False,False,False,False
+233,web-fragments,edX,0.3.1,"Django (<2.2,>=1.11) ; extra == 'django'",True,True,True,True,False,True,True,True,True
+234,code-annotations,edX,0.3.2,"pyyaml, click (<8.0,>=7.0), python-slugify, Django (<2.0,>=1.11), Jinja2, stevedore",True,False,True,False,False,False,False,False,False
+235,docopt,Vladimir Keleshev,0.6.2,,True,False,False,False,False,False,False,False,False
+236,chem,,1.0.0,,,,,,,,,,
+237,zipp,Jason R. Coombs,0.6.0,"more-itertools, sphinx ; extra == 'docs', jaraco.packaging (>=3.2) ; extra == 'docs', rst.linker (>=1.9) ; extra == 'docs', pathlib2 ; extra == 'testing', contextlib2 ; extra == 'testing', unittest2 ; extra == 'testing'",True,False,False,False,False,False,False,False,False
+238,chardet,Daniel Blanchard,3.0.4,,True,True,True,False,False,False,False,False,False
+239,pynliner,Tanner Netterville,0.8.0,,True,True,False,False,False,False,False,False,False
+240,edx-bulk-grades,edX,0.6.5,"super-csv, requests, Django (<2.0,>=1.11), django-model-utils, slumber, edx-opaque-keys",True,False,True,False,False,True,True,False,False
+241,distlib,Vinay Sajip,0.3.0,,True,True,True,True,True,False,False,False,False
+242,backports.functools-lru-cache,Raymond Hettinger,1.6.1,"sphinx ; extra == 'docs', jaraco.packaging (>=3.2) ; extra == 'docs', rst.linker (>=1.9) ; extra == 'docs', pytest (!=3.7.3,>=3.5) ; extra == 'testing', pytest-checkdocs (>=1.2.3) ; extra == 'testing', pytest-flake8 ; extra == 'testing', pytest-black-multipy ; extra == 'testing', pytest-cov ; extra == 'testing'",True,False,False,False,False,False,False,False,False
+243,edx-search,edX,1.3.1,"Django (<2), elasticsearch (<2.0.0,>=1.0.0), event-tracking, six",True,True,False,False,False,True,True,True,True
+244,kombu,Ask Solem,4.6.7,"amqp (<2.6,>=2.5.2), importlib-metadata (>=0.18) ; python_version < ""3.8"", azure-servicebus (>=0.21.1) ; extra == 'azureservicebus', azure-storage-queue ; extra == 'azurestoragequeues', python-consul (>=0.6.0) ; extra == 'consul', librabbitmq (>=1.5.2) ; extra == 'librabbitmq', pymongo (>=3.3.0) ; extra == 'mongodb', msgpack ; extra == 'msgpack', pyro4 ; extra == 'pyro', qpid-python (>=0.26) ; extra == 'qpid', qpid-tools (>=0.26) ; extra == 'qpid', redis (>=3.3.11) ; extra == 'redis', softlayer-messaging (>=1.0.3) ; extra == 'slmq', sqlalchemy ; extra == 'sqlalchemy', boto3 (>=1.4.4) ; extra == 'sqs', pycurl (==7.43.0.2) ; extra == 'sqs', PyYAML (>=3.10) ; extra == 'yaml', kazoo (>=1.3.1) ; extra == 'zookeeper'",True,True,True,True,True,False,False,False,False
+245,setuptools,Python Packaging Authority,42.0.2,"certifi (==2016.9.26) ; extra == 'certs', wincertstore (==0.2) ; (sys_platform == ""win32"") and extra == 'ssl'",True,True,True,True,True,False,False,False,False
+246,pysrt,Jean Boussier,1.1.1,,False,False,False,False,False,False,False,False,False
+247,alabaster,Jeff Forcier,0.7.12,,True,True,True,False,False,False,False,False,False
+248,simplejson,Bob Ippolito,3.17.0,,True,True,True,True,False,False,False,False,False
+249,vectordraw-xblock,,0.3.0,,,,,,,,,,
+250,pip-tools,Vincent Driessen,4.3.0,"click (>=6), six",True,True,True,True,True,False,False,False,False
+251,freezegun,Steve Pulec,0.3.12,,True,True,True,True,False,False,False,False,False
+252,oauth2,Joe Stump,1.9.0.post1,,True,False,False,False,False,False,False,False,False
+253,analytics-python,Segment,1.2.9,,True,True,False,False,False,False,False,False,False
+254,entrypoints,Thomas Kluyver,0.3,configparser (>=3.5); python_version == '2.7',False,False,False,False,False,False,False,False,False
+255,cryptography,The cryptography developers,2.8,,True,True,True,True,True,False,False,False,False
+256,testfixtures,Chris Withers,6.10.3,"setuptools-git ; extra == 'build', wheel ; extra == 'build', twine ; extra == 'build', sphinx ; extra == 'docs', pytest (>=3.6) ; extra == 'test', pytest-cov ; extra == 'test', pytest-django ; extra == 'test', sybil ; extra == 'test', zope.component ; extra == 'test', twisted ; extra == 'test', mock ; (python_version < ""3"") and extra == 'test', django (<2) ; (python_version < ""3"") and extra == 'test', django ; (python_version >= ""3"") and extra == 'test'",True,False,True,True,False,False,False,False,False
+257,bleach,Will Kahn-Greene,3.1.0,"six (>=1.9.0), webencodings",True,True,True,True,False,False,False,False,False
+258,pytest-randomly,Adam Johnson,3.1.0,"entrypoints, pytest",False,True,True,True,False,False,False,False,False
+259,boto,Mitch Garnaat,2.49.0,,True,False,False,False,False,False,False,False,False
+260,MarkupSafe,Armin Ronacher,1.1.1,,True,True,True,True,False,False,False,False,False
+261,jsonschema,Julian Berman,3.2.0,"attrs (>=17.4.0), pyrsistent (>=0.14.0), setuptools, six (>=1.11.0), functools32 ; python_version < ""3"", importlib-metadata ; python_version < ""3.8"", idna ; extra == 'format', jsonpointer (>1.13) ; extra == 'format', rfc3987 ; extra == 'format', strict-rfc3339 ; extra == 'format', webcolors ; extra == 'format', idna ; extra == 'format_nongpl', jsonpointer (>1.13) ; extra == 'format_nongpl', webcolors ; extra == 'format_nongpl', rfc3986-validator (>0.1.0) ; extra == 'format_nongpl', rfc3339-validator ; extra == 'format_nongpl'",True,True,True,True,True,False,False,False,False
+262,Shapely,Sean Gillies,1.6.4.post2,"pytest; extra == 'all', pytest-cov; extra == 'all', numpy; extra == 'all', pytest; extra == 'test', pytest-cov; extra == 'test', numpy; extra == 'vectorized'",True,False,False,False,False,False,False,False,False
+263,nodeenv,Eugene Kalinin,1.3.3,,True,True,True,False,False,False,False,False,False
+264,pyjwkest,Roland Hedberg,1.4.2,,True,True,False,False,False,False,False,False,False
+265,concept-xblock,,0.1,,,,,,,,,,
+266,codejail,,2.2,,,,,,,,,,
+267,wheel,Daniel Holth,0.33.6,"pytest (>=3.0.0) ; extra == 'test', pytest-cov ; extra == 'test'",True,True,True,True,True,False,False,False,False
+268,scandir,Ben Hoyt,1.10.0,,True,True,True,True,False,False,False,False,False
+269,Markdown,"Manfred Stienstra, Yuri takhteyev and Waylan limberg",3.1.1,"setuptools (>=36), coverage ; extra == 'testing', pyyaml ; extra == 'testing'",True,True,True,True,False,False,False,False,False
+270,anyjson,Rune Halvorsen,0.3.3,,True,False,False,False,False,False,False,False,False
+271,django-ratelimit-backend,Bruno Renié,2.0,Django,True,True,False,False,False,True,True,False,False
+272,pylint-celery,landscape.io,0.3,,False,False,False,False,False,False,False,False,False
+273,edx-when,edX,0.5.2,"edx-opaque-keys, Django (>=1.11), edx-drf-extensions, django-model-utils, xblock",True,True,True,False,False,True,True,True,True
+274,httpretty,Gabriel Falcao,0.9.7,,True,False,True,True,False,False,False,False,False
+275,semantic-version,Raphaël Barrois,2.8.3,,True,True,True,True,False,False,False,False,False
+276,snowballstemmer,Snowball Developers,2.0.0,,True,True,True,True,False,False,False,False,False
+277,docker,,4.1.0,"six (>=1.4.0), websocket-client (>=0.32.0), requests (!=2.18.0,>=2.14.2), ipaddress (>=1.0.16) ; python_version < ""3.3"", backports.ssl-match-hostname (>=3.5) ; python_version < ""3.5"", pypiwin32 (==219) ; sys_platform == ""win32"" and python_version < ""3.6"", pypiwin32 (==223) ; sys_platform == ""win32"" and python_version >= ""3.6"", paramiko (>=2.4.2) ; extra == 'ssh', pyOpenSSL (>=17.5.0) ; extra == 'tls', cryptography (>=1.3.4) ; extra == 'tls', idna (>=2.0.0) ; extra == 'tls'",True,True,True,True,False,False,False,False,False
+278,pyflakes,A lot of people,2.1.1,,True,True,True,True,False,False,False,False,False
+279,packaging,Donald Stufft and individual contributors,19.2,"pyparsing (>=2.0.2), six",True,True,True,True,False,False,False,False,False
+280,functools32,ENDOH takanao,3.2.3-2,,False,False,False,False,False,False,False,False,False
+281,jmespath,James Saryerwinnie,0.9.4,,True,True,True,True,False,False,False,False,False
+282,colorama,Jonathan Hartley,0.4.3,,True,True,True,True,True,False,False,False,False
+283,tox,"Holger Krekel, Oliver Bestwalter, Bernát Gábor and others",3.14.2,"packaging (>=14), pluggy (<1,>=0.12.0), py (<2,>=1.4.17), six (<2,>=1.0.0), virtualenv (>=16.0.0), toml (>=0.9.4), filelock (<4,>=3.0.0), colorama (>=0.4.1) ; platform_system == ""Windows"", importlib-metadata (<2,>=1.1.0) ; python_version < ""3.8"", sphinx (<3,>=2.0.0) ; extra == 'docs', towncrier (>=18.5.0) ; extra == 'docs', pygments-github-lexers (>=0.0.5) ; extra == 'docs', sphinxcontrib-autoprogram (>=0.1.5) ; extra == 'docs', freezegun (<1,>=0.3.11) ; extra == 'testing', pathlib2 (<3,>=2.3.3) ; extra == 'testing', pytest (<6,>=4.0.0) ; extra == 'testing', pytest-cov (<3,>=2.5.1) ; extra == 'testing', pytest-mock (<2,>=1.10.0) ; extra == 'testing', pytest-xdist (<2,>=1.22.2) ; extra == 'testing', pytest-randomly (<4,>=1.0.0) ; extra == 'testing', flaky (<4,>=3.4.0) ; extra == 'testing', psutil (<6,>=5.6.1) ; (python_version != ""3.4"") and extra == 'testing'",True,True,True,True,False,False,False,False,False
+284,Mako,Mike Bayer,1.1.0,,False,False,False,False,False,False,False,False,False
+285,pytest-cov,Marc Schlaich,2.8.1,"pytest (>=3.6), coverage (>=4.4), fields ; extra == 'testing', hunter ; extra == 'testing', process-tests (==2.0.2) ; extra == 'testing', six ; extra == 'testing', virtualenv ; extra == 'testing'",True,True,True,True,False,False,False,False,False
+286,edx-proctoring,edX,2.1.6,"python-dateutil (>=2.1), edx-drf-extensions, django-waffle, pytz (>=2018), rules, django (<2,>=1.11), djangorestframework, django-model-utils (>=2.3.1), django-crum, django-ipware (>=1.1.0), event-tracking (>=0.2.5), pycryptodomex (>=3.4.7), edx-opaque-keys (>=0.4), django-webpack-loader (>=0.6.0), edx-when (>=0.1.3), edx-rest-api-client (>=1.9.2), jsonfield (>=2.0.2)",True,False,True,True,False,True,False,False,False
+287,super-csv,edX,0.9.6,"django-celery, django-model-utils, djangorestframework, edx-celeryutils, simplejson, django-crum, Django (>=1.11)",True,True,False,False,False,True,True,True,True
+288,WebOb,Ian Bicking,1.8.5,"Sphinx (>=1.7.5); extra == 'docs', pylons-sphinx-themes; extra == 'docs', pytest (>=3.1.0); extra == 'testing', coverage; extra == 'testing', pytest-cov; extra == 'testing', pytest-xdist; extra == 'testing'",True,True,True,True,False,False,False,False,False
+289,edx-celeryutils,edX,0.3.1,"celery (<4.0,>=3.1.25), django-model-utils (==3.0.0), django-celery, Django (>=1.11), jsonfield, future",True,True,False,False,False,True,True,True,True
+290,mistune,Hsiaoming Yang,0.8.4,,True,True,True,True,False,False,False,False,False
+291,redis,Andy McCurdy,3.3.11,hiredis (>=0.1.3); extra == 'hiredis',True,True,True,True,False,False,False,False,False
+292,nltk,Steven Bird,3.4.5,,True,True,True,True,False,False,False,False,False
+293,Pillow,Alex Clark (PIL Fork Author),6.2.1,,True,True,True,True,True,False,False,False,False
+294,Paver,Lukas Linhart,1.3.4,six,True,True,True,False,False,False,False,False,False
+295,beautifulsoup4,Leonard Richardson,4.8.1,"soupsieve (>=1.2), html5lib ; extra == 'html5lib', lxml ; extra == 'lxml'",True,False,False,False,False,False,False,False,False
+296,mccabe,Ian Cordasco,0.6.1,,True,True,True,False,False,False,False,False,False
+297,Babel,Armin Ronacher,2.7.0,pytz (>=2015.7),True,True,True,True,False,False,False,False,False
+298,django-debug-toolbar,Rob Hudson,2.1,"Django (>=1.11), sqlparse (>=0.2.0)",False,True,True,True,False,True,True,True,True
+299,pygraphviz,Aric Hagberg,1.5,,True,True,True,True,False,False,False,False,False
+300,edx-enterprise,edX,2.0.30,"tincan, bleach, celery, code-annotations, cryptography, django-config-models, django-countries, django-crum, django-fernet-fields, django-filter, django-ipware, django-model-utils, django-multi-email-field, django-object-actions, django-simple-history, django-waffle, django, djangorestframework-xml, djangorestframework, edx-django-utils, edx-drf-extensions, edx-opaque-keys[django], edx-rest-api-client, edx-rbac, future, jsondiff, jsonfield, path.py, pillow, python-dateutil, pytz, requests, rules, six, slumber, stevedore, testfixtures, unicodecsv",True,False,True,False,False,True,False,False,False
+301,laboratory,Joe Alcorn,1.0.2,"Sphinx (==1.6.6) ; extra == 'dev', alabaster (==0.7.12) ; extra == 'dev'",True,True,True,False,False,False,False,False,False
+302,imagesize,Yoshiki Shibukawa,1.1.0,,True,True,True,True,False,False,False,False,False
+303,cssutils,Christof Hoeke,1.0.2,,True,True,False,False,False,False,False,False,False
+304,watchdog,Yesudeep Mangalapilly,0.9.0,,True,True,True,True,False,False,False,False,False
+305,Django,Django Software Foundation,3.0,"pytz, sqlparse (>=0.2.2), asgiref (~=3.2), argon2-cffi (>=16.1.0) ; extra == 'argon2', bcrypt ; extra == 'bcrypt'",False,False,True,True,True,False,False,False,False
+306,pbr,OpenStack,5.4.4,,True,True,True,True,False,False,False,False,False
+307,faulthandler,Victor Stinner,3.1,,False,False,False,False,False,False,False,False,False
+308,isodate,Gerhard Weis,0.6.0,,True,True,True,False,False,False,False,False,False
+309,xblock-google-drive,,0.1,,,,,,,,,,
+310,ruamel.yaml.clib,Anthon van der Neut,0.2.0,,True,True,True,True,False,False,False,False,False
+311,jsondiff,Zoomer Analytics LLC,1.2.0,,True,False,False,False,False,False,False,False,False
+312,lazy,Stefan H. Holek,1.4,,False,False,False,False,False,False,False,False,False
+313,edx-jsme,,1.0,,,,,,,,,,
+314,wcwidth,Jeff Quast,0.1.7,,True,True,False,False,False,False,False,False,False
+315,pytest-faulthandler,Bruno Oliveira,2.0.1,pytest (>=5.0),False,False,False,False,False,False,False,False,False
+316,recommender-xblock,edX,1.4.5,,True,True,True,False,False,True,False,False,False
+317,django-oauth-plus,David Larlet,2.2.9,,True,False,False,False,False,False,False,False,False
+318,elasticsearch,"Honza Král, Nick Lang",7.1.0,,True,True,True,True,True,False,False,False,False
+319,django-simple-history,Corey Bertram,2.8.0,six,True,True,True,True,True,True,True,True,True
+320,ruamel.ordereddict,Anthon van der Neut,0.4.14,,False,False,False,False,False,False,False,False,False
+321,xmlsec,Bulat Gaifullin,1.3.3,,True,True,True,False,False,False,False,False,False
+322,pkgconfig,Matthias Vogelgesang,1.5.1,,True,True,True,True,False,False,False,False,False
+323,coreapi,Tom Christie,2.3.3,,True,True,True,False,False,False,False,False,False
+324,pytest-json-report,numirias,1.2.1,"pytest (>=4.2.0), pytest-metadata",True,True,True,True,True,False,False,False,False
+325,lxml,lxml dev team,4.4.2,"cssselect (>=0.7); extra == 'cssselect', html5lib; extra == 'html5', BeautifulSoup4; extra == 'htmlsoup', Cython (>=0.29.7); extra == 'source'",True,True,True,True,False,False,False,False,False
+326,xmltodict,Martin Blech,0.12.0,,True,True,True,True,False,False,False,False,False
+327,pylint-django,landscape.io,2.0.13,"pylint (>=2.0), pylint-plugin-utils (>=0.5), coverage; extra == 'for_tests', django-tables2; extra == 'for_tests', factory-boy; extra == 'for_tests', pytest; extra == 'for_tests', Django; extra == 'with_django'",False,True,True,True,False,False,False,False,False
+328,ddt,Carles Barrobés,1.2.2,,True,True,False,False,False,False,False,False,False
+329,docutils,David Goodger,0.15.2,,True,True,True,True,False,False,False,False,False
+330,edx-ccx-keys,edX,1.0.0,,True,True,False,False,False,False,False,False,False
+331,crowdsourcehinter-xblock,,0.2,,,,,,,,,,
+332,libsass,Hong Minhee,0.19.4,,True,True,True,True,False,False,False,False,False
+333,MongoDBProxy,Gustav Arngarden,0.1.0,,False,False,False,False,False,False,False,False,False
+334,labxchange-xblocks,,0.3.0,,,,,,,,,,
+335,django-filter,Alex Gaynor,2.2.0,Django (>=1.11),False,True,True,True,False,True,True,True,True
+336,importlib-metadata,Barry Warsaw,1.2.0,"zipp (>=0.5), pathlib2 ; python_version < ""3"", contextlib2 ; python_version < ""3"", configparser (>=3.5) ; python_version < ""3"", sphinx ; extra == 'docs', rst.linker ; extra == 'docs', packaging ; extra == 'testing', importlib-resources ; (python_version < ""3.7"") and extra == 'testing'",False,False,False,False,False,False,False,False,False
+337,rules,Akis Kesoglou,2.1,,True,True,True,False,False,False,False,False,False
+338,argh,Andrey Mikhaylenko,0.26.2,,True,False,False,False,False,False,False,False,False
+339,django-mysql,Adam Johnson,3.2.0,Django (>=1.11),False,True,True,True,False,True,True,True,True
+340,Faker,joke2k,3.0.0,"python-dateutil (>=2.4), six (>=1.10), text-unidecode (==1.3), ipaddress ; python_version<""3.3""",True,True,True,True,False,False,False,False,False
+341,atomicwrites,Markus Unterwaditzer,1.3.0,,True,True,True,False,False,False,False,False,False
+342,maxminddb,Gregory Oschwald,1.5.1,,True,True,True,True,False,False,False,False,False
+343,pytest-attrib,Abdeali JK,0.1.3,,True,False,False,False,False,False,False,False,False
+344,execnet,holger krekel and others,1.7.1,"apipkg (>=1.4), pre-commit ; extra == 'testing'",True,True,True,True,False,False,False,False,False
+345,cssselect,Ian Bicking,1.1.0,,True,True,True,False,False,False,False,False,False
+346,soupsieve,Isaac Muse,1.9.5,,True,True,True,True,True,False,False,False,False
+347,psutil,Giampaolo Rodola,5.6.7,enum34 ; extra == 'enum',True,False,False,False,False,False,False,False,False
+348,gunicorn,Benoit Chesneau,20.0.4,"setuptools (>=3.0), eventlet (>=0.9.7) ; extra == 'eventlet', gevent (>=0.13) ; extra == 'gevent', setproctitle ; extra == 'setproctitle', tornado (>=0.2) ; extra == 'tornado'",False,True,True,True,True,False,False,False,False
+349,capa,Vinh-thuy TRAN,0.1,,False,False,False,False,False,False,False,False,False
+350,six,Benjamin Peterson,1.13.0,,False,False,False,False,False,False,False,False,False
+351,idna,Kim Davies,2.8,,True,True,True,False,False,False,False,False,False
+352,oppia-xblock,,0.0.0,,,,,,,,,,
+353,inflect,Paul Dyson,3.0.2,"importlib-metadata, sphinx ; extra == 'docs', jaraco.packaging (>=3.2) ; extra == 'docs', rst.linker (>=1.9) ; extra == 'docs', pytest (!=3.7.3,>=3.5) ; extra == 'testing', pytest-checkdocs (>=1.2.3) ; extra == 'testing', pytest-flake8 ; extra == 'testing', pytest-black-multipy ; extra == 'testing', pytest-cov ; extra == 'testing', nose ; extra == 'testing'",True,False,False,False,False,False,False,False,False
+354,pdfminer.six,Yusuke Shinyama + Philippe Guglielmetti,20191110,"pycryptodome, six, sortedcontainers, chardet ; python_version > ""3.0"", nose ; extra == 'dev', tox ; extra == 'dev', sphinx ; extra == 'docs', sphinx-argparse ; extra == 'docs'",True,True,True,False,False,False,False,False,False
+355,pyuca,James Tauber,1.2,,True,True,True,False,False,False,False,False,False
+356,django-fernet-fields,"ORCAS, Inc",0.6,,True,True,True,True,False,False,False,False,False
+357,social-auth-app-django,Matias Aguirre,3.1.0,,True,False,False,False,False,False,False,False,False
+358,sqlparse,Andi Albrecht,0.3.0,,True,True,True,True,False,False,False,False,False
+359,unicodecsv,Jeremy Dunck,0.14.1,,True,True,False,False,False,False,False,False,False
+360,pyquery,Olivier Lauzanne,1.4.1,"lxml (>=2.1), cssselect (>0.7.9)",True,True,True,True,False,False,False,False,False
+361,virtualenv,Ian Bicking,16.7.8,"sphinx (<2,>=1.8.0) ; extra == 'docs', towncrier (>=18.5.0) ; extra == 'docs', sphinx-rtd-theme (<1,>=0.4.2) ; extra == 'docs', pytest (<5,>=4.0.0) ; extra == 'testing', coverage (<5,>=4.5.0) ; extra == 'testing', pytest-timeout (<2,>=1.3.0) ; extra == 'testing', six (<2,>=1.10.0) ; extra == 'testing', pytest-xdist ; extra == 'testing', pytest-localserver ; extra == 'testing', pypiserver ; extra == 'testing', mock ; (python_version < ""3.3"") and extra == 'testing', xonsh ; (python_version >= ""3.5"") and extra == 'testing'",True,True,True,True,False,False,False,False,False
