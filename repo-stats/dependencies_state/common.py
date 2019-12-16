@@ -34,7 +34,7 @@ class GetEnvDepData(ABC):
         None
 
 
-    def readLocalJsonDate(self, file_path=None):
+    def readLocalJsonData(self, file_path=None):
         if file_path is None:
             file_path = self.default_json_file_path
         with open(os.path.expanduser(file_path), "r") as json_file:

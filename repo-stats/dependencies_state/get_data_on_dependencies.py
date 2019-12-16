@@ -15,8 +15,7 @@ def auto_get_data(arguments):
     use this function for the first time you are in a given env, this will get info on all packages installed
     and on all the latest packages avaible
     """
-    #TODO(jinder): figure out how to do latest vs current env things
-    Namespace(auto_script=False, csv_path=None, latest=False, read_json_file=None, reget_data=False, save_raw_data=None)
+    # arguments: Namespace(auto_script=False, csv_path=None, latest=False, read_json_file=None, reget_data=False, save_raw_data=None)
     arguments.csv_path = None
     arguments.latest = False
     arguments.read_json_file = None
@@ -39,15 +38,16 @@ def get_data_on_packages(arguments):
     if arguments.read_json_file:
         print("reading data from file")
         if arguments.read_json_file == True:
-            state_getter.readLocalJsonDate()
+            state_getter.readLocalJsonData()
         else:
-            state_getter.readLocalJsonDate(arguments.read_json_file)
+            state_getter.readLocalJsonData(arguments.read_json_file)
     else:
         print("Getting new data")
         packages = state_getter.get_list_dependencies()
         packages = state_getter.get_packages_details()
     print("Saving data")
-    # save all json data, cause our defined array(below) is subjest of stuff
+    # save all json data, cause our defined array(below) is subset of stuff
+    #(so in case something goes wrong in conversion below, the data can just be read from file)
     state_getter.saveRawJsonData(arguments.save_json_file)
     print("Converting data")
     final_data = state_getter.convert_from_dict_to_defined_array()
