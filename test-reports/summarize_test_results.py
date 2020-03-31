@@ -243,7 +243,7 @@ def report_file(path, html_writer):
 
     with open(path) as xml_file:
         tree = etree.parse(xml_file)                # pylint: disable=no-member
-    suite = tree.xpath("/testsuite")[0]
+    suite = tree.xpath("//testsuite")[0]
 
     errors = get_errors(tree)
 
