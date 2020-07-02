@@ -66,6 +66,8 @@ and no delete statement will be generated.
 
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
 import csv
 from getpass import getpass
@@ -186,7 +188,7 @@ def dump_csv(users, f):
 def dump_cs_deletes(users, f):
     logger.info('generating delete statements...')
     for u in users:
-        print >> f, 'db.users.remove({{_id: "{}"}}) // {}'.format(u.cs_id, u)
+        print('db.users.remove({{_id: "{}"}}) // {}'.format(u.cs_id, u), file=f)
 
 
 if __name__=='__main__':
