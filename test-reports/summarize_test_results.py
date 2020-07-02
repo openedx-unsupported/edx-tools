@@ -7,6 +7,7 @@ where the "reports" directory is inside the archive of an edx-platform
 CI test run output by Jenkins.
 """
 
+from __future__ import absolute_import
 import collections
 import csv
 import os
@@ -18,6 +19,7 @@ from xml.sax.saxutils import escape
 
 import click
 from lxml import etree
+from six.moves import range
 
 # Currently, both nose test results and pytest test results are saved
 # to the same nose-like filename. The name may change in the future -
@@ -234,7 +236,7 @@ def get_errors(xml_tree):
         if testcases:
             errors[error_line].append(testcases[0])
 
-    errors = sorted(errors.items(), key=lambda kv: len(kv[1]), reverse=True)
+    errors = sorted(list(errors.items()), key=lambda kv: len(kv[1]), reverse=True)
     return errors
 
 
@@ -278,7 +280,7 @@ def report_file(path, html_writer):
     if skipped:
         total = sum(len(v) for v in skipped.values())
         html_writer.start_section(u'<span class="count">{0:d}:</span> Skipped'.format(total), klass="skipped")
-        skipped = sorted(skipped.items(), key=lambda kv: len(kv[1]), reverse=True)
+        skipped = sorted(list(skipped.items()), key=lambda kv: len(kv[1]), reverse=True)
         for message, testcases in skipped:
             html = u'<span class="count">{0:d}:</span> {1}'.format(len(testcases), escape(clipped(message)))
             html_writer.start_section(html, klass="error")
