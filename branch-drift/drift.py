@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import datetime
 from dateutil import parser
@@ -9,6 +11,7 @@ from optparse import OptionParser, OptionError
 from collections import OrderedDict
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter, WeekdayLocator, MONDAY
+from six.moves import range
 
 # All of these can be overriden by command lines
 DEFAULT_START_DATE = "2013-06-05"
@@ -26,8 +29,8 @@ def main():
     to_branch = options.tobranch
 
     (start_date, end_date) = calculate_dates(options, from_branch, to_branch)
-    print "scanning from %s to %s" % (start_date.strftime("%Y-%m-%d"), \
-                end_date.strftime("%Y-%m-%d"))
+    print("scanning from %s to %s" % (start_date.strftime("%Y-%m-%d"), \
+                end_date.strftime("%Y-%m-%d")))
 
     # Diffs between branches -- gather and plot
     (difflines, diffblocks) = branch_diffs(from_branch, to_branch, 
@@ -38,16 +41,16 @@ def main():
     ax.xaxis.set_major_locator(WeekdayLocator(MONDAY))
     plt.subplots_adjust(hspace=.5)
     plt.title("Size of diff between %s and %s" % (from_branch, to_branch))
-    plt.plot(difflines.keys(), difflines.values())
+    plt.plot(list(difflines.keys()), list(difflines.values()))
 
     ax = fig.add_subplot(212)
     ax.xaxis.set_major_formatter(DateFormatter('%m/%d'))
     ax.xaxis.set_major_locator(WeekdayLocator(MONDAY))
     plt.title("Changes between %s and %s" % (from_branch, to_branch))
-    plt.plot(diffblocks.keys(), diffblocks.values())
+    plt.plot(list(diffblocks.keys()), list(diffblocks.values()))
 
     plt.savefig(options.diff_filename, dpi=300)
-    print "diff: write to file", os.getcwd() + "/" + options.diff_filename
+    print("diff: write to file", os.getcwd() + "/" + options.diff_filename)
 
     # Age since merge -- gather and plot
     ages = branch_diverge_days(from_branch, to_branch, 
@@ -57,9 +60,9 @@ def main():
     ax.xaxis.set_major_formatter(DateFormatter('%m/%d'))
     ax.xaxis.set_major_locator(WeekdayLocator(MONDAY))
     plt.title("Days since merge, %s and %s" % (from_branch, to_branch))
-    plt.plot(ages.keys(), ages.values())
+    plt.plot(list(ages.keys()), list(ages.values()))
     plt.savefig(options.age_filename, dpi=300)
-    print "age: wrote to file", os.getcwd() + "/" + options.age_filename
+    print("age: wrote to file", os.getcwd() + "/" + options.age_filename)
 
     
 
@@ -125,7 +128,7 @@ def calculate_dates(options, from_branch, to_branch):
 def beginning_of_branch(name):
     commit = oldest_commit_on_branch(name)
     date = date_from_git_commithash(commit)
-    print "oldestcommit on", name, "is", commit, " date =", date.strftime("%Y-%m-%d")
+    print("oldestcommit on", name, "is", commit, " date =", date.strftime("%Y-%m-%d"))
     return date
 
 def oldest_commit_on_branch(branchname):
@@ -177,7 +180,7 @@ def branch_diffs(from_branch, to_branch, start_date, end_date):
                 blocks += 1
         difflines[d] = lines
         diffblocks[d] = blocks
-        print "diff:", d.strftime('%Y-%m-%d'), lines, blocks
+        print("diff:", d.strftime('%Y-%m-%d'), lines, blocks)
 
     return (difflines, diffblocks)
 
@@ -195,7 +198,7 @@ def branch_diverge_days(from_branch, to_branch, start_date, end_date):
         ancestor_date = date_from_git_commithash(cmdout)
         age = abs((ancestor_date - d).days)
         ages[d] = age
-        print "age:", d.strftime('%Y-%m-%d'), age
+        print("age:", d.strftime('%Y-%m-%d'), age)
     return ages
 
 
