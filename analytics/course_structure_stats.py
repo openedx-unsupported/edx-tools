@@ -2,18 +2,22 @@
 
 # WARNING: This script isn't fast and doesn't write anything to disk.
 
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import defaultdict
-import cookielib
+import six.moves.http_cookiejar
 import getpass
 import json
 import time
-import urllib2
+import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
+import six
+from six.moves import input
 
 class CourseStructureBrowser:
     def __init__(self):
-        self.cookie_jar = cookielib.CookieJar()
-        self.url_opener = urllib2.build_opener(
-                urllib2.HTTPCookieProcessor(self.cookie_jar))
+        self.cookie_jar = six.moves.http_cookiejar.CookieJar()
+        self.url_opener = six.moves.urllib.request.build_opener(
+                six.moves.urllib.request.HTTPCookieProcessor(self.cookie_jar))
     def login(self, username, password):
         self.url_opener.open("https://courses.edx.org/login").read()
         self.url_opener.addheaders = [
@@ -24,8 +28,8 @@ class CourseStructureBrowser:
         self.url_opener.open(
                 "https://courses.edx.org/user_api/v1/account/login_session/",
                 data='email=%s&password=%s&remember=false' %
-                    (urllib2.quote(username),
-                    urllib2.quote(password)))
+                    (six.moves.urllib.parse.quote(username),
+                    six.moves.urllib.parse.quote(password)))
     def grab_all_courses(self, pageLimit = None):
         courses = []
         jj = {'next': 'https://courses.edx.org/api/course_structure/v0/courses/?format=json'}
@@ -34,13 +38,13 @@ class CourseStructureBrowser:
             if pageLimit and pageLimit <= page:
                 break
             page += 1
-            print "Grabbing", jj['next']
+            print("Grabbing", jj['next'])
             data = None
             while data is None:
                 try:
                     data = self.url_opener.open(jj['next']).read()
-                except urllib2.HTTPError:
-                    print "Error... sleeping."
+                except six.moves.urllib.error.HTTPError:
+                    print("Error... sleeping.")
                     time.sleep(5)
             jj = json.loads(data)
             data = " ".join(data.split("\n"))
@@ -50,7 +54,7 @@ class CourseStructureBrowser:
         course_structure = {}
         for course_id in course_ids:
             cs_uri = "https://courses.edx.org/api/course_structure/v0/course_structures/%s" % course_id
-            print "Grabbing", cs_uri
+            print("Grabbing", cs_uri)
 
             data = None
             failure_count = 0
@@ -59,8 +63,8 @@ class CourseStructureBrowser:
                     course_structure[course_id] = \
                         self.url_opener.open(cs_uri).read()
                     break
-                except urllib2.HTTPError as e:
-                    print "Error %s... sleeping." % e
+                except six.moves.urllib.error.HTTPError as e:
+                    print("Error %s... sleeping." % e)
                     failure_count += 1
                     time.sleep(5)
         return course_structure
@@ -79,7 +83,7 @@ class CourseStructureBrowser:
         return course_tree
 
 if __name__ == '__main__':
-    username = raw_input("edx username: ")
+    username = input("edx username: ")
     password = getpass.getpass()
 
     csb = CourseStructureBrowser()
@@ -88,7 +92,7 @@ if __name__ == '__main__':
     
     course_trees = {course_id: csb.parse_course_json(course_json) for
             (course_id, course_json) in
-            csb.grab_course_structure([course['id'] for course in courses]).iteritems()}
+            six.iteritems(csb.grab_course_structure([course['id'] for course in courses]))}
 
     total_count = defaultdict(lambda: 0)
     for course_id in course_trees:
@@ -96,10 +100,10 @@ if __name__ == '__main__':
         for block in course_trees[course_id]['blocks'].values():
             count[block['type']] += 1
             total_count[block['type']] += 1
-        print "Stats for course %s" % course_id
+        print("Stats for course %s" % course_id)
         for block in count:
-            print "    %8d %s" % (count[block], block)
-        print
-    print "Totals"
+            print("    %8d %s" % (count[block], block))
+        print()
+    print("Totals")
     for block in total_count:
-        print "    %8d %s" % (total_count[block], block)
+        print("    %8d %s" % (total_count[block], block))

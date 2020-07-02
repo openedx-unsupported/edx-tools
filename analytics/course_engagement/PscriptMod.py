@@ -1,5 +1,6 @@
 #This script is meant to read in an SQL query (dumped as csv)
 #and create a pivot table with modules as rows and grades as columns.
+from __future__ import absolute_import
 import sys
 import csv
 import pandas as pd

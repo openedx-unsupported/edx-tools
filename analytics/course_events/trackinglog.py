@@ -5,10 +5,13 @@
 """
 
 
+from __future__ import absolute_import
+from __future__ import print_function
 import json
 from dateutil import parser
 import codecs
 from . import template_location, course_location, course
+from six.moves import range
 
 EVENT_TYPE = ['/create_new_course', '/clone_item', '/save_item', '/publish_draft', '/create_draft', '/delete_item']
 
@@ -98,10 +101,10 @@ class CourseEvents():
         for component in course_components:
             if component.location.url() == location.url():
                 out = '%s\t%s\t location\t%s \n' % (location.category, component.name, component.location.url())
-                print out
+                print(out)
                 create = parser.parse(time)
                 out = 'user:\t%s\tevent:\t%s\t DateTime:\t%s \n' % (username, event_type, create.strftime('%m/%d/%Y %H:%M'))
-                print out
+                print(out)
                 log_entry = '%s\t%s\t%s\t%s\t%s\t%s \n' % (location.category, component.name, component.location.url(),
                         event_type,username,create.strftime('%m/%d/%Y %H:%M'))
                 component.log_entries.append(log_entry)
@@ -115,10 +118,10 @@ class CourseEvents():
                     child_component = self._get_children_by_id(location.url(), child)
                     if child_component is not None:
                         out = '%s\t%s\t location:\t%s \n' % (location.category, child_component.name, child_component.location.url())
-                        print out
+                        print(out)
                         create = parser.parse(time)
                         out = 'user:\t%s\tevent:\t%s\tDate Time:\t%s \n' % (username, event_type, create.strftime('%m/%d/%Y %H:%M'))
-                        print out
+                        print(out)
                         log_entry = '%s\t%s\t%s\t%s\t%s\t%s \n' % (location.category, child_component.name, child_component.location.url(),
                         event_type,username,create.strftime('%m/%d/%Y %H:%M'))
                         component.log_entries.append(log_entry)
@@ -179,10 +182,10 @@ class CourseEvents():
                 for component in course_components:
                     if component.location.category == 'course' and component.name == name[0]:
                         out = 'course:\t %s\t start_date:\t%s\t location:\t%s \n' % (name[0], component.start_date.strftime('%m/%d/%Y %H:%M'), component.location.url())
-                        print out
+                        print(out)
                         create = parser.parse(time)
                         out = 'user:\t %s \t event:\t created \t Date Time: \t %s \n' % (username, create.strftime('%m/%d/%Y %H:%M'))
-                        print out
+                        print(out)
                         break
             elif event_type == '/clone_item':
                 post = json.loads(event)['POST']
@@ -208,10 +211,10 @@ class CourseEvents():
                 for component in course_components:
                     if component.location.category == location.category and component.name == display_name:
                         out = '%s\t%s\t location\t%s \n' % (location.category, display_name, component.location.url())
-                        print out
+                        print(out)
                         create = parser.parse(time)
                         out = 'user:\t%s\tevent:\tcreate\t Date Time\t%s \n' % (username, create.strftime('%m/%d/%Y %H:%M'))
-                        print out
+                        print(out)
                         log_entry = '%s\t%s\t%s\t%s\t%s\t%s \n' % (location.category, display_name, component.location.url(),
                         'clone_item',username,create.strftime('%m/%d/%Y %H:%M'))
                         component.log_entries.append(log_entry)
@@ -222,10 +225,10 @@ class CourseEvents():
                             child_component = self._get_children(display_name, location.category, child)
                             if child_component is not None:
                                 out = '%s\t%s\t location:\t%s \n' % (location.category, display_name, child_component.location.url())
-                                print out
+                                print(out)
                                 create = parser.parse(time)
                                 out = 'user:\t%s\tevent:\tcreate\tDate  Time:\t%s \n' % (username, create.strftime('%m/%d/%Y %H:%M'))
-                                print out
+                                print(out)
                                 log_entry = '%s\t%s\t%s\t%s\t%s\t%s \n' % (location.category, child_component.name, child_component.location.url(),
                                                                         'clone_item',username,create.strftime('%m/%d/%Y %H:%M'))
                                 component.log_entries.append(log_entry)
