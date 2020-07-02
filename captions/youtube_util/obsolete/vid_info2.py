@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from xml.dom.minidom import *
 data=[s.split('|') for s in open('video_list.txt').readlines()]
 impl = getDOMImplementation()
@@ -26,7 +28,7 @@ for (youtube_id,name,time) in data:
     section.appendChild(vid)
     chapter.appendChild(section)
 
-print doc.toprettyxml()
+print(doc.toprettyxml())
 #f=open('video_list.xml','w')
 #f.write(doc.toprettyxml())
 #f.close()

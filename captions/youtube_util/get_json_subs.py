@@ -1,9 +1,12 @@
-import urllib2
+from __future__ import absolute_import
+from __future__ import print_function
+import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 from xml.etree import ElementTree
 import sys
 import os
 import json
 import re
+from six import unichr
 
 def main():
     id=sys.argv[1]
@@ -24,7 +27,7 @@ def main():
 
 def get_json_subs(video_id, verbose=True):
     url = 'http://video.google.com/timedtext?lang=en&v=' + video_id
-    response = urllib2.urlopen(url)
+    response = six.moves.urllib.request.urlopen(url)
     xmlString = response.read()
     
     if not xmlString:
@@ -32,11 +35,11 @@ def get_json_subs(video_id, verbose=True):
         # http://video.google.com/timedtext?hl=en&ts=&type=track&name=Captions&lang=en&v=XXXX
         # Docs for doing this more properly at: http://nettech.wikia.com/wiki/YouTube
         url = 'http://video.google.com/timedtext?hl=en&ts=&type=track&name=Captions&lang=en&v=' + video_id
-        print "Trying fallback:", url,
-        response = urllib2.urlopen(url)
+        print("Trying fallback:", url, end=' ')
+        response = six.moves.urllib.request.urlopen(url)
         xmlString = response.read()
-        if xmlString: print "... got data"
-        else: print "... nope"
+        if xmlString: print("... got data")
+        else: print("... nope")
     
     sub_starts = []
     sub_ends = []
@@ -64,7 +67,7 @@ def get_json_subs(video_id, verbose=True):
                     sub_texts.append(unescape(text))
     except Exception as e:
         if verbose:
-            print "error parsing subtitles from youtube id " + video_id + ":" , e
+            print("error parsing subtitles from youtube id " + video_id + ":" , e)
         pass #There probably wasn't any captions available
             
     subs_dict={'start':sub_starts,
@@ -78,7 +81,7 @@ def ensure_dir(f):
     if not os.path.exists(d):
         os.makedirs(d)
         
-from htmlentitydefs import name2codepoint
+from six.moves.html_entities import name2codepoint
 # for some reason, python 2.5.2 doesn't have this one (apostrophe)
 name2codepoint['#39'] = 39
 

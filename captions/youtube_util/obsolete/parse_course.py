@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from xml.dom.minidom import parse, parseString
 import json
 
@@ -17,4 +19,4 @@ for c in chapters:
     ch.append({'name':c.getAttribute("name"), 
               'sections':sections})
 
-print json.dumps(ch, indent=2)
+print(json.dumps(ch, indent=2))

@@ -1,9 +1,12 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import gdata.youtube
 import gdata.youtube.service
 
 from lxml.etree import Element
 from lxml import etree
 import hashlib
+from six.moves import range
 
 def fasthash(string):
     m = hashlib.new("md4")
@@ -20,7 +23,7 @@ def duration_tag(course):
     for v in videos: 
         id_dict = dict([l.split(':') for l in v.get('youtube').split(',')])
         youtube = id_dict[[i for i in id_dict if float(i)==1][0]]
-        print youtube
+        print(youtube)
         entry = yt_service.GetYouTubeVideoEntry(video_id=youtube)
         lecture_duration = entry.media.duration.seconds
         lecture_desc = entry.media.description.text
@@ -85,4 +88,4 @@ for i in range(1):
     #id_tag(course)
     #ab_filter(course)
  
-print etree.tostring(course)
+print(etree.tostring(course))

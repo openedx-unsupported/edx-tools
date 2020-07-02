@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import gdata.youtube
 import gdata.youtube.service
 
@@ -12,4 +14,4 @@ lecture_number = entry.media.title.text.split('|')[0]
 lecture_desc = entry.media.description.text.split('\n')[0]
 lecture_duration = entry.media.duration.seconds
  
-print id, "|", lecture_desc,"|", lecture_duration
+print(id, "|", lecture_desc,"|", lecture_duration)

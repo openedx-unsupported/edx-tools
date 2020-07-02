@@ -22,6 +22,8 @@ TODO:
 Encapsulation in this is a disaster because I ended up hacking on the summary
 information and pre-fetching later on.
 """
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
 from datetime import timedelta
 from xml.etree import ElementTree
@@ -272,10 +274,10 @@ def main():
             video.check(ids_to_videos)
             num_video_tags += 1
 
-    print
-    print "Checked {0} video tags from {1} files".format(num_video_tags, num_files)
-    print "Errors: {0}".format(num_errors)
-    print "Warnings: {0}".format(num_warnings)
+    print()
+    print("Checked {0} video tags from {1} files".format(num_video_tags, num_files))
+    print("Errors: {0}".format(num_errors))
+    print("Warnings: {0}".format(num_warnings))
 
     return num_errors
 
