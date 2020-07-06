@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
+from __future__ import absolute_import
 from pymongo import MongoClient
 from xml.etree.cElementTree import fromstring, ParseError
 from collections import defaultdict
 import csv
 import sys
+import six
 
 def is_input(tag):
     return tag.endswith(('input', 'group')) or tag in ('textline', 'textbox', 'filesubmission', 'schematic', 'crystallography')
@@ -24,7 +26,7 @@ def find_problems(db):
 
         if category == 'problem':
             data = p['definition']['data']
-            if not isinstance(data, unicode):
+            if not isinstance(data, six.text_type):
                 if 'data' not in data:
                     continue
                 data = data['data']
@@ -46,7 +48,7 @@ def find_problems(db):
     for coursename in sorted(courses):
         row = defaultdict(int)
         row['course_id'] = coursename
-        problems = courses[coursename].items()
+        problems = list(courses[coursename].items())
         # problems.sort(key=lambda x: x[1], reverse=True)
         for problem_type, count in problems:
             row[problem_type] = count
@@ -59,7 +61,7 @@ def find_problems(db):
 
     row = defaultdict(int)
     row['course_id'] = 'TOTAL'
-    for problem_type, count in sorted(totals.items(), key=lambda x: x[1], reverse=True):
+    for problem_type, count in sorted(list(totals.items()), key=lambda x: x[1], reverse=True):
         row[problem_type] = count
     writer.writerow(row)
 

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 __author__ = 'dglance'
 """
  course_tree_events: Prints out tsv of course structure and associated events.

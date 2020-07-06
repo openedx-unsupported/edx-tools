@@ -6,11 +6,14 @@
 
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 from pymongo import MongoClient
 from dateutil import parser
 from . import course_location
 
 import copy
+from six.moves import range
 
 # A list of metadata that this module can inherit from its parent module
 INHERITABLE_METADATA = (
@@ -63,9 +66,9 @@ class CourseStructure():
 
                 for n in range(0, self.level):
                     level_indent += '-'
-                print '%s [%s]: %s' % (level_indent, location.category, result.get('metadata', {}).get('display_name', []))
-                print '%s Location %s' % (level_indent, location.url())
-                print ''
+                print('%s [%s]: %s' % (level_indent, location.category, result.get('metadata', {}).get('display_name', [])))
+                print('%s Location %s' % (level_indent, location.url()))
+                print('')
 
                 children = result.get('definition', {}).get('children', [])
                 component = CourseComponent(result.get('metadata', {}).get('display_name', []), location, self.level, [])
@@ -115,9 +118,9 @@ class CourseStructure():
             location = course_location.Location(result['_id'])
 
             if location.category == 'course':
-                print '[Course]: %s' % location.name
+                print('[Course]: %s' % location.name)
                 start = parser.parse(result.get('metadata', {}).get('start', []))
-                print 'Start Date: %s' % start.strftime('%m/%d/%Y %H:%M')
+                print('Start Date: %s' % start.strftime('%m/%d/%Y %H:%M'))
 
                 component = CourseComponent(location.name, location, self.level, None, start)
                 self.components.append(component)
@@ -125,8 +128,8 @@ class CourseStructure():
 
             if location.category == 'chapter':
                 chapters.append(result)
-                print '[Chapter]: %s' % result.get('metadata', {}).get('display_name', [])
-                print 'Location %s' % location.url()
+                print('[Chapter]: %s' % result.get('metadata', {}).get('display_name', []))
+                print('Location %s' % location.url())
 
                 children = result.get('definition', {}).get('children', [])
 
