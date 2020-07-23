@@ -1,6 +1,9 @@
-import urllib2
+from __future__ import absolute_import
+from __future__ import print_function
+import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 from xml.etree import ElementTree
 import sys, os, json, re, string
+from six import unichr
 
 
 def main():
@@ -15,7 +18,7 @@ def main():
     f=open(outfile, "w")
     f.write(json.dumps(subs_dict, indent=2))
     f.close()
-    print "file written to "+outfile
+    print("file written to "+outfile)
     
 
 def parse_ms(srt_time_format):
@@ -49,7 +52,7 @@ def srt_to_sjson(srt_file, verbose=True):
                     sub_texts.append(unescape(text))
     except Exception as e:
         if verbose:
-            print "error parsing subtitles from" + srt_file + ":" , e
+            print("error parsing subtitles from" + srt_file + ":" , e)
         pass #There probably wasn't any captions available
         
     subs_dict={'start':sub_starts,
@@ -62,7 +65,7 @@ def ensure_dir(f):
     if not os.path.exists(d):
         os.makedirs(d)
         
-from htmlentitydefs import name2codepoint
+from six.moves.html_entities import name2codepoint
 # for some reason, python 2.5.2 doesn't have this one (apostrophe)
 name2codepoint['#39'] = 39
 
