@@ -9,6 +9,8 @@
 # Doesn't explicity rely on the aws command line tools, but they are 
 # referenceed here, get them at http://aws.amazon.com/cli/
 
+from __future__ import absolute_import
+from __future__ import print_function
 import boto.elastictranscoder 
 import re
 
@@ -74,14 +76,14 @@ for f in filelist:
         'PresetId':         preset_id,
     } 
     
-    print "START pipeline =", pipeline_id
-    print "      params_in =", params_in
-    print "      params_out =", params_out
+    print("START pipeline =", pipeline_id)
+    print("      params_in =", params_in)
+    print("      params_out =", params_out)
 
     revtal = transcoder.create_job(pipeline_id=pipeline_id,
             input_name=params_in, 
             output=params_out)
 
-    print "SUBMITTED revtal =", revtal
-    print "-------------------------------------------------------"
+    print("SUBMITTED revtal =", revtal)
+    print("-------------------------------------------------------")
 

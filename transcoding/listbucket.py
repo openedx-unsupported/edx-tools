@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
+from __future__ import absolute_import
+from __future__ import print_function
 import boto
 import sys
 
 if len(sys.argv) != 3:
-    print "usage: %s <bucket> <path>" % sys.argv[0]
-    print "\tYou probably want the path to include the trailing slash"
-    print
-    print "\texample: %s prod-edx MathLearning/VideoLarge/" % sys.argv[0]
+    print("usage: %s <bucket> <path>" % sys.argv[0])
+    print("\tYou probably want the path to include the trailing slash")
+    print()
+    print("\texample: %s prod-edx MathLearning/VideoLarge/" % sys.argv[0])
     sys.exit(1)
 
 conn = boto.connect_s3()
@@ -18,5 +20,5 @@ search = sys.argv[2]
 for k in bucket.list(prefix=search):
     if k.name == search:
         continue
-    print k.name[len(search):]
+    print(k.name[len(search):])
 

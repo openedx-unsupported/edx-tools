@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 import boto
 
@@ -15,10 +17,10 @@ if len(sys.argv) == 3:
     bucket_name = sys.argv[1]
     search = sys.argv[2]
 else:
-    print "usage", sys.argv[0], "[-n] bucket path"
-    print "    -n for dry-run"
-    print
-    print "    example:", sys.argv[0], "prod-edx SciWrite/VideoLarge/"
+    print("usage", sys.argv[0], "[-n] bucket path")
+    print("    -n for dry-run")
+    print()
+    print("    example:", sys.argv[0], "prod-edx SciWrite/VideoLarge/")
     sys.exit(1)
 
 conn = boto.connect_s3()
@@ -34,9 +36,9 @@ for k in bucket.list(prefix=search):
             }
 
     if dry_run:
-        print "skip:", k
+        print("skip:", k)
     else:
-        print "fix:", k
+        print("fix:", k)
         # trick: copy a key to itself can change metadata
         k = k.copy(k.bucket.name, k.name, metadata, preserve_acl=True)
 
