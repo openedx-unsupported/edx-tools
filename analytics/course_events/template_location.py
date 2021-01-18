@@ -4,7 +4,6 @@
 
 """
 
-from __future__ import absolute_import
 import re
 from collections import namedtuple
 import six
@@ -106,7 +105,7 @@ class TemplateLocation(_LocationBase):
         returns a Location object corresponding to location.
         '''
         loc = TemplateLocation(location)
-        for key, val in six.iteritems(loc.dict()):
+        for key, val in loc.dict().items():
             if key != 'revision' and val is None:
                 raise InsufficientSpecificationError(location)
         return loc
@@ -168,7 +167,7 @@ class TemplateLocation(_LocationBase):
             # names allow colons
             check(list_[4], INVALID_CHARS_NAME)
 
-        if isinstance(location, six.string_types):
+        if isinstance(location, str):
             match = URL_RE.match(location)
             if match is None:
                 # cdodge:
@@ -176,7 +175,7 @@ class TemplateLocation(_LocationBase):
                 # redirects (e.g. edx.org -> www.edx.org which I think happens in Nginx)
                 match = MISSING_SLASH_URL_RE.match(location)
                 if match is None:
-                    log.debug('location is instance of %s but no URL match' % six.string_types)
+                    log.debug('location is instance of %s but no URL match' % (str,))
                     raise InvalidLocationError(location)
             groups = match.groupdict()
             check_dict(groups)

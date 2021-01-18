@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-from __future__ import absolute_import
 import os
 
-infile = open('subsscrapelist.txt', 'r')
+infile = open('subsscrapelist.txt')
 
 for id in infile.readlines():
     # trim off # comments

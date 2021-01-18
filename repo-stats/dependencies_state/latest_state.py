@@ -1,5 +1,3 @@
-from __future__ import absolute_import, print_function, unicode_literals
-
 import json
 import os
 import re
@@ -20,7 +18,7 @@ class LatestState(GetEnvDepData):
     def __init__(self):
         default_json_file_path = "fully_updated_env_details.json"
         default_csv_file_path = "fully_updated_env_data.csv"
-        super(LatestState, self).__init__(default_json_file_path, default_csv_file_path)
+        super().__init__(default_json_file_path, default_csv_file_path)
 
 
     def get(self, name, version=None):
@@ -32,7 +30,7 @@ class LatestState(GetEnvDepData):
         if r.status_code < 400:
             return r.json()
         else:
-            print("request did not succeed: {name}".format(name=name))
+            print(f"request did not succeed: {name}")
         return {}
 
 
@@ -40,7 +38,7 @@ class LatestState(GetEnvDepData):
         packages = self.packages
         for package_name in tqdm(packages):
             details = self.get(package_name)
-            if "info" in details.keys():
+            if "info" in list(details.keys()):
                 packages[package_name]["Author"] = details["info"]["author"]
                 packages[package_name]["Classifiers"]=details["info"]["classifiers"]
                 packages[package_name]["Version"]=details["info"]["version"]

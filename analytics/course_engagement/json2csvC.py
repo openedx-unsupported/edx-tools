@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
-from __future__ import print_function
 from collections import deque
 import json
 from pprint import pprint
@@ -31,7 +29,7 @@ def add_parents_and_children(nodes):
 
 
 def get_root(nodes):
-    root = six.iterkeys(nodes)
+    root = nodes.keys()
 
     while nodes[root].get('parent'):
         root = nodes[root]['parent']
@@ -55,7 +53,7 @@ def print_problem(nodes, key):
 
     if category == 'problem':
         display_name = display_name if display_name else 'blank'
-        print(u'{0} "" {1}'.format(key, display_name).encode('utf-8'))
+        print(f'{key} "" {display_name}'.encode('utf-8'))
 
 
 def run():

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
 from pymongo import MongoClient
 from xml.etree.cElementTree import fromstring, ParseError
 from collections import defaultdict
@@ -26,7 +25,7 @@ def find_problems(db):
 
         if category == 'problem':
             data = p['definition']['data']
-            if not isinstance(data, six.text_type):
+            if not isinstance(data, str):
                 if 'data' not in data:
                     continue
                 data = data['data']

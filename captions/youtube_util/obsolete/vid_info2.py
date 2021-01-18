@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-from __future__ import print_function
 from xml.dom.minidom import *
 data=[s.split('|') for s in open('video_list.txt').readlines()]
 impl = getDOMImplementation()

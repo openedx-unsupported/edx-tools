@@ -3,9 +3,7 @@
 #     python add_anon.py forum/contents ep101-anon.csv -w \
 #     -f '{"course_id":"HumanitiesSciences/EP101/Environmental_Physiology"}' 
 
-from __future__ import print_function
 
-from __future__ import absolute_import
 from pymongo import MongoClient
 from optparse import OptionParser
 import csv

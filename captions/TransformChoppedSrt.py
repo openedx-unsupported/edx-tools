@@ -10,7 +10,6 @@ Returns:
     e.g. 'myvideo.srt' -> 'chopped_.srt'
 
 """
-from __future__ import absolute_import
 import sys
 import re
 from datetime import datetime, timedelta

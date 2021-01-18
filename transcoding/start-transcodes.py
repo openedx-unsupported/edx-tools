@@ -9,8 +9,6 @@
 # Doesn't explicity rely on the aws command line tools, but they are 
 # referenceed here, get them at http://aws.amazon.com/cli/
 
-from __future__ import absolute_import
-from __future__ import print_function
 import boto.elastictranscoder 
 import re
 
