@@ -1,5 +1,3 @@
-from __future__ import absolute_import, print_function, unicode_literals
-
 import json
 import os
 import re
@@ -21,7 +19,7 @@ class CurrentState(GetEnvDepData):
     def __init__(self):
         default_json_file_path = "current_env_details.json"
         default_csv_file_path = "current_env_data.csv"
-        super(CurrentState, self).__init__(default_json_file_path, default_csv_file_path)
+        super().__init__(default_json_file_path, default_csv_file_path)
 
 
     def get(self, name, version=None):
@@ -75,7 +73,7 @@ class CurrentState(GetEnvDepData):
         """
         final_details = detail_string
         parsable_details = BytesHeaderParser().parsebytes(final_details.encode())
-        temp_dict = dict(parsable_details.items())
+        temp_dict = dict(list(parsable_details.items()))
         if not self.test_serializability(temp_dict):
             # something in dict is not serializable, figure it out
             for key in temp_dict:

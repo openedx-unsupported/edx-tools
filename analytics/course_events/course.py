@@ -1,19 +1,14 @@
-
-
 """
  mainly for interpreting course data from MongoDB
 
 
 """
 
-from __future__ import absolute_import
-from __future__ import print_function
 from pymongo import MongoClient
 from dateutil import parser
 from . import course_location
 
 import copy
-from six.moves import range
 
 # A list of metadata that this module can inherit from its parent module
 INHERITABLE_METADATA = (
@@ -107,7 +102,7 @@ class CourseStructure():
         record_filter = {'_id': 1, 'definition.children': 1}
 
         for attr in INHERITABLE_METADATA:
-            record_filter['metadata.{0}'.format(attr)] = 1
+            record_filter[f'metadata.{attr}'] = 1
 
 
         resultset = collection.find(query, record_filter)

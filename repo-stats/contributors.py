@@ -12,7 +12,6 @@ Get your key from https://github.com/settings/applications,
 "Personal Access Tokens".
 """
 
-from __future__ import print_function
 import sys
 import re
 import requests
@@ -20,6 +19,7 @@ import csv
 from collections import Counter, defaultdict
 from requests.auth import HTTPBasicAuth
 from github_auth import github_auth_name, github_auth_key
+import six
 
 
 github_basic_auth = HTTPBasicAuth(github_auth_name, github_auth_key)
@@ -95,9 +95,9 @@ for repo_url in repo_urls:
         collab_repos[login] = repo
     for collab_contrib in collab_contribs:
         collabs += Counter(collab_contrib)
-    for login,repo in collab_repos.iteritems():
+    for login,repo in collab_repos.items():
         if login not in repos:
-            repos[login] = set([repo])
+            repos[login] = {repo}
         else:
             repos[login].add(repo)
 
@@ -106,13 +106,13 @@ print("--> for collaborators with at least {} contribs, count them and gather de
 total_contrib = 0
 email = defaultdict(str)
 company = defaultdict(str)
-for login,contrib in collabs.iteritems():
-    print("{:<5} {:<20} ".format(contrib, login), end=" ")
+for login,contrib in collabs.items():
+    print(f"{contrib:<5} {login:<20} ", end=" ")
     if contrib < MIN_CONTRIBS:
         print("skip")
         continue
     total_contrib += contrib
-    url = "https://api.github.com/users/{}".format(login)
+    url = f"https://api.github.com/users/{login}"
     r = requests.get(url, auth=github_basic_auth)
     user = r.json()
     if 'email' in user and user['email']:
@@ -123,10 +123,10 @@ for login,contrib in collabs.iteritems():
         print(company[login], end=" ")
     print()
 
-print("--> writing output to \"{}\"".format(CSVOUT_FILENAME))
+print(f"--> writing output to \"{CSVOUT_FILENAME}\"")
 with open(CSVOUT_FILENAME, 'wb') as csvfile:
     writer = csv.writer(csvfile, dialect='excel', quoting=csv.QUOTE_MINIMAL)
-    for login,contrib in collabs.iteritems():
+    for login,contrib in collabs.items():
         if contrib < MIN_CONTRIBS:
             continue
         writer.writerow([

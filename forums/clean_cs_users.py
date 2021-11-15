@@ -66,8 +66,6 @@ and no delete statement will be generated.
 
 """
 
-from __future__ import absolute_import
-from __future__ import print_function
 from collections import namedtuple
 import csv
 from getpass import getpass
@@ -80,20 +78,22 @@ import MySQLdb
 import MySQLdb.cursors as cursors
 import pymongo
 
-FETCHMANY_SIZE=10000
+FETCHMANY_SIZE = 10000
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s: %(message)s')
 logger = logging.getLogger('')
 
 JoinedUser = namedtuple('JoinedUser', 'cs_id cs_username cs_email cs_read_count lms_id lms_username lms_email')
 
+
 def _drop_sqlite_table(sqlite_cx, name):
     """
     """
     try:
-        sqlite_cx.execute("DROP TABLE {}".format(name))
+        sqlite_cx.execute(f"DROP TABLE {name}")
     except sqlite3.OperationalError:
         pass
+
 
 def load_lms_users(mysql_cx, sqlite_cx):
     """
@@ -115,7 +115,8 @@ def load_lms_users(mysql_cx, sqlite_cx):
             break
         sqlite_cx.executemany(insert_sql, rows)
         cnt += len(rows)
-        logger.info("loaded {} rows".format(cnt))
+        logger.info(f"loaded {cnt} rows")
+
 
 def load_cs_users(mongo_db, sqlite_cx):
     """
@@ -128,30 +129,32 @@ def load_cs_users(mongo_db, sqlite_cx):
     for user in mongo_db.users.find({}, fields=['external_id', 'username', 'email', 'read_states']):
         read_count = len(user.get('read_states', []))
         sqlite_cx.execute(insert_sql, (int(user['external_id']), user['username'], user['email'], read_count))
-        cnt += 1 
+        cnt += 1
         if cnt % 1000 == 0:
-            logger.info("loaded {} rows".format(cnt))
+            logger.info(f"loaded {cnt} rows")
     sqlite_cx.commit()
     logger.info("done loading cs_user data")
+
 
 def sanity_check(sqlite_cx):
     """
     """
-    cur = sqlite_cx.cursor() 
+    cur = sqlite_cx.cursor()
     cur.execute('SELECT count(*) FROM lms_user')
     lms_user_count = int(cur.fetchone()[0])
     assert lms_user_count > 0
     cur.execute('SELECT count(*) FROM cs_user')
     cs_user_count = int(cur.fetchone()[0])
     assert cs_user_count > 0
-    ratio = float(lms_user_count)/float(cs_user_count)
+    ratio = float(lms_user_count) / float(cs_user_count)
     assert 0.75 < ratio < 1.33
+
 
 def get_orphaned_cs_users(sqlite_cx):
     """
     """
     logger.info('checking for orphaned cs users...')
-    cur = sqlite_cx.cursor() 
+    cur = sqlite_cx.cursor()
     cur.execute("""
         SELECT c.*, l.*
         FROM cs_user c 
@@ -162,11 +165,12 @@ def get_orphaned_cs_users(sqlite_cx):
     logger.info('found {} orphaned users'.format(len(ret)))
     return ret
 
+
 def get_conflicted_cs_users(sqlite_cx):
     """
     """
     logger.info('checking for conflicted cs users...')
-    cur = sqlite_cx.cursor() 
+    cur = sqlite_cx.cursor()
     cur.execute("""
         SELECT c.*, l.*
         FROM lms_user l, cs_user c
@@ -178,6 +182,7 @@ def get_conflicted_cs_users(sqlite_cx):
     logger.info('found {} conflicted users'.format(len(ret)))
     return ret
 
+
 def dump_csv(users, f):
     logger.info('dumping to csv...')
     w = csv.writer(f)
@@ -185,14 +190,15 @@ def dump_csv(users, f):
     for u in users:
         w.writerow(u)
 
+
 def dump_cs_deletes(users, f):
     logger.info('generating delete statements...')
     for u in users:
-        print('db.users.remove({{_id: "{}"}}) // {}'.format(u.cs_id, u), file=f)
+        print(f'db.users.remove({{_id: "{u.cs_id}"}}) // {u}', file=f)
 
 
-if __name__=='__main__':
-    
+if __name__ == '__main__':
+
     sqlite_cx = sqlite3.connect('clean_cs_users.db')
     sqlite_cx.text_factory = str
 
@@ -206,7 +212,7 @@ if __name__=='__main__':
             MySQLdb.connect(
                 host=host,
                 port=int(port),
-                passwd=getpass('enter MySQL password for user {}: '.format(user)),
+                passwd=getpass(f'enter MySQL password for user {user}: '),
                 user=user,
                 db=db,
                 cursorclass=cursors.SSCursor),
@@ -219,10 +225,10 @@ if __name__=='__main__':
             logging.error('expected syntax: {} loadcs HOST PORT DB USER'.format(sys.argv[0]))
             sys.exit(1)
         mongo_db = pymongo.MongoClient(
-            '{}:{}'.format(host, port),
-            slave_okay=True 
-            )[db]
-        mongo_db.authenticate(user, getpass('enter MongoDB password for user {}: '.format(user)))
+            f'{host}:{port}',
+            slave_okay=True
+        )[db]
+        mongo_db.authenticate(user, getpass(f'enter MongoDB password for user {user}: '))
         load_cs_users(
             mongo_db,
             sqlite_cx
@@ -239,9 +245,7 @@ if __name__=='__main__':
         del_users = []
         for u in (o_users + c_users):
             if u.cs_read_count != 0:
-                logger.warning('Skipping {} due to previous forum activity.  Please resolve this instance manually.'.format(u))
+                logger.warning(f'Skipping {u} due to previous forum activity.  Please resolve this instance manually.')
             else:
                 del_users.append(u)
         dump_cs_deletes(del_users, sys.stdout)
-
- 

@@ -5,13 +5,10 @@
 """
 
 
-from __future__ import absolute_import
-from __future__ import print_function
 import json
 from dateutil import parser
 import codecs
 from . import template_location, course_location, course
-from six.moves import range
 
 EVENT_TYPE = ['/create_new_course', '/clone_item', '/save_item', '/publish_draft', '/create_draft', '/delete_item']
 
@@ -21,7 +18,7 @@ class CourseEvents():
 
         self.org = org
         self.course = course
-        self.logfile = open(logfile, 'r')
+        self.logfile = open(logfile)
         self.outfile = codecs.open(outfile, 'w', 'latin-1', 'replace')
 
 

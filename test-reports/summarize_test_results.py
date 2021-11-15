@@ -7,7 +7,6 @@ where the "reports" directory is inside the archive of an edx-platform
 CI test run output by Jenkins.
 """
 
-from __future__ import absolute_import
 import collections
 import csv
 import os
@@ -19,7 +18,6 @@ from xml.sax.saxutils import escape
 
 import click
 from lxml import etree
-from six.moves import range
 
 # Currently, both nose test results and pytest test results are saved
 # to the same nose-like filename. The name may change in the future -
@@ -27,7 +25,7 @@ from six.moves import range
 TEST_RESULT_XML_FILENAMES = ['lms_test_report.xml', 'cms_test_report.xml', 'nosetests.xml', 'xunit.xml']
 
 
-class HtmlOutlineWriter(object):
+class HtmlOutlineWriter:
     HEAD = textwrap.dedent(r"""
         <!DOCTYPE html>
         <html>
@@ -94,7 +92,7 @@ class HtmlOutlineWriter(object):
         <body>
     """)
 
-    SECTION_START = textwrap.dedent(u"""\
+    SECTION_START = textwrap.dedent("""\
         <div class="{klass}">
         <input class="toggle-box {klass}" id="sect_{id:05d}" type="checkbox">
         <label for="sect_{id:05d}">{html}</label>
@@ -121,7 +119,7 @@ class HtmlOutlineWriter(object):
         self.fout.write(html)
 
 
-class Summable(object):
+class Summable:
     """An object whose attributes can be added together easily.
 
     Subclass this and define `fields` on your derived class.
@@ -135,7 +133,7 @@ class Summable(object):
     def from_element(cls, element):
         """Construct a Summable from an xml element with the same attributes."""
         self = cls()
-        for attr, name in six.iteritems(self.fields):
+        for attr, name in self.fields.items():
             element_val = element.get(attr)
             if element_val:
                 setattr(self, name, int(element_val))
@@ -182,7 +180,7 @@ def error_line_from_error_element(element):
         # The raised error must be extracted from the XML element text
         # from the line that starts with "E      ".
         line = ""
-        err_line_regex = re.compile('^E[\s]+(.*)$')
+        err_line_regex = re.compile(r'^E[\s]+(.*)$')
         text = element.text
         if text is not None:
             for error_line in text.splitlines():
@@ -211,7 +209,7 @@ def testcase_id(testcase):
         # which might have the same problem.
         test_file = "cms/" + test_file
 
-    return u"{filename}::{classname}::{name}".format(
+    return "{filename}::{classname}::{name}".format(
         filename=test_file,
         classname=testcase.get("classname").split('.')[-1],
         name=testcase.get("name"),
@@ -221,7 +219,7 @@ def testcase_id(testcase):
 def clipped(text, maxlength=150):
     """Return the text, but at most `maxlength` characters."""
     if len(text) > maxlength:
-        text = text[:maxlength-1] + u"\N{HORIZONTAL ELLIPSIS}"
+        text = text[:maxlength-1] + "\N{HORIZONTAL ELLIPSIS}"
     return text
 
 def get_errors(xml_tree):
@@ -250,7 +248,7 @@ def report_file(path, html_writer):
     errors = get_errors(tree)
 
     results = TestResults.from_element(suite)
-    html = u'<span class="count">{number}:</span> {path}: {results}'.format(
+    html = '<span class="count">{number}:</span> {path}: {results}'.format(
         path=escape(path),
         results=results,
         number=results.errors+results.failures,
@@ -258,14 +256,14 @@ def report_file(path, html_writer):
     html_writer.start_section(html, klass="file")
 
     for message, testcases in errors:
-        html = u'<span class="count">{0:d}:</span> {1}'.format(len(testcases), escape(clipped(message)))
+        html = '<span class="count">{:d}:</span> {}'.format(len(testcases), escape(clipped(message)))
         html_writer.start_section(html, klass="error")
         for testcase in testcases:
             html_writer.start_section(escape(testcase_id(testcase)), klass="test")
             error_element = testcase.xpath("error|failure")[0]
             html_writer.write("""<pre class="stdout">""")
             html_writer.write(escape(error_element.get("message")))
-            html_writer.write(u"\n"+escape(error_element.text))
+            html_writer.write("\n"+escape(error_element.text))
             html_writer.write("</pre>")
             html_writer.end_section()
         html_writer.end_section()
@@ -279,10 +277,10 @@ def report_file(path, html_writer):
 
     if skipped:
         total = sum(len(v) for v in skipped.values())
-        html_writer.start_section(u'<span class="count">{0:d}:</span> Skipped'.format(total), klass="skipped")
+        html_writer.start_section(f'<span class="count">{total:d}:</span> Skipped', klass="skipped")
         skipped = sorted(list(skipped.items()), key=lambda kv: len(kv[1]), reverse=True)
         for message, testcases in skipped:
-            html = u'<span class="count">{0:d}:</span> {1}'.format(len(testcases), escape(clipped(message)))
+            html = '<span class="count">{:d}:</span> {}'.format(len(testcases), escape(clipped(message)))
             html_writer.start_section(html, klass="error")
             for testcase in testcases:
                 html_writer.write('<div>{}</div>'.format(escape(testcase_id(testcase))))

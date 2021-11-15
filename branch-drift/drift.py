@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
-from __future__ import print_function
 import os
 import datetime
 from dateutil import parser
@@ -11,7 +9,6 @@ from optparse import OptionParser, OptionError
 from collections import OrderedDict
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter, WeekdayLocator, MONDAY
-from six.moves import range
 
 # All of these can be overriden by command lines
 DEFAULT_START_DATE = "2013-06-05"

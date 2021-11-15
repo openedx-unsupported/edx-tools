@@ -1,6 +1,5 @@
 #This script is meant to read in an SQL query (dumped as csv)
 #and create a pivot table with modules as rows and grades as columns.
-from __future__ import absolute_import
 import sys
 import csv
 import pandas as pd
@@ -24,5 +23,5 @@ mapping = pd.DataFrame( {'module_id': dfI['module_id'], 'display_name': dfI['dis
 
 merged = mapping.merge(unindexed, on='module_id', sort=False)
 
-name = "{0}readable.csv".format(sys.argv[1].rsplit( ".", 1 )[ 0 ])
+name = "{}readable.csv".format(sys.argv[1].rsplit( ".", 1 )[ 0 ])
 merged.to_csv(name, index=False)

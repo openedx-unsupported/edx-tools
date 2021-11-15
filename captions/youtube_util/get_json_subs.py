@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-from __future__ import print_function
 import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 from xml.etree import ElementTree
 import sys
@@ -89,7 +87,7 @@ def unescape(s):
     "unescape HTML code refs; c.f. http://wiki.python.org/moin/EscapingHtml"
     s = s.replace('\n', ' ')
     return re.sub('&(%s);' % '|'.join(name2codepoint),
-              lambda m: unichr(name2codepoint[m.group(1)]), s)
+              lambda m: chr(name2codepoint[m.group(1)]), s)
     
 
 if __name__ == "__main__":

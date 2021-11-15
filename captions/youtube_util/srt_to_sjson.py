@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-from __future__ import print_function
 import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 from xml.etree import ElementTree
 import sys, os, json, re, string
@@ -30,7 +28,7 @@ def parse_ms(srt_time_format):
 
 def srt_to_sjson(srt_file, verbose=True):
 
-    f=open(srt_file, "r")
+    f=open(srt_file)
     
     sub_starts = []
     sub_ends = []
@@ -73,7 +71,7 @@ def unescape(s):
     "unescape HTML code refs; c.f. http://wiki.python.org/moin/EscapingHtml"
     s = s.replace('\n', ' ')
     return re.sub('&(%s);' % '|'.join(name2codepoint),
-              lambda m: unichr(name2codepoint[m.group(1)]), s)
+              lambda m: chr(name2codepoint[m.group(1)]), s)
     
 
 if __name__ == "__main__":

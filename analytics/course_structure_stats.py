@@ -2,8 +2,6 @@
 
 # WARNING: This script isn't fast and doesn't write anything to disk.
 
-from __future__ import absolute_import
-from __future__ import print_function
 from collections import defaultdict
 import six.moves.http_cookiejar
 import getpass
@@ -11,7 +9,6 @@ import json
 import time
 import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 import six
-from six.moves import input
 
 class CourseStructureBrowser:
     def __init__(self):
@@ -70,7 +67,7 @@ class CourseStructureBrowser:
         return course_structure
     def parse_course_json(self, course_json):
         def collectNodes(nodeList, root):
-            rvalue = set([root])
+            rvalue = {root}
             for child in nodeList[root]['children']:
                 rvalue.update(collectNodes(nodeList, child))
             return rvalue
@@ -92,7 +89,7 @@ if __name__ == '__main__':
     
     course_trees = {course_id: csb.parse_course_json(course_json) for
             (course_id, course_json) in
-            six.iteritems(csb.grab_course_structure([course['id'] for course in courses]))}
+            csb.grab_course_structure([course['id'] for course in courses]).items()}
 
     total_count = defaultdict(lambda: 0)
     for course_id in course_trees:

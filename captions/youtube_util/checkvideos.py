@@ -22,8 +22,6 @@ TODO:
 Encapsulation in this is a disaster because I ended up hacking on the summary
 information and pre-fetching later on.
 """
-from __future__ import absolute_import
-from __future__ import print_function
 from collections import namedtuple
 from datetime import timedelta
 from xml.etree import ElementTree
@@ -55,7 +53,7 @@ class Video(namedtuple('Video', 'name speeds_to_ids filename')):
 
     def log_msg(self, msg, video_id=None):
         if video_id:
-            video_text = "{0} ({1}) ".format(str(self.name), video_id)
+            video_text = "{} ({}) ".format(str(self.name), video_id)
         else:
             video_text = ""
 
@@ -70,7 +68,7 @@ class Video(namedtuple('Video', 'name speeds_to_ids filename')):
         try:
             youtube_id = self.speeds_to_ids["1.0"]
             if not youtube_id:
-                raise ValueError("No YouTube ID for 1.0 speed: {0}"
+                raise ValueError("No YouTube ID for 1.0 speed: {}"
                                  .format(self.speeds_to_ids))
 
             regular_version = ids_to_videos[youtube_id]
@@ -168,7 +166,7 @@ def parse_video_tags(xml_file):
     xml_txt = re.sub(r"<%.+\/>", "", xml_txt)
 
     if not xml_txt:
-        log.warning("Skipping empty file {0}".format(xml_file.name))
+        log.warning(f"Skipping empty file {xml_file.name}")
         return []
 
     try:
@@ -176,7 +174,7 @@ def parse_video_tags(xml_file):
         video_els = doc.findall(".//video")
     except Exception as err:
         log.exception(err)
-        log.error("Could not parse file {0}".format(xml_file.name))
+        log.error(f"Could not parse file {xml_file.name}")
         return []
 
     def _parse_speeds(youtube_attr):
@@ -194,9 +192,9 @@ def uri_for(author, start_index):
     that the normal search by author is broken for private feeds -- we have to 
     query based on uploads like this."""
     MAX_RESULTS = 50 # As many as we're allowed to pull at one time.
-    return "http://gdata.youtube.com/feeds/api/users/{0}/uploads?".format(author) + \
-           "max-results={0}&".format(MAX_RESULTS) + \
-           "start-index={0}".format(start_index)
+    return f"http://gdata.youtube.com/feeds/api/users/{author}/uploads?" + \
+           f"max-results={MAX_RESULTS}&" + \
+           f"start-index={start_index}"
 
 def videos_for(author, email, password, api_key):
     """For a given YouTube author, return as many videos from their feed as 
@@ -206,14 +204,14 @@ def videos_for(author, email, password, api_key):
     youtube.email = email
     youtube.password = password
     youtube.ProgrammaticLogin(None, None) # Captcha tokens are None.
-    log.debug("Using API key: {0}".format(youtube.developer_key))
+    log.debug(f"Using API key: {youtube.developer_key}")
 
     start = 1
     while True:
         uri = uri_for(author, start)
-        log.debug("Fetching videos from {0}".format(uri))
+        log.debug(f"Fetching videos from {uri}")
         feed = youtube.GetYouTubeVideoFeed(uri)
-        log.debug("-- got {0} videos".format(len(feed.entry)))
+        log.debug("-- got {} videos".format(len(feed.entry)))
 
         if not feed.entry:
             break
@@ -231,7 +229,7 @@ def get_all_videos(accounts_to_auth_info):
     ids_to_videos = {}
 
     for author, (email, password, key) in accounts_to_auth_info.items():
-        log.debug("Pre-fetching videos for {0}".format(author))
+        log.debug(f"Pre-fetching videos for {author}")
         ids_to_videos.update(dict(videos_for(author, email, password, key)))
 
     return ids_to_videos
@@ -260,10 +258,10 @@ def main():
 
     accounts_to_auth_info = json.load(args.auth_file)
 
-    log.info("Pre-fetching video data from accounts: {0}"
+    log.info("Pre-fetching video data from accounts: {}"
              .format(", ".join(accounts_to_auth_info)))
     ids_to_videos = get_all_videos(accounts_to_auth_info)
-    log.info("Pre-fetching complete ({0} videos)".format(len(ids_to_videos)))
+    log.info("Pre-fetching complete ({} videos)".format(len(ids_to_videos)))
 
     log.info("Checking files and subtitles...")
     num_files = len(args.files)
@@ -275,9 +273,9 @@ def main():
             num_video_tags += 1
 
     print()
-    print("Checked {0} video tags from {1} files".format(num_video_tags, num_files))
-    print("Errors: {0}".format(num_errors))
-    print("Warnings: {0}".format(num_warnings))
+    print(f"Checked {num_video_tags} video tags from {num_files} files")
+    print(f"Errors: {num_errors}")
+    print(f"Warnings: {num_warnings}")
 
     return num_errors
 

@@ -2,8 +2,6 @@
 """
 Send grades to an OpenEdX LTI component
 """
-from __future__ import print_function
-from __future__ import absolute_import
 from argparse import ArgumentParser
 import base64
 import csv
@@ -12,11 +10,10 @@ import json
 import re
 import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
 
-import mock
+from unittest import mock
 from oauthlib.oauth1 import Client  # pylint: disable=F0401
 import requests
 import six
-from six.moves import input
 
 
 def _main():
@@ -26,7 +23,7 @@ def _main():
     arguments = _parse_command_line_arguments()
     try:
         mapping = _get_uid_to_anon_map(arguments['mapping_csv'])
-        test_anon_id = next(six.itervalues(mapping))
+        test_anon_id = next(iter(mapping.values()))
 
         print("Fetching LTI units for course_id: {course_id}".format(
             course_id=arguments['course_id'],
@@ -220,17 +217,17 @@ def _generate_valid_grading_rows(filename):
                 if len(row) == 4:
                     yield tuple([
                         int(row[0]),
-                        six.text_type(row[1]),
+                        str(row[1]),
                         float(row[2]),
                         float(row[3]),
                     ])
                 else:
                     yield tuple([
                         int(row[0]),
-                        six.text_type(row[1]),
+                        str(row[1]),
                         float(row[2]),
                         float(row[3]),
-                        six.text_type(row[4]),
+                        str(row[4]),
                     ])
             except ValueError:
                 print(
@@ -303,7 +300,7 @@ def _unicode_csv_reader(unicode_csv_data, dialect=csv.excel, **kwargs):
                             dialect=dialect, **kwargs)
     for row in csv_reader:
         # decode UTF-8 back to Unicode, cell by cell:
-        yield [six.text_type(cell, 'utf-8') for cell in row]
+        yield [str(cell, 'utf-8') for cell in row]
 
 
 def _utf_8_encoder(unicode_csv_data):
@@ -340,22 +337,22 @@ def _get_authorization_header(request, client_key, client_secret):
     sha1 = hashlib.sha1()
     body = request.body or ''
     sha1.update(body)
-    oauth_body_hash = six.text_type(base64.b64encode(
+    oauth_body_hash = str(base64.b64encode(
         sha1.digest()  # pylint: disable=too-many-function-args
     ))
     client = Client(client_key, client_secret)
     params = client.get_oauth_params(None)
-    params.append((u'oauth_body_hash', oauth_body_hash))
+    params.append(('oauth_body_hash', oauth_body_hash))
     mock_request = mock.Mock(
-        uri=six.text_type(six.moves.urllib.parse.unquote(request.url)),
+        uri=str(six.moves.urllib.parse.unquote(request.url)),
         headers=request.headers,
-        body=u'',
-        decoded_body=u'',
+        body='',
+        decoded_body='',
         oauth_params=params,
-        http_method=six.text_type(request.method),
+        http_method=str(request.method),
     )
     sig = client.get_oauth_signature(mock_request)
-    mock_request.oauth_params.append((u'oauth_signature', sig))
+    mock_request.oauth_params.append(('oauth_signature', sig))
 
     _, headers, _ = client._render(  # pylint: disable=protected-access
         mock_request

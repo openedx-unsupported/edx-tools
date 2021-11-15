@@ -1,12 +1,9 @@
-from __future__ import absolute_import
-from __future__ import print_function
 import gdata.youtube
 import gdata.youtube.service
 
 from lxml.etree import Element
 from lxml import etree
 import hashlib
-from six.moves import range
 
 def fasthash(string):
     m = hashlib.new("md4")

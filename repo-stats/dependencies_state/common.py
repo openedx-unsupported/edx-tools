@@ -1,5 +1,3 @@
-from __future__ import absolute_import, print_function, unicode_literals
-
 import json
 import os
 import re
@@ -37,7 +35,7 @@ class GetEnvDepData(ABC):
     def readLocalJsonData(self, file_path=None):
         if file_path is None:
             file_path = self.default_json_file_path
-        with open(os.path.expanduser(file_path), "r") as json_file:
+        with open(os.path.expanduser(file_path)) as json_file:
             self.packages = json.load(json_file)
 
     def saveRawJsonData(self, file_path=None):
@@ -54,7 +52,7 @@ class GetEnvDepData(ABC):
 
 
     def createColumnName(self, name, version):
-        return "{name}: {version}".format(name=name, version=version)
+        return f"{name}: {version}"
 
     @property
     def columns(self):
@@ -79,20 +77,20 @@ class GetEnvDepData(ABC):
         output = []
         for key in self.columns_index_dict:
             output.append(None)
-        if "Name" in parsed_details.keys():
+        if "Name" in list(parsed_details.keys()):
             output[self.columns_index_dict["Name"]] = parsed_details["Name"]
-        if "Author" in parsed_details.keys():
+        if "Author" in list(parsed_details.keys()):
             output[self.columns_index_dict["Author"]] = parsed_details["Author"]
-        if "Version" in parsed_details.keys():
+        if "Version" in list(parsed_details.keys()):
             output[self.columns_index_dict["Version"]] = parsed_details["Version"]
-        if "Python" in parsed_details.keys():
+        if "Python" in list(parsed_details.keys()):
             for version in self.relevant_python:
                 name = self.createColumnName("Python", version)
                 output[self.columns_index_dict[name]] = False
                 if "Python" in parsed_details:
                     if version in parsed_details["Python"]:
                         output[self.columns_index_dict[name]] = True
-        if "Django" in parsed_details.keys():
+        if "Django" in list(parsed_details.keys()):
             for version in self.relevant_django:
                 name = self.createColumnName("Django", version)
                 output[self.columns_index_dict[name]] = False
@@ -142,9 +140,9 @@ class GetEnvDepData(ABC):
         versions = []
         for line in classifier:
             if name in line:
-                nums = re.findall("\d+\.\d+", line)
+                nums = re.findall(r"\d+\.\d+", line)
                 if len(nums) == 0:
-                    nums = re.findall("\d", line)
+                    nums = re.findall(r"\d", line)
                 if len(nums) > 0:
                     versions.append(nums[0])
                 else:
