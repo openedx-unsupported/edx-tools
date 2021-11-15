@@ -1,4 +1,4 @@
-pip==19.3.0
+pip==21.1
 requests
 pandas==0.24.2
 tqdm
