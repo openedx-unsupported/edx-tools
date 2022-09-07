@@ -4,5 +4,5 @@ data created by MaxMind GeoLite database.  Database available from
 is in this directory.  It is checked in with the edx source 
 here: [edx-platform/common/static/data/geoip/GeoIP.dat][gh].
 
-  [gh]: https://github.com/edx/edx-platform/raw/master/common/static/data/geoip/GeoIP.dat
+  [gh]: https://github.com/openedx/edx-platform/raw/master/common/static/data/geoip/GeoIP.dat
 

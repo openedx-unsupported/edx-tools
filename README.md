@@ -1,7 +1,7 @@
 A Note
 ======
 
-Please visit the [edx-tools wiki](https://github.com/edx/edx-tools/wiki) for a more complete listing of the tools shared by the larger edX community, including an index of other repositories.
+Please visit the [edx-tools wiki](https://github.com/openedx/edx-tools/wiki) for a more complete listing of the tools shared by the larger edX community, including an index of other repositories.
 
 ***Dear Contributors: Please reflect updates that you make to the contents of this repository on the public wiki page, as appropriate.***
 
@@ -26,7 +26,7 @@ Current directories include:
  - logging (for tools related to logging)
  - transcoding (tools to assist with transcoding of videos on AWS)
  - branch-drift (tools related to github and difference between branches and master)
- - and others, as described on the [edx-tools wiki](https://github.com/edx/edx-tools/wiki).
+ - and others, as described on the [edx-tools wiki](https://github.com/openedx/edx-tools/wiki).
 
 ---
  
