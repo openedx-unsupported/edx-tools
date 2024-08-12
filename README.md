@@ -1,11 +1,10 @@
-A Note
-======
+⚠️ ⚠️ WARNING
+=======
 
-Please visit the [edx-tools wiki](https://github.com/openedx/edx-tools/wiki) for a more complete listing of the tools shared by the larger edX community, including an index of other repositories.
+ This repository is no longer maintained and is not supported by the Open edX project.
 
-***Dear Contributors: Please reflect updates that you make to the contents of this repository on the public wiki page, as appropriate.***
 
-----
+
 
 edx-tools README.md
 ===================
